@@ -1,0 +1,137 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ */
+package easyloading
+
+public enum SpinKitWaveType {
+    | START
+    | END
+    | CENTER
+
+    public operator func ==(b: SpinKitWaveType): Bool {
+        match ((this, b)) {
+            case (START, START) => true
+            case (END, END) => true
+            case (CENTER, CENTER) => true
+            case _ => false
+        }
+    }
+
+    public operator func !=(b: SpinKitWaveType): Bool {
+        return !(this == b)
+    }
+}
+
+public enum EasyLoadingIndicatorType {
+    | FADINGCIRCLE
+    | CIRCLE
+    | THREEBOUNCE
+    | CHASINGGDOTS
+    | WAVE
+    | WANDERINGCUBES
+    | ROTATINNGPLAIN
+    | DOUBLEBOUNCE
+    | FADINGFOUR
+    | FADINGCUBE
+    | PLUSE
+    | CUBEGRID
+    | ROTATINGCIRCLE
+    | FOLDINGCUBE
+    | PUMPINGHEART
+    | DUALRING
+    | HOURGLASS
+    | POURINGGHOURGLASS
+    | FADINGGRID
+    | RING
+    | RIPPLE
+    | SPINNINGCIRCLE
+    | SQUARECIRCLE
+
+    public operator func ==(b: EasyLoadingIndicatorType): Bool {
+        match ((this, b)) {
+            case (FADINGCIRCLE, FADINGCIRCLE) => true
+            case (CIRCLE, CIRCLE) => true
+            case (THREEBOUNCE, THREEBOUNCE) => true
+            case (CHASINGGDOTS, CHASINGGDOTS) => true
+            case (WAVE, WAVE) => true
+            case (WANDERINGCUBES, WANDERINGCUBES) => true
+            case (ROTATINNGPLAIN, ROTATINNGPLAIN) => true
+            case (DOUBLEBOUNCE, DOUBLEBOUNCE) => true
+            case (FADINGFOUR, FADINGFOUR) => true
+            case (FADINGCUBE, FADINGCUBE) => true
+            case (PLUSE, PLUSE) => true
+            case (CUBEGRID, CUBEGRID) => true
+            case (ROTATINGCIRCLE, ROTATINGCIRCLE) => true
+            case (FOLDINGCUBE, FOLDINGCUBE) => true
+            case (PUMPINGHEART, PUMPINGHEART) => true
+            case (DUALRING, DUALRING) => true
+            case (HOURGLASS, HOURGLASS) => true
+            case (POURINGGHOURGLASS, POURINGGHOURGLASS) => true
+            case (FADINGGRID, FADINGGRID) => true
+            case (RING, RING) => true
+            case (RIPPLE, RIPPLE) => true
+            case (SPINNINGCIRCLE, SPINNINGCIRCLE) => true
+            case (SQUARECIRCLE, SQUARECIRCLE) => true
+            case _ => false
+        }
+    }
+
+    public operator func !=(b: EasyLoadingIndicatorType): Bool {
+        return !(this == b)
+    }
+}
+
+public enum EasyLoadingMaskType {
+    | NONE
+    | CLEAR
+    | BLACK
+    | CUSTOM
+
+    public operator func ==(b: EasyLoadingMaskType): Bool {
+        match ((this, b)) {
+            case (NONE, NONE) => true
+            case (CLEAR, CLEAR) => true
+            case (BLACK, BLACK) => true
+            case (CUSTOM, CUSTOM) => true
+            case _ => false
+        }
+    }
+}
+
+public enum ShowType {
+    | INDICATOR
+    | SHOWPROGRESS
+    | SHOWSUCCESS
+    | SHOWERROR
+    | SHOWINFO
+    | SHOWTOAST
+    | DISMISS
+}
+
+public enum EasyLoadingStyle {
+    | LIGHT
+    | DARK
+    | CUSTOM
+
+    public operator func ==(b: EasyLoadingStyle): Bool {
+        match ((this, b)) {
+            case (LIGHT, LIGHT) => true
+            case (DARK, DARK) => true
+            case (CUSTOM, CUSTOM) => true
+            case _ => false
+        }
+    }
+}
+
+//public enum EasyLoadingToastPosition {
+//    | TOP
+//    | CENTER
+//    | BOTTOM
+//}
+
+public enum EasyLoadingAnimationStyle {
+    | OPACITY
+    | OFFSET
+    | SCALE
+    | CUSTOM
+}

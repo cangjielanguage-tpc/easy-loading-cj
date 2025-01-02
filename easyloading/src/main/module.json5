@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "easyloading",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}
