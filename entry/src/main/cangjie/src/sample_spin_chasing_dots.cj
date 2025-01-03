@@ -17,7 +17,7 @@ public class SampleSpinChasingDots {
         this.model.init_data()
         //        this.waveModel.animateY(600, easing: "ease")
         //        this.waveModel.animateY(600, easing: "ease-in")
-        this.model.animateY(2000, easing: "linear")
+        this.model.animateY(2000)
     }
 
     func build() {

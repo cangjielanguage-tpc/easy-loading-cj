@@ -71,15 +71,15 @@ public class SpinChasingDotsChartAnimator {
         return animatorResult
     }
 
-    public func animateY(durationMillis: Int32, easing!: String = "linear") {
+    public func animateY(durationMillis: Int32) {
         if (let Some(v) <- this._animator) {
             v.finish()
         }
         if (let Some(v) <- this.scale_animator) {
             v.finish()
         }
-        let animatorY: AnimatorResult = this.yAnimator(durationMillis, easing)
-        let scaleAnimator: AnimatorResult = this.scaleAnimator(durationMillis, easing)
+        let animatorY: AnimatorResult = this.yAnimator(durationMillis, "linear")
+        let scaleAnimator: AnimatorResult = this.scaleAnimator(durationMillis, "ease-in-out")
         this._animator = animatorY
         this.scale_animator = scaleAnimator
         this.isShowXCallback = false
