@@ -33,8 +33,8 @@ public class SpinChasingDotsModel {
         this.scaleValue = this.mAnimator().getScaleValue()
     }
 
-    public func animateY(time: Int32, easing!: String = "linear") {
-        this.mAnimator().animateY(time, easing: easing)
+    public func animateY(time: Int32) {
+        this.mAnimator().animateY(time)
     }
 
     public func offAnimateY() {
@@ -102,7 +102,7 @@ public class SpinChasingDotsComponent {
                     left: HorizontalAnchor("__container__", HorizontalAlign.Start),
                     right: HorizontalAnchor("__container__", HorizontalAlign.End),
                 )
-            ).backgroundColor(Color.GRAY)
+            )
         }.width(this.width).height(this.height).backgroundColor(this.color).border(width: 2.vp, color: Color(0x6699ff))
     }
 }
@@ -125,10 +125,6 @@ public class SpinRotateComponent {
         colors = this.spinChasingDotsModel.getColors()
     }
 
-    //    @Builder
-    //    func SquareText(index: Int64) {
-    //
-    //    }
     func build() {
         Stack() {
             Column() {
@@ -139,11 +135,6 @@ public class SpinRotateComponent {
             Column() {
                 Rect(width: this.size * 0.6, height: this.size * 0.6).fill(this.colors[1 % this.colors.size]).scale(
                     Float32(abs(spinChasingDotsModel.getScaleValue())))
-            //                .rotate(Float32(spinChasingDotsModel.getRotateValue()))
-
-            //                        .rotate(x: 0.0,
-            //                            y: 0.0, z: 1.0, centerX: (300.0 / 2.0).px, centerY: (300.0 / 2.0).px,
-            //                            angle: Float32(spinChasingDotsModel.getRotateValue()))
             }.justifyContent(FlexAlign.End).width(100.percent).height(100.percent).alignItems(HorizontalAlign.Start)
         }.rotate(x: 0.0, y: 0.0, z: 1.0, centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp,
             angle: Float32(spinChasingDotsModel.getRotateValue()))

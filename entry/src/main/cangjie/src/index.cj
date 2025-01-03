@@ -40,6 +40,9 @@ class EntryView {
                 Button("SampleSpinChasingDots").fontSize(14).onClick {
                     => Router.push(url: "SampleSpinChasingDots")
                 }
+                Button("SamplePulse").fontSize(14).onClick {
+                    => Router.push(url: "SamplePulse")
+                }
                 Text("----------------------")
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")
