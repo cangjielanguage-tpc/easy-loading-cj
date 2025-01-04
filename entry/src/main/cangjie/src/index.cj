@@ -50,6 +50,9 @@ class EntryView {
                 Button("SpinKitFadingGrid").fontSize(14).onClick {
                     => Router.push(url: "SpinKitFadingGridTest")
                 }
+                Button("CubeGridTest").fontSize(14).onClick {
+                    => Router.push(url: "CubeGridTest")
+                }
             }.width(100.percent)
         }.height(100.percent)
     }

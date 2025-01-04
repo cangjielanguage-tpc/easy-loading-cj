@@ -19,7 +19,7 @@ internal import ohos.component.*
 
 internal import std.math.*
 internal import std.collection.ArrayList
-internal import std.sync.{Timer}
+internal import std.sync.{Timer, sleep}
 internal import std.time.*
 internal import ohos.hilog.Hilog
 internal import std.format.Formatter
