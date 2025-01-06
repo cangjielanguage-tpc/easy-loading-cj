@@ -47,6 +47,9 @@ class EntryView {
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")
                 }
+                Button("SpinKitFadingGrid").fontSize(14).onClick {
+                    => Router.push(url: "SpinKitFadingGridTest")
+                }
             }.width(100.percent)
         }.height(100.percent)
     }
