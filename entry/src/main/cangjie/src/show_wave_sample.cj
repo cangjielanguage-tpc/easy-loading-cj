@@ -6,23 +6,20 @@ package ohos_app_cangjie_entry
  import ohos.state_macro_manage.*
 internal import ohos.component.*
 
-//@Entry
-//@Component
-//public class ShowWaveSample {
-//    private var loadModel: EasyLoadingModel = EasyLoadingModel()
-//
-//    protected override func aboutToAppear(): Unit {
-//        this.loadModel.setStatus("loading!!!")
-////        this.loadModel.showSuccess()
-//        this.loadModel.show()
-//        this.loadModel.setTextColor(Color.RED)
-//    }
-//
-//    func build() {
-//        Stack(Alignment.TopStart) {
-//            Column {
-//                EasyLoadingComponent(loadingModel: this.loadModel)
-//            }
-//        }
-//    }
-//}
+@Entry
+@Component
+public class ShowWaveSample {
+
+    func build() {
+        Stack(Alignment.TopStart) {
+            Column {
+                WaveComponent(
+                        width: 300.0,
+                        height: 300.0,
+                        colors: [Color.RED, Color.GREEN, Color.BLACK],
+                        duration: 700
+                    )
+            }
+        }
+    }
+}
