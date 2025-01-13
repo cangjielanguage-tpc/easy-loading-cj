@@ -3,19 +3,68 @@
  */
 package easyloading
 
-
 import ohos.state_macro_manage.*
+
+@Observed
+public class SpinKitFadingGridModel {
+    @Publish
+    var width: Float64 = 120.0
+    @Publish
+    var height: Float64 = 120.0
+    @Publish
+    var rowsGap: Float64 = 10.0
+    @Publish
+    var columnsGap: Float64 = 10.0
+    @Publish
+    var colorArray: Array<Color> = [Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED]
+    @Publish
+    var duration: Int32 = 600
+    @Publish
+    var startOpcity: Float64 = 0.4
+    @Publish
+    var endOpcity: Float64 = 0.9
+
+    public func setWidth(width: Float64): SpinKitFadingGridModel {
+        this.width = width
+        return this
+    }
+    public func setHeight(height: Float64): SpinKitFadingGridModel {
+        this.height = height
+        return this
+    }
+    public func setRowsGap(rowsGap: Float64): SpinKitFadingGridModel {
+        this.rowsGap = rowsGap
+        return this
+    }
+    public func setColumnsGap(columnsGap: Float64): SpinKitFadingGridModel {
+        this.columnsGap = columnsGap
+        return this
+    }
+    public func setColorArray(colorArray: Array<Color>): SpinKitFadingGridModel {
+        this.colorArray = colorArray
+        return this
+    }
+    public func setDuration(duration: Int32): SpinKitFadingGridModel {
+        this.duration = duration
+        return this
+    }
+    public func setStartOpcity(startOpcity: Float64): SpinKitFadingGridModel {
+        this.startOpcity = startOpcity
+        return this
+    }
+    public func setEndOpcity(endOpcity: Float64): SpinKitFadingGridModel {
+        this.endOpcity = endOpcity
+        return this
+    }
+}
+
 
 @Component
 public class SpinKitFadingGrid {
     @State
-    var opcityArr: ObservedArray<Float64> = ObservedArray<Float64>(0.4, 0.4, 0.4, 0.4, 0.4, 0.4,0.4, 0.4, 0.4)
-    var width: Float64 = 120.0
-    var height: Float64 = 120.0
-    var rowsGap: Float64 = 10.0
-    var columnsGap: Float64 = 10.0
-    var colorArray: Array<Color> = [Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED, Color(0x008000),Color.RED]
-    var duration: Int32 = 600
+    var opcityArr: ObservedArray<Float64> = ObservedArray<Float64>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0,1.0, 1.0, 1.0 )
+    @State
+    var model: SpinKitFadingGridModel = SpinKitFadingGridModel()
 
     protected override func aboutToAppear(): Unit {
         let animatorResult1 = AnimatorResult(setAnimatorOption(1))
@@ -82,14 +131,14 @@ public class SpinKitFadingGrid {
 
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "fast-out-linear-in",
             delay: 300 * (idx - 1),
             fill: AnimatorFill.Both,
             direction: AnimatorDirection.AlternateReverse,
             iterations: -1,
-            begin: 0.4,
-            end: 0.7
+            begin: this.model.startOpcity,
+            end: this.model.endOpcity
         )
         return option
     }
@@ -97,19 +146,19 @@ public class SpinKitFadingGrid {
     @Builder
     func rectItem(idx: Int64, opcityNum: Float64){
         Rect()
-        .width(this.width/4.0)
-        .height(this.height/4.0)
+        .width(this.model.width/4.0)
+        .height(this.model.height/4.0)
         .fill(
-           match (this.colorArray.size) {
+           match (this.model.colorArray.size) {
                 case 0 => Color.RED
-                case 1 => this.colorArray[0]
+                case 1 => this.model.colorArray[0]
                 case 2 =>
                     if(idx % 2 == 0 ) {
-                        this.colorArray[0]
+                        this.model.colorArray[0]
                     } else {
-                        this.colorArray[1]
+                        this.model.colorArray[1]
                     }
-                case 9 => this.colorArray[idx]
+                case 9 => this.model.colorArray[idx]
                 case _ => Color.RED
            })
         .opacity(opcityNum)
@@ -126,10 +175,10 @@ public class SpinKitFadingGrid {
             }
             .columnsTemplate("1fr 1fr 1fr")
             .rowsTemplate("1fr 1fr 1fr")
-            .columnsGap(this.columnsGap)
-            .rowsGap(this.rowsGap)
-            .width(this.width)
-            .height(this.height)
+            .columnsGap(this.model.columnsGap)
+            .rowsGap(this.model.rowsGap)
+            .width(this.model.width)
+            .height(this.model.height)
         }.width(100.percent).height(100.percent)
 
     }

@@ -53,6 +53,9 @@ class EntryView {
                 Button("CubeGridTest").fontSize(14).onClick {
                     => Router.push(url: "CubeGridTest")
                 }
+                Button("all").fontSize(14).onClick {
+                    => Router.push(url: "AllTest")
+                }
             }.width(100.percent)
         }.height(100.percent)
     }

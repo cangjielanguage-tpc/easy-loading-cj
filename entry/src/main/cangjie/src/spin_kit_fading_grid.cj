@@ -6,11 +6,21 @@ import ohos.state_macro_manage.*
 @Entry
 @Component
 class SpinKitFadingGridTest {
-
+    @State
+    var model: SpinKitFadingGridModel = SpinKitFadingGridModel()
+    protected override func aboutToAppear(): Unit {
+        this.model
+        .setWidth(200.0)
+        .setHeight(200.0)
+        .setRowsGap(5.0)
+        .setColumnsGap(5.0)
+        .setColorArray([Color.BLUE, Color.GRAY])
+        .setDuration(1000)
+    }
     func build() {
         Column() {
             Stack(Alignment.Center) {
-                SpinKitFadingGrid()
+                SpinKitFadingGrid(model: this.model)
 //                SpinKitFadingGrid(
 //                    width: 200.0,
 //                    height: 200.0,
