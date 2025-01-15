@@ -20,48 +20,65 @@ public class EasyLoading {
     }
 
     func build() {
-        Stack(Alignment.Center) {
+        Stack(this.model.alignment) {
             //--------mask--------
             if(this.model.isMask) {
                 Stack() {}
                 .width(100.percent)
                 .height(100.percent)
-                .backgroundColor(Color.BLACK)
+                .backgroundColor(this.model.maskBgColor)
                 .opacity(if(this.model.isMaskDisplayAnimator) {
                      this.model.maskOpacityFrom
                 }else {
                     this.model.maskOpacityNormal
                 })
             }
-
-            Stack(Alignment.Center) {
+            if(this.model.getIndicatorType().isSome()) {
+                Stack(Alignment.Center) {
                 if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.FADINGGRID && this.model.getIndicatorModel().isSome()) {
                     SpinKitFadingGrid(model: this.model.getIndicatorModel()())
-                } else {
-                    Text("other")
+                } else if(this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.TOAST && this.model.getToastModel().isSome()) {
+                    ToastIndicator(model: this.model.getToastModel()())
                 }
+
                 Text(this.model.text)
                 .fontColor(this.model.fontColor)
                 .fontSize(this.model.fontSize)
-                .margin(top: this.model.textMarginTop)
+                .margin(top: if(this.model.getIndicatorType()() == EasyLoadingIndicatorType.TOAST && this.model.getToastModel().isNone()) {
+                    0.0
+                } else {
+                    this.model.textMarginTop
+                })
                 .fontWeight(this.model.fontWeight)
             }
-            .width(this.model.width)
-            .height(this.model.width)
-            .backgroundColor(this.model.background)
-            .align(Alignment.Center)
-            .borderRadius(this.model.borderRadius)
-            .padding(top: this.model.paddingTop)
-            .scale(if(this.model.isScale) {
-                this.model.scaleFrom
-            } else {
-                1.0
-            })
-            .rotate(if(this.model.isRotate) {
-                this.model.rotateFrom
-            }else {
-                0.0
-            })
+                .width(this.model.width)
+                .height(this.model.height)
+                .backgroundColor(this.model.background)
+                .align(Alignment.Center)
+                .borderRadius(this.model.borderRadius)
+                .padding(top:if(this.model.getIndicatorType()() == EasyLoadingIndicatorType.TOAST && this.model.getToastModel().isNone()) {
+                    0.0
+                }else {
+                    this.model.paddingTop
+                })
+                .scale(if(this.model.isScale) {
+                    this.model.scaleFrom
+                } else {
+                    1.0
+                })
+                .rotate(if(this.model.isRotate) {
+                    this.model.rotateFrom
+                }else {
+                    0.0
+                })
+                .translate(x: this.model.offsetXFrom, y: this.model.offsetYFrom)
+                .opacity(if(this.model.isOpacity) {
+                     this.model.opacityFrom
+                } else {
+                     1.0
+                })
+            }
+
 
 
         }.width(100.percent).height(100.percent)
