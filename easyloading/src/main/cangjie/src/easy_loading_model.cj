@@ -9,8 +9,12 @@ import ohos.state_macro_manage.*
 public class EasyLoadingModel {
     @Publish
     var indicatorType: ?EasyLoadingIndicatorType = Option<EasyLoadingIndicatorType>.None
+    //------------动画指示器----------
     @Publish
     var indicatorModel: ?SpinKitFadingGridModel = Option<SpinKitFadingGridModel>.None
+    //-------------Toast----------
+    @Publish
+    var toastModel: ?ToastModel = Option<ToastModel>.None
 
     //----------------style-------------------------
     @Publish
@@ -33,10 +37,15 @@ public class EasyLoadingModel {
     var textMarginTop: Float64 = 50.0
     @Publish
     var fontWeight: FontWeight = FontWeight.Normal
+    @Publish
+    var alignment: Alignment = Alignment.Center
+
 
     //----------------------mask------------------
     @Publish
     var isMask: Bool = true
+    @Publish
+    var maskBgColor: Color = Color.BLACK
     //无动画设置透明度
     @Publish
     var maskOpacityNormal: Float64 = 0.5  //无动画设置透明度
@@ -54,23 +63,40 @@ public class EasyLoadingModel {
     var visibility: Visibility = Visibility.None
 
     //---------------组件动画----------------------
+    //缩放
     @Publish
     var isScale: Bool = false
     @Publish
     var scaleFrom: Float32 = 0.0
     @Publish
     var scaleTo: Float32 = 0.0
-
+    //旋转
     @Publish
     var isRotate: Bool = false
     @Publish
     var rotateFrom: Float32 = 0.0
     @Publish
     var rotateTo: Float32 = 0.0
-
+    //平移
     @Publish
-    var isCustomAnimation: Bool = true
-
+    var isOffset: Bool = false
+    @Publish
+    var offsetXFrom: Float64 = 0.0
+    @Publish
+    var offsetXTo: Float64 = 0.0
+    @Publish
+    var offsetYFrom: Float64 = 0.0
+    @Publish
+    var offsetYTo: Float64 = 0.0
+    @Publish
+    var duration: Int32 = 200
+    //透明度
+    @Publish
+    var isOpacity: Bool = false
+    @Publish
+    var opacityFrom: Float64 = 0.0
+    @Publish
+    var opacityTo: Float64 = 0.0
 
     public func setIndicatorType(indicatorType: EasyLoadingIndicatorType): EasyLoadingModel {
         this.indicatorType = indicatorType
@@ -81,13 +107,29 @@ public class EasyLoadingModel {
         return this
     }
 
+    public func setToastModel(toastModel: ToastModel): EasyLoadingModel {
+        this.toastModel = toastModel
+        return this
+    }
+
+    public func getIndicatorType(): ?EasyLoadingIndicatorType {
+        return this.indicatorType
+    }
+
+    public func getIndicatorModel(): ?SpinKitFadingGridModel {
+        return this.indicatorModel
+    }
+    public func getToastModel(): ?ToastModel {
+        return this.toastModel
+    }
+
     //---------------style-----------
     public func setWidth(width: Float64): EasyLoadingModel {
         this.width = width
         return this
     }
 
-    public func setHeight(width: Float64): EasyLoadingModel {
+    public func setHeight(height: Float64): EasyLoadingModel {
         this.height = height
         return this
     }
@@ -128,6 +170,10 @@ public class EasyLoadingModel {
         this.isMask = isMask
         return this
     }
+    public func setMaskBgColor(maskBgColor: Color): EasyLoadingModel {
+        this.maskBgColor = maskBgColor
+        return this
+    }
     public func setMaskDisplayNormal(maskOpacityNormal: Float64): EasyLoadingModel {
         this.maskOpacityNormal = maskOpacityNormal
         return this
@@ -149,13 +195,13 @@ public class EasyLoadingModel {
 
     public func show(): EasyLoadingModel {
         this.visibility = Visibility.Visible
-        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate) {
+        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset || this.isOpacity) {
             this.showAnimator()
         }
         return this
     }
     public func hide(): EasyLoadingModel {
-        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate) {
+        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset|| this.isOpacity ) {
             this.hideAnimator()
 
             Timer.once(Duration.millisecond * 200, { =>
@@ -169,37 +215,75 @@ public class EasyLoadingModel {
     }
 
     //-------------组件缩放-------------
+    public func setIsScale(isScale: Bool): EasyLoadingModel {
+        this.isScale = isScale
+        return this
+    }
+
     public func setScaleAnimator(scaleTo: Float32): EasyLoadingModel {
         this.isScale = true
         this.scaleTo = scaleTo
         return this
     }
 
-    public func setScaleTo(scaleTo: Float32): EasyLoadingModel {
-        this.scaleTo = scaleTo
+    //-------------组件旋转-------------
+    public func setIsRotate(isRotate: Bool): EasyLoadingModel {
+        this.isRotate = isRotate
         return this
     }
 
-
-    //-------------组件旋转-------------
     public func setRotateAnimator(rotateTo: Float32): EasyLoadingModel {
         this.isRotate = true
         this.rotateTo = rotateTo
         return this
     }
-    public func setRotateTo(rotateTo: Float32): EasyLoadingModel {
-        this.rotateTo = rotateTo
+
+    //---------组件平移--------------------
+    public func setIsOffset(isOffset: Bool): EasyLoadingModel {
+        this.isOffset = isOffset
+        return this
+    }
+    public func setOffsetDirection(direction: Alignment): EasyLoadingModel {
+        this.alignment = direction
+        return this
+    }
+
+    public func setOffsetX(offsetX: Float64): EasyLoadingModel {
+        if(this.isOffset) {
+            this.offsetXTo = offsetX
+        } else {
+            this.offsetXFrom = offsetX
+        }
+
+        return this
+    }
+    public func setOffsetY(offsetY: Float64): EasyLoadingModel {
+        if(this.isOffset) {
+            this.offsetYTo = offsetY
+        } else {
+            this.offsetYFrom = offsetY
+        }
+        return this
+    }
+    //---------组件透明度--------------------
+    public func setIsOpacity(Opacity: Bool): EasyLoadingModel {
+        this.isOpacity = Opacity
+        return this
+    }
+
+    public func setAnimatorOpacity(opacityTo: Float64): EasyLoadingModel {
+        this.isOpacity = true
+        this.opacityTo = opacityTo
         return this
     }
 
     private func showAnimator(): Unit {
         animateTo(
             AnimateParam(
-                duration: 200,
+                duration: this.duration,
                 curve: Curve.EaseInOut,
                 iterations: 1,
-                playMode: PlayMode.Normal,
-                onFinish: {=> AppLog.info("play end")}
+                playMode: PlayMode.Normal
             ),
             {=>
                 if(this.isMaskDisplayAnimator) {
@@ -211,6 +295,15 @@ public class EasyLoadingModel {
                 if(this.isRotate) {
                     this.rotateFrom = this.rotateTo
                 }
+                if(this.isOffset) {
+                    this.offsetXFrom = this.offsetXTo
+                    this.offsetYFrom = this.offsetYTo
+                }
+                if(this.isOpacity) {
+                    Hilog.error(0,"","2----${this.isOpacity}")
+                    this.opacityFrom = this.opacityTo
+                }
+
             }
         )
     }
@@ -218,7 +311,7 @@ public class EasyLoadingModel {
     private func hideAnimator(): Unit {
         animateTo(
             AnimateParam(
-                duration: 200,
+                duration: this.duration,
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
@@ -234,18 +327,15 @@ public class EasyLoadingModel {
                 if(this.isRotate) {
                     this.rotateFrom = -this.rotateTo
                 }
-
+                if(this.isOffset) {
+                    this.offsetXFrom = 0.0
+                    this.offsetYFrom = 0.0
+                }
+                if(this.isOpacity) {
+                    this.opacityFrom = 0.0
+                }
             }
         )
     }
-
-    public func getIndicatorType(): ?EasyLoadingIndicatorType {
-        return this.indicatorType
-    }
-
-    public func getIndicatorModel(): ?SpinKitFadingGridModel {
-        return this.indicatorModel
-    }
-
 
 }

@@ -46,6 +46,7 @@ public enum EasyLoadingIndicatorType {
     | RIPPLE
     | SPINNINGCIRCLE
     | SQUARECIRCLE
+    | TOAST
 
     public operator func ==(b: EasyLoadingIndicatorType): Bool {
         match ((this, b)) {
@@ -72,6 +73,7 @@ public enum EasyLoadingIndicatorType {
             case (RIPPLE, RIPPLE) => true
             case (SPINNINGCIRCLE, SPINNINGCIRCLE) => true
             case (SQUARECIRCLE, SQUARECIRCLE) => true
+            case (TOAST, TOAST) => true
             case _ => false
         }
     }

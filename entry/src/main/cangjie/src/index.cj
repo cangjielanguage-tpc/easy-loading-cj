@@ -56,6 +56,9 @@ class EntryView {
                 Button("all").fontSize(14).onClick {
                     => Router.push(url: "AllTest")
                 }
+                Button("allIndicator").fontSize(14).onClick {
+                    => Router.push(url: "AllIndicatorTest")
+                }
             }.width(100.percent)
         }.height(100.percent)
     }
