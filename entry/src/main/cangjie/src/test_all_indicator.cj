@@ -19,7 +19,7 @@ public class AllIndicatorTest {
     var loadingModel3: EasyLoadingModel = EasyLoadingModel()
     //---指示器model--
     @State
-    var fadeGridmodel: ?SpinKitFadingGridModel = Option<SpinKitFadingGridModel>.None
+    var fadeGridmodel: ?FadingGridModel = Option<FadingGridModel>.None
     @State
     var toastModel: ?ToastModel = Option<ToastModel>.None
 
@@ -59,7 +59,7 @@ public class AllIndicatorTest {
     var isCubeGrid: Bool = true
 
     protected override func aboutToAppear(): Unit {
-        this.fadeGridmodel = SpinKitFadingGridModel()
+        this.fadeGridmodel = FadingGridModel()
         .setWidth(50.0)
         .setHeight(50.0)
         .setRowsGap(2.0)
@@ -114,7 +114,7 @@ public class AllIndicatorTest {
         if(isCubeGrid) {
             this.loadingModel
             .setIndicatorType(EasyLoadingIndicatorType.FADINGGRID)
-            .setIndicatorModel(this.fadeGridmodel())
+            .setFadingGridModel(this.fadeGridmodel())
         }
 
 

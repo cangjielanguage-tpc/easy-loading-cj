@@ -11,7 +11,11 @@ public class EasyLoadingModel {
     var indicatorType: ?EasyLoadingIndicatorType = Option<EasyLoadingIndicatorType>.None
     //------------动画指示器----------
     @Publish
-    var indicatorModel: ?SpinKitFadingGridModel = Option<SpinKitFadingGridModel>.None
+    var fadingGridModel: ?FadingGridModel = Option<FadingGridModel>.None
+    @Publish
+    var cubeGridModel: ?CubeGridModel = Option<CubeGridModel>.None
+    @Publish
+    var pumpingHeartModel: ?PumpingHeartModel = Option<PumpingHeartModel>.None
     //-------------Toast----------
     @Publish
     var toastModel: ?ToastModel = Option<ToastModel>.None
@@ -102,8 +106,16 @@ public class EasyLoadingModel {
         this.indicatorType = indicatorType
         return this
     }
-    public func setIndicatorModel(indicatorModel: SpinKitFadingGridModel): EasyLoadingModel {
-        this.indicatorModel = indicatorModel
+    public func setFadingGridModel(fadingGridModel: FadingGridModel): EasyLoadingModel {
+        this.fadingGridModel = fadingGridModel
+        return this
+    }
+    public func setCubeGridModel(cubeGridModel: CubeGridModel): EasyLoadingModel {
+        this.cubeGridModel = cubeGridModel
+        return this
+    }
+    public func setPumpingHeartModel(pumpingHeartModel: PumpingHeartModel): EasyLoadingModel {
+        this.pumpingHeartModel = pumpingHeartModel
         return this
     }
 
@@ -112,16 +124,24 @@ public class EasyLoadingModel {
         return this
     }
 
-    public func getIndicatorType(): ?EasyLoadingIndicatorType {
-        return this.indicatorType
+    public func getFadingGridModel(): ?FadingGridModel {
+        return this.fadingGridModel
     }
-
-    public func getIndicatorModel(): ?SpinKitFadingGridModel {
-        return this.indicatorModel
+    public func getCubeGridModel(): ?CubeGridModel {
+        return this.cubeGridModel
+    }
+    public func getPumpingHeartModel(): ?PumpingHeartModel {
+        return this.pumpingHeartModel
     }
     public func getToastModel(): ?ToastModel {
         return this.toastModel
     }
+
+    public func getIndicatorType(): ?EasyLoadingIndicatorType {
+        return this.indicatorType
+    }
+
+
 
     //---------------style-----------
     public func setWidth(width: Float64): EasyLoadingModel {

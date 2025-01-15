@@ -8,17 +8,21 @@ import ohos.state_macro_manage.*
 @Entry
 @Component
 class CubeGridTest {
+    @State
+    var model: CubeGridModel = CubeGridModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model
+        .setWidth(80.0)
+        .setHeight(80.0)
+        .setDuration(600)
+        //.setShapeStyle(ShapeStyle.CIRCLE)
+    }
 
     func build() {
         Column() {
             Stack(Alignment.Center) {
-                SpinKitCubeGrid()
-//                SpinKitCubeGrid(
-//                    width: 200.0,
-//                    height: 200.0,
-//                    colorArray: [Color.BLUE, Color.GRAY],
-//                    duration: 1200
-//                )
+                CubeGrid(model: this.model)
             }
             .width(300.0)
             .height(300.0)

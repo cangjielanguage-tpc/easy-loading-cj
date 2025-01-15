@@ -5,12 +5,44 @@ package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class SpinKitCubeGrid {
+@Observed
+public class CubeGridModel {
+    @Publish
     var width: Float64 = 120.0
+    @Publish
     var height: Float64 = 120.0
+    @Publish
     var colorArray: Array<Color> = [Color(0xf44236), Color(0x4cb050)]
+    @Publish
     var duration: Int32 = 600
+    @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.RECT
+
+    public func setWidth(width: Float64): CubeGridModel {
+        this.width = width
+        return this
+    }
+    public func setHeight(height: Float64): CubeGridModel {
+        this.height = height
+        return this
+    }
+    public func setColorArray(colorArray: Array<Color>): CubeGridModel {
+        this.colorArray = colorArray
+        return this
+    }
+    public func setDuration(duration: Int32): CubeGridModel {
+        this.duration = duration
+        return this
+    }
+    public func setShapeStyle(shapeStyle: ShapeStyle): CubeGridModel {
+        this.shapeStyle = shapeStyle
+        return this
+    }
+}
+@Component
+public class CubeGrid {
+    @State
+    var model: CubeGridModel = CubeGridModel()
 
     @State
     var scale: ObservedArray<Float32> = ObservedArray<Float32>(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0)
@@ -161,7 +193,7 @@ public class SpinKitCubeGrid {
 
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in",
             delay: 150 * (idx - 1),
             fill: AnimatorFill.Forwards,
@@ -174,7 +206,7 @@ public class SpinKitCubeGrid {
     }
     func setAnimatorOption2(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-out",
             delay: 150 * (idx - 1),
             fill: AnimatorFill.Forwards,
@@ -190,20 +222,41 @@ public class SpinKitCubeGrid {
     @Builder
     func rectItem(idx: Int64){
         Rect()
-        .width(this.width/3.0)
-        .height(this.height/3.0)
+        .width(this.model.width/3.0)
+        .height(this.model.height/3.0)
         .scale(this.scale[idx])
         .fill(
-           match (this.colorArray.size) {
+           match (this.model.colorArray.size) {
                 case 0 => Color.RED
-                case 1 => this.colorArray[0]
+                case 1 => this.model.colorArray[0]
                 case 2 =>
                     if(idx % 2 == 0 ) {
-                        this.colorArray[0]
+                        this.model.colorArray[0]
                     } else {
-                        this.colorArray[1]
+                        this.model.colorArray[1]
                     }
-                case 9 => this.colorArray[idx]
+                case 9 => this.model.colorArray[idx]
+                case _ => Color.RED
+           }
+        )
+    }
+    @Builder
+    func circleItem(idx: Int64){
+        Circle()
+        .width(this.model.width/3.0)
+        .height(this.model.height/3.0)
+        .scale(this.scale[idx])
+        .fill(
+           match (this.model.colorArray.size) {
+                case 0 => Color.RED
+                case 1 => this.model.colorArray[0]
+                case 2 =>
+                    if(idx % 2 == 0 ) {
+                        this.model.colorArray[0]
+                    } else {
+                        this.model.colorArray[1]
+                    }
+                case 9 => this.model.colorArray[idx]
                 case _ => Color.RED
            }
         )
@@ -214,7 +267,11 @@ public class SpinKitCubeGrid {
             Grid{
                  ForEach(Array<Int64>(9, { i => i+1}), itemGeneratorFunc: {_: Int64, idx: Int64 =>
                     GridItem {
-                        rectItem(idx)
+                        if(this.model.shapeStyle == ShapeStyle.RECT) {
+                            rectItem(idx)
+                        } else {
+                            circleItem(idx)
+                        }
                     }
                  })
             }
@@ -222,8 +279,8 @@ public class SpinKitCubeGrid {
             .rowsTemplate("1fr 1fr 1fr")
             .columnsGap(0)
             .rowsGap(0)
-            .width(this.width)
-            .height(this.height)
+            .width(this.model.width)
+            .height(this.model.height)
         }.width(100.percent).height(100.percent)
 
     }
