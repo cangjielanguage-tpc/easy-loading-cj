@@ -137,3 +137,18 @@ public enum EasyLoadingAnimationStyle {
     | SCALE
     | CUSTOM
 }
+
+public enum ShapeStyle{
+    | CIRCLE
+    | RECT
+    public operator func ==(b: ShapeStyle): Bool {
+        match ((this, b)) {
+            case (CIRCLE, CIRCLE) => true
+            case (RECT, RECT) => true
+            case _ => false
+        }
+    }
+    public operator func !=(b: ShapeStyle): Bool {
+        return !(this == b)
+    }
+}

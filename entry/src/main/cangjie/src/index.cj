@@ -47,11 +47,14 @@ class EntryView {
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")
                 }
-                Button("SpinKitFadingGrid").fontSize(14).onClick {
+                Button("FadingGrid").fontSize(14).onClick {
                     => Router.push(url: "SpinKitFadingGridTest")
                 }
                 Button("CubeGridTest").fontSize(14).onClick {
                     => Router.push(url: "CubeGridTest")
+                }
+                Button("PumpHeartTest").fontSize(14).onClick {
+                    => Router.push(url: "PumpHeartTest")
                 }
                 Button("all").fontSize(14).onClick {
                     => Router.push(url: "AllTest")

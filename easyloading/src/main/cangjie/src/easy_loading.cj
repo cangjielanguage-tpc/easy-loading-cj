@@ -35,8 +35,13 @@ public class EasyLoading {
             }
             if(this.model.getIndicatorType().isSome()) {
                 Stack(Alignment.Center) {
-                if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.FADINGGRID && this.model.getIndicatorModel().isSome()) {
-                    SpinKitFadingGrid(model: this.model.getIndicatorModel()())
+                    
+                if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.FADINGGRID && this.model.getFadingGridModel().isSome()) {
+                    FadingGrid(model: this.model.getFadingGridModel()())
+                } else if(this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.CUBEGRID && this.model.getCubeGridModel().isSome()) {
+                    CubeGrid(model: this.model.getCubeGridModel()())
+                } else if(this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.PUMPINGHEART && this.model.getPumpingHeartModel().isSome()) {
+                    PumpingHeart(model: this.model.getPumpingHeartModel()())
                 } else if(this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.TOAST && this.model.getToastModel().isSome()) {
                     ToastIndicator(model: this.model.getToastModel()())
                 }

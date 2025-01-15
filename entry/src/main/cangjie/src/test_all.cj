@@ -18,13 +18,13 @@ public class AllTest {
     @State
     var loadingModel3: EasyLoadingModel = EasyLoadingModel()
     @State
-    var fadeGridmodel: ?SpinKitFadingGridModel = Option<SpinKitFadingGridModel>.None
+    var fadeGridmodel: ?FadingGridModel = Option<FadingGridModel>.None
     @State
     var toastModel: ?ToastModel = Option<ToastModel>.None
 
     protected override func aboutToAppear(): Unit {
         //-----测试指示器-------------
-        this.fadeGridmodel = SpinKitFadingGridModel()
+        this.fadeGridmodel = FadingGridModel()
         .setColorArray([Color.BLACK])
         .setWidth(50.0)
         .setHeight(50.0)
@@ -33,7 +33,7 @@ public class AllTest {
 
         this.loadingModel
         .setIndicatorType(EasyLoadingIndicatorType.FADINGGRID)
-        .setIndicatorModel(this.fadeGridmodel())
+        .setFadingGridModel(this.fadeGridmodel())
         .setMaskDisplayAnimator(0.5)
         .setScaleAnimator(1.0)
         .setRotateAnimator(360.0)

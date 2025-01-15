@@ -6,7 +6,7 @@ package easyloading
 import ohos.state_macro_manage.*
 
 @Observed
-public class SpinKitFadingGridModel {
+public class FadingGridModel {
     @Publish
     var width: Float64 = 120.0
     @Publish
@@ -23,48 +23,54 @@ public class SpinKitFadingGridModel {
     var startOpcity: Float64 = 0.4
     @Publish
     var endOpcity: Float64 = 0.9
+    @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
-    public func setWidth(width: Float64): SpinKitFadingGridModel {
+    public func setWidth(width: Float64): FadingGridModel {
         this.width = width
         return this
     }
-    public func setHeight(height: Float64): SpinKitFadingGridModel {
+    public func setHeight(height: Float64): FadingGridModel {
         this.height = height
         return this
     }
-    public func setRowsGap(rowsGap: Float64): SpinKitFadingGridModel {
+    public func setRowsGap(rowsGap: Float64): FadingGridModel {
         this.rowsGap = rowsGap
         return this
     }
-    public func setColumnsGap(columnsGap: Float64): SpinKitFadingGridModel {
+    public func setColumnsGap(columnsGap: Float64): FadingGridModel {
         this.columnsGap = columnsGap
         return this
     }
-    public func setColorArray(colorArray: Array<Color>): SpinKitFadingGridModel {
+    public func setColorArray(colorArray: Array<Color>): FadingGridModel {
         this.colorArray = colorArray
         return this
     }
-    public func setDuration(duration: Int32): SpinKitFadingGridModel {
+    public func setDuration(duration: Int32): FadingGridModel {
         this.duration = duration
         return this
     }
-    public func setStartOpcity(startOpcity: Float64): SpinKitFadingGridModel {
+    public func setStartOpcity(startOpcity: Float64): FadingGridModel {
         this.startOpcity = startOpcity
         return this
     }
-    public func setEndOpcity(endOpcity: Float64): SpinKitFadingGridModel {
+    public func setEndOpcity(endOpcity: Float64): FadingGridModel {
         this.endOpcity = endOpcity
+        return this
+    }
+    public func setShapeStyle(shapeStyle: ShapeStyle): FadingGridModel {
+        this.shapeStyle = shapeStyle
         return this
     }
 }
 
 
 @Component
-public class SpinKitFadingGrid {
+public class FadingGrid {
     @State
     var opcityArr: ObservedArray<Float64> = ObservedArray<Float64>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0,1.0, 1.0, 1.0 )
     @State
-    var model: SpinKitFadingGridModel = SpinKitFadingGridModel()
+    var model: FadingGridModel = FadingGridModel()
 
     protected override func aboutToAppear(): Unit {
         let animatorResult1 = AnimatorResult(setAnimatorOption(1))
@@ -163,13 +169,37 @@ public class SpinKitFadingGrid {
            })
         .opacity(opcityNum)
     }
+    @Builder
+    func circleItem(idx: Int64, opcityNum: Float64){
+        Circle()
+        .width(this.model.width/4.0)
+        .height(this.model.height/4.0)
+        .fill(
+           match (this.model.colorArray.size) {
+                case 0 => Color.RED
+                case 1 => this.model.colorArray[0]
+                case 2 =>
+                    if(idx % 2 == 0 ) {
+                        this.model.colorArray[0]
+                    } else {
+                        this.model.colorArray[1]
+                    }
+                case 9 => this.model.colorArray[idx]
+                case _ => Color.RED
+           })
+        .opacity(opcityNum)
+    }
 
     func build() {
         Column() {
             Grid{
                  ForEach(this.opcityArr, itemGeneratorFunc: {item: Float64, idx: Int64 =>
                     GridItem {
-                        rectItem(idx, item)
+                        if(this.model.shapeStyle == ShapeStyle.RECT) {
+                            rectItem(idx, item)
+                        } else {
+                            circleItem(idx, item)
+                        }
                     }
                  })
             }
