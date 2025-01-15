@@ -89,6 +89,9 @@ class EntryView {
                 Button("PumpHeartTest").fontSize(14).onClick {
                     => Router.push(url: "PumpHeartTest")
                 }
+                Button("WanderingCubesTest").fontSize(14).onClick {
+                    => Router.push(url: "WanderingCubesTest")
+                }
                 Button("all").fontSize(14).onClick {
                     => Router.push(url: "AllTest")
                 }
