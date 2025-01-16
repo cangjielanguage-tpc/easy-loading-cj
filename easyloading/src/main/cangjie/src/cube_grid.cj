@@ -47,23 +47,47 @@ public class CubeGrid {
     @State
     var scale: ObservedArray<Float32> = ObservedArray<Float32>(0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0)
 
-    var thread: ?Future<Unit> = Option<Future<Unit>>.None
+    @State
+    var flag: Bool = false
 
     protected override func aboutToAppear(): Unit {
-         this.thread = spawn {
-            while(true) {
-                showPlay()
-                sleep(1.5 * Duration.second)
-                this.scale = ObservedArray<Float32>(1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0)
-                hiddenPlay()
-                sleep(1.5 * Duration.second)
-            }
-        }
+
+            let option1 = AnimatorOptions(
+                        duration: 10,
+                        easing: "ease",
+                        delay: 0,
+                        fill: AnimatorFill.Both,
+                        direction: AnimatorDirection.AlternateReverse,
+                        iterations: 1,
+                        begin: 0.0,
+                        end: 1.0
+                    )
+            let option2 = AnimatorOptions(
+                    duration: this.model.duration,
+                    easing: "ease",
+                    delay: this.model.duration,
+                    fill: AnimatorFill.Both,
+                    direction: AnimatorDirection.AlternateReverse,
+                    iterations: 1,
+                    begin: 0.0,
+                    end: 1.0
+                )
+                let animator = AnimatorResult(option1)
+                animator.play()
+                animator.onfinish = { =>
+                    if(!this.flag) {
+                        showPlay()
+                    } else {
+                        this.scale = ObservedArray<Float32>(1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0)
+                        hiddenPlay()
+                    }
+                    this.flag = !this.flag
+                    animator.reset(option2)
+                    animator.play()
+                }
+
     }
 
-    protected override func aboutToDisappear(): Unit {
-         this.thread.getOrThrow().cancel()
-    }
 
     func showPlay() {
         let animatorResult1 = AnimatorResult(setAnimatorOption(3))
@@ -195,7 +219,7 @@ public class CubeGrid {
         let option = AnimatorOptions(
             duration: this.model.duration,
             easing: "ease-in",
-            delay: 150 * (idx - 1),
+            delay: (this.model.duration/4) * (idx - 1),
             fill: AnimatorFill.Forwards,
             direction: AnimatorDirection.AlternateReverse,
             iterations: 1,
@@ -208,7 +232,7 @@ public class CubeGrid {
         let option = AnimatorOptions(
             duration: this.model.duration,
             easing: "ease-out",
-            delay: 150 * (idx - 1),
+            delay: (this.model.duration/4) * (idx - 1),
             fill: AnimatorFill.Forwards,
             direction: AnimatorDirection.AlternateReverse,
             iterations: 1,
