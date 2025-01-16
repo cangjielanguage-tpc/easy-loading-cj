@@ -43,6 +43,39 @@ class EntryView {
                 Button("SamplePulse").fontSize(14).onClick {
                     => Router.push(url: "SamplePulse")
                 }
+                Button("SampleRipple").fontSize(14).onClick {
+                    => Router.push(url: "SampleRipple")
+                }
+                Button("SamplePouringHourGlass").fontSize(14).onClick {
+                    => Router.push(url: "SamplePouringHourGlass")
+                }
+                Button("SampleFadingCircle").fontSize(14).onClick {
+                    => Router.push(url: "SampleFadingCircle")
+                }
+                Button("SampleCircle").fontSize(14).onClick {
+                    => Router.push(url: "SampleCircle")
+                }
+                Button("SampleRotateCircle").fontSize(14).onClick {
+                    => Router.push(url: "SampleRotateCircle")
+                }
+                Button("SampleRotatePlain").fontSize(14).onClick {
+                    => Router.push(url: "SampleRotatePlain")
+                }
+                Button("SampleSpinningCircle").fontSize(14).onClick {
+                    => Router.push(url: "SampleSpinningCircle")
+                }
+                Button("SampleSquareCircle").fontSize(14).onClick {
+                    => Router.push(url: "SampleSquareCircle")
+                }
+                Button("SampleFadingCube").fontSize(14).onClick {
+                    => Router.push(url: "SampleFadingCube")
+                }
+                Button("SampleFoldingCube").fontSize(14).onClick {
+                    => Router.push(url: "SampleFoldingCube")
+                }
+                Button("SampleFadingFour").fontSize(14).onClick {
+                    => Router.push(url: "SampleFadingFour")
+                }
                 Text("----------------------")
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")

@@ -9,21 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleSpinChasingDots {
-    private var model: SpinChasingDotsModel = SpinChasingDotsModel()
 
-    protected override func aboutToAppear(): Unit {
-        this.model.setSize(120.0)
-        this.model.setColors([Color.RED, Color.GREEN, Color.BLACK])
-        this.model.init_data()
-        //        this.waveModel.animateY(600, easing: "ease")
-        //        this.waveModel.animateY(600, easing: "ease-in")
-        this.model.animateY(2000)
-    }
 
     func build() {
         Stack(Alignment.TopStart) {
             Column {
-                SpinChasingDotsComponent(spinChasingDotsModel: this.model)
+                SpinChasingDotsComponent(
+                        width: 300.0,
+                        height: 300.0,
+                        colors: [Color.RED, Color.GREEN, Color.BLACK],
+                        duration: 2000,
+                        size: 120.0
+                    )
             }
         }
     }

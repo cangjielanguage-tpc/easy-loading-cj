@@ -2,6 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
  */
 package easyloading
+import ohos.component.Circle
 
 public enum SpinKitWaveType {
     | START
@@ -80,6 +81,19 @@ public enum EasyLoadingIndicatorType {
 
     public operator func !=(b: EasyLoadingIndicatorType): Bool {
         return !(this == b)
+    }
+}
+
+public enum ShowShapeType {
+    | Circle
+    | Rect
+
+    public operator func ==(b: ShowShapeType): Bool {
+        match ((this, b)) {
+            case (Circle, Circle) => true
+            case (Rect, Rect) => true
+            case _ => false
+        }
     }
 }
 

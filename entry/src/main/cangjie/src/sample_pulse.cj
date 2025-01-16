@@ -9,21 +9,17 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SamplePulse {
-    private var model: PulseModel = PulseModel()
-
-    protected override func aboutToAppear(): Unit {
-        this.model.setSize(120.0)
-        this.model.setColor(Color.RED)
-        this.model.init_data()
-        //        this.waveModel.animateY(600, easing: "ease")
-        //        this.waveModel.animateY(600, easing: "ease-in")
-        this.model.animateY(1000)
-    }
 
     func build() {
         Stack(Alignment.TopStart) {
             Column {
-                PulseComponent(pulseModel: this.model)
+                PulseComponent(
+                        width: 300.0,
+                        height: 300.0,
+                        color: Color.RED,
+                        duration: 1000,
+                        size: 120.0
+                    )
             }
         }
     }
