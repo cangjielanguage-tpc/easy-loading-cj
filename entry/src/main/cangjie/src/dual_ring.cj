@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ */
+package ohos_app_cangjie_entry
+
+import ohos.state_macro_manage.*
+
+@Entry
+@Component
+class DualRingTest {
+    @State
+    var model: DualRingModel = DualRingModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model
+        .setBgColor(Color.WHITE)
+    }
+
+    func build() {
+        Column() {
+            Stack(Alignment.Center) {
+                DualRing(model: this.model)
+            }
+            .width(300.0)
+            .height(300.0)
+            .padding(top: 30.0)
+            .backgroundColor(Color.WHITE)
+        }.width(100.percent).height(100.percent).backgroundColor(Color.BLACK)
+
+    }
+}
