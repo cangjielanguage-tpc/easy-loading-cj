@@ -69,8 +69,8 @@ public class FadingCubeComponent {
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.duration,
-            easing: "linear",
-            delay: 500 * idx,
+            easing: "ease-in-out",
+            delay: 450 * idx,
             fill: AnimatorFill.Forwards,
             direction: AnimatorDirection.Alternate,
             iterations: -1,

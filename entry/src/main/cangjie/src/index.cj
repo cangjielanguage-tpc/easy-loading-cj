@@ -76,6 +76,15 @@ class EntryView {
                 Button("SampleFadingFour").fontSize(14).onClick {
                     => Router.push(url: "SampleFadingFour")
                 }
+                Button("WanderingCubesTest").fontSize(14).onClick {
+                    => Router.push(url: "WanderingCubesTest")
+                }
+                Button("SampleHourGlass").fontSize(14).onClick {
+                    => Router.push(url: "SampleHourGlass")
+                }
+                Button("SamplePouringHourGlass").fontSize(14).onClick {
+                    => Router.push(url: "SamplePouringHourGlass")
+                }
                 Text("----------------------")
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")

@@ -18,7 +18,7 @@ public class SampleSpinningCircle {
                         height: 300.0,
                         color: Color.RED,
                         duration: 1200,
-                        size: 120.0
+                        size: 60.0
                     )
             }
         }
