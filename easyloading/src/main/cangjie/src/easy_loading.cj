@@ -89,8 +89,11 @@ public class EasyLoading {
         }.width(100.percent).height(100.percent)
         .visibility(this.model.visibility)
 
-        //todo
-        .onClick ({ event => this.model.hide()})
+        .onClick ({ event =>
+            if(this.model.isClickAnyHide) {
+                this.model.hide()
+            }
+        })
 
     }
 }
