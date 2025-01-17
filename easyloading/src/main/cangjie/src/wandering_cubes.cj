@@ -312,6 +312,9 @@ public class WanderingCubes {
                     .fill( this.model.color[1])
                     .width(this.model.width)
                     .height(this.model.height)
+                    .scale(this.model.scale2)
+                    .rotate(this.model.rotate2)
+                    .translate(x: this.model.translateX2, y: this.model.translateY2)
                 }
 
             }

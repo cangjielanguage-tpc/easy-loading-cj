@@ -24,8 +24,10 @@ import ohos.state_macro_manage.r
 class EntryView {
     @State
     var message: String = "Hello Cangjie"
+    let scroller = Scroller()
     func build() {
         Row {
+            Scroll(this.scroller) {
             Column {
                 Button("Sample1").fontSize(14).onClick {
                     => Router.push(url: "Sample1")
@@ -76,9 +78,6 @@ class EntryView {
                 Button("SampleFadingFour").fontSize(14).onClick {
                     => Router.push(url: "SampleFadingFour")
                 }
-                Button("WanderingCubesTest").fontSize(14).onClick {
-                    => Router.push(url: "WanderingCubesTest")
-                }
                 Button("SampleHourGlass").fontSize(14).onClick {
                     => Router.push(url: "SampleHourGlass")
                 }
@@ -110,8 +109,8 @@ class EntryView {
                 Button("allIndicator").fontSize(14).onClick {
                     => Router.push(url: "AllIndicatorTest")
                 }
-
             }.width(100.percent)
+            }
         }.height(100.percent)
     }
 }

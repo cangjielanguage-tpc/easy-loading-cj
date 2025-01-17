@@ -81,9 +81,6 @@ public class AllTest {
         .setIsOffset(true)
         .setOffsetDirection(Alignment.Top)
         .setOffsetY(70.0)
-        //.setScaleAnimator(1.0)
-        //.setRotateAnimator(360.0)
-
 
     }
     func build() {

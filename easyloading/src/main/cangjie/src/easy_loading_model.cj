@@ -65,6 +65,8 @@ public class EasyLoadingModel {
     //----------------组件显示隐藏-------------------
     @Publish
     var visibility: Visibility = Visibility.None
+    @Publish
+    var isClickAnyHide: Bool = true
 
     //---------------组件动画----------------------
     //缩放
@@ -205,11 +207,6 @@ public class EasyLoadingModel {
         return this
     }
 
-    public func setMaskDisplayTo(maskOpacityTo: Float64): EasyLoadingModel {
-        this.maskOpacityTo = maskOpacityTo
-        return this
-    }
-
 
     //----------------组件显示隐藏-------------------
 
@@ -231,6 +228,10 @@ public class EasyLoadingModel {
             this.visibility = Visibility.None
         }
 
+        return this
+    }
+    public func isClickMaskAnyHide(isClickAnyHide: Bool): EasyLoadingModel {
+        this.isClickAnyHide = isClickAnyHide
         return this
     }
 
