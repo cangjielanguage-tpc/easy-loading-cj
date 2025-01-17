@@ -15,8 +15,6 @@ public class SpinningCircleComponent {
     @State
     var rotateValue1: Float64 = 0.0
 
-    @State
-    var rotateValue2: Float64 = 0.0
 
     var duration: Int32 = 1200
 
@@ -39,13 +37,13 @@ public class SpinningCircleComponent {
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.duration,
-            easing: "ease-out",
+            easing: "extreme-deceleration",
             delay: 0,
             fill: AnimatorFill.None,
             direction: AnimatorDirection.Normal,
             iterations: -1,
             begin: 0.0,
-            end: 7.0
+            end: 1080.0
         )
         return option
     }
@@ -55,7 +53,6 @@ public class SpinningCircleComponent {
             Row() {
                 Stack(Alignment.Center) {
                     Circle(width: this.size, height: this.size).fill(this.color).rotateY(Float32(this.rotateValue1))
-                    //                    .rotateY(Float32(this.rotateValue1))
                 }
             }.width(this.size).height(this.size).alignRules(
                 AlignRuleOption(

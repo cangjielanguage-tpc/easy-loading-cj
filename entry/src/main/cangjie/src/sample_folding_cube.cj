@@ -15,7 +15,7 @@ public class SampleFoldingCube {
                 width: 300.0,
                 height: 300.0,
                 colors: [Color.RED, Color.GREEN],
-                duration: 1200
+                duration: 3600
             )
         }
     }

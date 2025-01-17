@@ -14,7 +14,7 @@ public class SampleFadingCube {
             FadingCubeComponent(
                 width: 300.0,
                 height: 300.0,
-                colors: [Color.RED, Color.GREEN],
+                colors: [Color.WHITE],
                 duration: 1200
             )
         }
