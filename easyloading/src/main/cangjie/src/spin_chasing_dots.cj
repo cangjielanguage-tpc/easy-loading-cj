@@ -1,15 +1,43 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
+@Observed
+public class SpinChasingDotsModel {
+    @Publish
+    var size: Float64 = 50.0
+
+    @Publish
+    var colors: Array<Color> = [Color.BLACK]
+
+
+    @Publish
+    var duration: Int32 = 2000
+    public func setSize(size: Float64): SpinChasingDotsModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): SpinChasingDotsModel {
+        this.colors = colors
+        return this
+    }
+
+    public func setDuration(duration: Int32): SpinChasingDotsModel {
+        this.duration = duration
+        return this
+    }
+}
+
 @Component
-public class SpinChasingDotsComponent {
+public class SpinChasingDots {
+    @State
+    var model: SpinChasingDotsModel = SpinChasingDotsModel()
+
     @State
     var size: Float64 = 50.0
-    var duration: Int32 = 1000
 
     @State
     var rotateValue: Float64 = 0.0
@@ -17,17 +45,12 @@ public class SpinChasingDotsComponent {
     @State
     var scaleValue: Float64 = 1.0
 
-    @State
-    var colors: Array<Color> = [Color.BLACK]
-    var backColor: Color = Color.GRAY
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult1: ?AnimatorResult = None
 
     var animatorResult2: ?AnimatorResult = None
 
     protected override func aboutToAppear() {
+        size = this.model.size
         animatorResult1 = AnimatorResult(setAnimatorOption1())
         animatorResult1().onframe = {
             value: Float64 => this.rotateValue = value
@@ -50,7 +73,7 @@ public class SpinChasingDotsComponent {
     }
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "linear",
             delay: 0,
             fill: AnimatorFill.Forwards,
@@ -63,7 +86,7 @@ public class SpinChasingDotsComponent {
     }
     func setAnimatorOption2(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration / 2,
+            duration: this.model.duration / 2,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.Forwards,
@@ -76,45 +99,20 @@ public class SpinChasingDotsComponent {
     }
 
     func build() {
-        RelativeContainer() {
-            Stack(Alignment.TopStart) {
-                Stack() {
-                    Column() {
-                        Rect(width: this.size * 0.6, height: this.size * 0.6)
-                            .fill(this.colors[0 % this.colors.size])
-                            .scale(Float32(abs(1.0 - this.scaleValue)))
-                    }
-                        .justifyContent(FlexAlign.Start)
-                        .width(100.percent)
-                        .height(100.percent)
-                        .alignItems(HorizontalAlign.Start)
+        Stack(Alignment.TopStart) {
+            Stack() {
+                Column() {
+                    Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
+                        this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
+                    HorizontalAlign.Start)
 
-                    Column() {
-                        Rect(width: this.size * 0.6, height: this.size * 0.6)
-                            .fill(this.colors[1 % this.colors.size])
-                            .scale(Float32(abs(this.scaleValue)))
-                    }
-                        .justifyContent(FlexAlign.End)
-                        .width(100.percent)
-                        .height(100.percent)
-                        .alignItems(HorizontalAlign.Start)
-                }.rotate(x: 0.0, y: 0.0, z: 1.0, centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp,
-                    angle: Float32(this.rotateValue))
-            }
-                .width(this.size)
-                .height(this.size)
-                .alignRules(
-                    AlignRuleOption(
-                        top: VerticalAnchor("__container__", VerticalAlign.Top),
-                        bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                        left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                        right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                    )
-                )
-        }
-            .width(this.width)
-            .height(this.height)
-            .backgroundColor(this.backColor)
-            .border(width: 2.vp, color: Color(0x6699ff))
+                Column() {
+                    Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
+                        this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(this.scaleValue)))
+                }.justifyContent(FlexAlign.End).width(100.percent).height(100.percent).alignItems(HorizontalAlign.Start)
+            }.rotate(x: 0.0, y: 0.0, z: 1.0, centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp,
+                angle: Float32(this.rotateValue))
+        }.width(this.size).height(this.size)
     }
 }

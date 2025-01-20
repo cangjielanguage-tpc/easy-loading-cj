@@ -9,16 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleFadingCircle {
+    @State
+    var model: FadingCircleModel = FadingCircleModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(80.0).setDuration(1200).setColors([Color.RED, Color.GREEN, Color.BLACK])
+    }
+
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                FadingCircleComponent(
-                    width: 300.0,
-                    height: 300.0,
-                    colors: [Color.RED, Color.GREEN, Color.BLACK],
-                    duration: 1200
-                )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                FadingCircle(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

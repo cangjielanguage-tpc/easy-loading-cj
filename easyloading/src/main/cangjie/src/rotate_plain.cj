@@ -1,14 +1,44 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class RotatePlainComponent {
+@Observed
+public class RotatePlainModel {
+    @Publish
+    var size: Float64 = 50.0
+
+    @Publish
+    var angle: Float64 = 90.0
+
+    @Publish
     var color: Color = Color.BLACK
-    var backColor: Color = Color.GRAY
+
+    @Publish
+    var duration: Int32 = 1200
+    public func setSize(size: Float64): RotatePlainModel {
+        this.size = size
+        return this
+    }
+    public func setColor(colors: Color): RotatePlainModel {
+        this.color = color
+        return this
+    }
+
+    public func setDuration(duration: Int32): RotatePlainModel {
+        this.duration = duration
+        return this
+    }
+
+
+}
+
+@Component
+public class RotatePlain {
+    @State
+    var model: RotatePlainModel = RotatePlainModel()
     @State
     var size: Float64 = 50.0
 
@@ -18,14 +48,10 @@ public class RotatePlainComponent {
     @State
     var rotateValue2: Float64 = 0.0
 
-    var duration: Int32 = 1200
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult1: ?AnimatorResult = None
     var animatorResult2: ?AnimatorResult = None
     protected override func aboutToAppear() {
+        size = this.model.size
         animatorResult1 = AnimatorResult(setAnimatorOption1())
         animatorResult1().onframe = {
             value: Float64 =>
@@ -51,7 +77,7 @@ public class RotatePlainComponent {
     }
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.None,
@@ -65,7 +91,7 @@ public class RotatePlainComponent {
 
     func setAnimatorOption2(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.None,
@@ -77,25 +103,16 @@ public class RotatePlainComponent {
         return option
     }
     func build() {
-        RelativeContainer() {
-            Row() {
-                Stack(Alignment.Center) {
-                    if (this.rotateValue1 >= 180.0) {
-                        Rect(width: this.size, height: this.size).fill(this.color).rotateY(
-                            Float32(this.rotateValue1 - 180.0))
-                    } else {
-                        Rect(width: this.size, height: this.size).fill(this.color).rotateX(-Float32(this.rotateValue1))
-                    }
+        Row() {
+            Stack(Alignment.Center) {
+                if (this.rotateValue1 >= 180.0) {
+                    Rect(width: this.size, height: this.size).fill(this.model.color).rotateY(
+                        Float32(this.rotateValue1 - 180.0))
+                } else {
+                    Rect(width: this.size, height: this.size).fill(this.model.color).rotateX(
+                        -Float32(this.rotateValue1))
                 }
-            }.width(this.size).height(this.size).alignRules(
-                AlignRuleOption(
-                    top: VerticalAnchor("__container__", VerticalAlign.Top),
-                    bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                    left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                    right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                )
-            )
-        }.width(this.width).height(this.height).backgroundColor(this.backColor).border(width: 2.vp,
-            color: Color(0x6699ff))
+            }
+        }.width(this.size).height(this.size)
     }
 }

@@ -9,14 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleFadingCube {
+    @State
+    var model: FadingCubeModel = FadingCubeModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(80.0).setDuration(1200).setColors([Color.WHITE])
+    }
+
     func build() {
-        Stack(Alignment.Center) {
-            FadingCubeComponent(
-                width: 300.0,
-                height: 300.0,
-                colors: [Color.WHITE],
-                duration: 1200
-            )
+        Column {
+            Stack(Alignment.Center) {
+                FadingCube(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

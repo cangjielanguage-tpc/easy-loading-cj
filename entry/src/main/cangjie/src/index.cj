@@ -60,6 +60,9 @@ class EntryView {
                 Button("SampleRotateCircle").fontSize(14).onClick {
                     => Router.push(url: "SampleRotateCircle")
                 }
+                Button("DualRingTest").fontSize(14).onClick {
+                    => Router.push(url: "DualRingTest")
+                }
                 Button("SampleRotatePlain").fontSize(14).onClick {
                     => Router.push(url: "SampleRotatePlain")
                 }
@@ -81,9 +84,17 @@ class EntryView {
                 Button("SampleHourGlass").fontSize(14).onClick {
                     => Router.push(url: "SampleHourGlass")
                 }
+                Button("SampleRing").fontSize(14).onClick {
+                    => Router.push(url: "SampleRing")
+                }
+                Button("WanderingCubesTest").fontSize(14).onClick {
+                    => Router.push(url: "WanderingCubesTest")
+                }
+
                 Button("SamplePouringHourGlass").fontSize(14).onClick {
                     => Router.push(url: "SamplePouringHourGlass")
                 }
+
                 Text("----------------------")
                 Button("ShowWaveSample").fontSize(14).onClick {
                     => Router.push(url: "ShowWaveSample")
@@ -100,9 +111,7 @@ class EntryView {
                 Button("WanderingCubesTest").fontSize(14).onClick {
                     => Router.push(url: "WanderingCubesTest")
                 }
-                Button("DualRingTest").fontSize(14).onClick {
-                    => Router.push(url: "DualRingTest")
-                }
+
                 Button("all").fontSize(14).onClick {
                     => Router.push(url: "AllTest")
                 }

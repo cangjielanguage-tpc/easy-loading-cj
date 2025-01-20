@@ -1,14 +1,38 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class WaveComponent {
+@Observed
+public class WaveModel {
+    @Publish
     var size: Float64 = 50.0
 
+    @Publish
+    var colors: Array<Color> = [Color.BLACK]
+
+    @Publish
+    var duration: Int32 = 1200
+    public func setSize(size: Float64): WaveModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): WaveModel {
+        this.colors = colors
+        return this
+    }
+    public func setDuration(duration: Int32): WaveModel {
+        this.duration = duration
+        return this
+    }
+}
+
+@Component
+public class Wave {
+    @State
+    var model: WaveModel = WaveModel()
     var spinKitWaveType: SpinKitWaveType = SpinKitWaveType.START
 
     var duration: Int32 = 1200
@@ -132,35 +156,17 @@ public class WaveComponent {
     }
 
     func build() {
-        RelativeContainer() {
-            Row() {
-                ForEach(
-                    Array<Int64>(this.itemCount, {i => i + 1}),
-                    itemGeneratorFunc: {
-                        _: Int64, idx: Int64 => Column {
-                            Rect(width: this.size / Float64(this.itemCount), height: this.size)
-                                .fill(this.colors[idx % this.colors.size])
-                                .scaleY(Float32(this.scaleValueArr[idx]))
-                        }
+        Row() {
+            ForEach(
+                Array<Int64>(this.itemCount, {i => i + 1}),
+                itemGeneratorFunc: {
+                    _: Int64, idx: Int64 => Column {
+                        Rect(width: this.model.size / Float64(this.itemCount), height: this.model.size).fill(
+                            this.model.colors[idx % this.model.colors.size]).scaleY(Float32(this.scaleValueArr[idx]))
                     }
-                )
-            }
-                .width(this.size * 1.25)
-                .height(this.size)
-                .align(Alignment.Center)
-                .justifyContent(FlexAlign.SpaceBetween)
-                .alignRules(
-                    AlignRuleOption(
-                        top: VerticalAnchor("__container__", VerticalAlign.Top),
-                        bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                        left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                        right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                    )
-                )
-        }
-            .width(this.width)
-            .height(this.height)
-            .backgroundColor(this.backColor)
-            .border(width: 2.vp, color: Color(0x6699ff))
+                }
+            )
+        }.width(this.model.size * 1.25).height(this.model.size).align(Alignment.Center).justifyContent(
+            FlexAlign.SpaceBetween)
     }
 }

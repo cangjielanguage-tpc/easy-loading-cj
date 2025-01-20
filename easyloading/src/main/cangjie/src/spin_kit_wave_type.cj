@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 import ohos.component.Circle
@@ -34,7 +34,7 @@ public enum EasyLoadingIndicatorType {
     | DOUBLEBOUNCE
     | FADINGFOUR
     | FADINGCUBE
-    | PLUSE
+    | PULSE
     | CUBEGRID
     | ROTATINGCIRCLE
     | FOLDINGCUBE
@@ -61,7 +61,7 @@ public enum EasyLoadingIndicatorType {
             case (DOUBLEBOUNCE, DOUBLEBOUNCE) => true
             case (FADINGFOUR, FADINGFOUR) => true
             case (FADINGCUBE, FADINGCUBE) => true
-            case (PLUSE, PLUSE) => true
+            case (PULSE, PULSE) => true
             case (CUBEGRID, CUBEGRID) => true
             case (ROTATINGCIRCLE, ROTATINGCIRCLE) => true
             case (FOLDINGCUBE, FOLDINGCUBE) => true

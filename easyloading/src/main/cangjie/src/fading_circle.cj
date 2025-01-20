@@ -1,27 +1,45 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class FadingCircleComponent {
-    let delays: Array<Float64> = [0.0, -1.1, -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1]
-    @State
+@Observed
+public class FadingCircleModel {
+    @Publish
     var size: Float64 = 50.0
+
+    @Publish
+    var colors: Array<Color> = [Color.BLACK]
+
+    @Publish
     var duration: Int32 = 1200
+    public func setSize(size: Float64): FadingCircleModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): FadingCircleModel {
+        this.colors = colors
+        return this
+    }
+    public func setDuration(duration: Int32): FadingCircleModel {
+        this.duration = duration
+        return this
+    }
+}
+
+@Component
+public class FadingCircle {
+    @State
+    var model: FadingCircleModel = FadingCircleModel()
+    let delays: Array<Float64> = [0.0, -1.1, -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1]
+
     var shapeType: ShowShapeType = ShowShapeType.Circle
     @State
     var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
         1.0, 1.0, 1.0, 1.0)
 
-    var colors: Array<Color> = [Color.BLACK]
-    var backColor: Color = Color.GRAY
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult: ?AnimatorResult = None
 
     protected override func aboutToAppear(): Unit {
@@ -41,7 +59,7 @@ public class FadingCircleComponent {
     }
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "linear",
             delay: 100 * idx,
             fill: AnimatorFill.None,
@@ -54,33 +72,25 @@ public class FadingCircleComponent {
     }
 
     func build() {
-        RelativeContainer() {
-            Stack(Alignment.TopStart) {
+            Stack(Alignment.Center) {
                 ForEach(
                     Array<Int64>(12, {i => i + 1}),
                     itemGeneratorFunc: {
                         _: Int64, idx: Int64 => if (shapeType == ShowShapeType.Rect) {
-                            Rect(width: this.size * 0.2, height: this.size * 0.2).fill(
-                                this.colors[idx % this.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
-                                centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp, angle: Float32(idx * 30)).
+                            Rect(width: this.model.size * 0.2, height: this.model.size * 0.2).fill(
+                                this.model.colors[idx % this.model.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
+                                centerX: (this.model.size / 2.0).vp, centerY: (this.model.size / 2.0).vp, angle: Float32(idx * 30)).
                                 opacity(this.fadeValueArr[idx])
                         } else {
-                            Circle(width: this.size * 0.2, height: this.size * 0.2).fill(
-                                this.colors[idx % this.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
-                                centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp, angle: Float32(idx * 30)).
+                            Circle(width: this.model.size * 0.2, height: this.model.size * 0.2).fill(
+                                this.model.colors[idx % this.model.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
+                                centerX: (this.model.size / 2.0).vp, centerY: (this.model.size / 2.0).vp, angle: Float32(idx * 30)).
                                 opacity(this.fadeValueArr[idx])
                         }
                     }
                 )
-            }.width(this.size).height(this.size).alignRules(
-                AlignRuleOption(
-                    top: VerticalAnchor("__container__", VerticalAlign.Top),
-                    bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                    left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                    right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                )
-            )
-        }.width(this.width).height(this.height).backgroundColor(this.backColor).border(width: 2.vp,
-            color: Color(0x6699ff))
+            }.align(Alignment.Center)
+//        .width(this.size).height(this.size)
+
     }
 }

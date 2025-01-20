@@ -1,26 +1,53 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
+@Observed
+public class PulseModel {
+    @Publish
+    var size: Float64 = 50.0
+
+    @Publish
+    var angle: Float64 = 90.0
+
+    @Publish
+    var color: Color = Color.RED
+
+
+    @Publish
+    var duration: Int32 = 1000
+    public func setSize(size: Float64): PulseModel {
+        this.size = size
+        return this
+    }
+    public func setColor(colors: Color): PulseModel {
+        this.color = color
+        return this
+    }
+
+    public func setDuration(duration: Int32): PulseModel {
+        this.duration = duration
+        return this
+    }
+
+
+}
+
 @Component
-public class PulseComponent {
-    var color: Color = Color.BLACK
-    var backColor: Color = Color.GRAY
+public class Pulse {
     @State
     var size: Float64 = 50.0
 
     @State
+    var model: PulseModel = PulseModel()
+    @State
     var scaleValue: Float64 = 1.0
-    var duration: Int32 = 1000
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult: ?AnimatorResult = None
     protected override func aboutToAppear() {
+        size = this.model.size
         animatorResult = AnimatorResult(setAnimatorOption())
         animatorResult().onframe = {
             value: Float64 => this.scaleValue = value
@@ -34,7 +61,7 @@ public class PulseComponent {
     }
     func setAnimatorOption(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.None,
@@ -46,29 +73,11 @@ public class PulseComponent {
         return option
     }
     func build() {
-        RelativeContainer() {
-            Row() {
-                Stack(Alignment.Center) {
-                    Rect(width: this.size, height: this.size)
-                        .fill(this.color)
-                        .scale(Float32(abs(1.0 - this.scaleValue)))
-                        .opacity(this.scaleValue)
-                }
+        Row() {
+            Stack(Alignment.Center) {
+                Rect(width: this.size, height: this.size).fill(this.model.color).scale(
+                    Float32(abs(1.0 - this.scaleValue))).opacity(this.scaleValue)
             }
-                .width(this.size)
-                .height(this.size)
-                .alignRules(
-                    AlignRuleOption(
-                        top: VerticalAnchor("__container__", VerticalAlign.Top),
-                        bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                        left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                        right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                    )
-                )
-        }
-            .width(this.width)
-            .height(this.height)
-            .backgroundColor(this.backColor)
-            .border(width: 2.vp, color: Color(0x6699ff))
+        }.width(this.size).height(this.size)
     }
 }

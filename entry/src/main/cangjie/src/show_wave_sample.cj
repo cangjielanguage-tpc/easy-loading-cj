@@ -3,23 +3,24 @@
  */
 package ohos_app_cangjie_entry
 
- import ohos.state_macro_manage.*
+import ohos.state_macro_manage.*
 internal import ohos.component.*
 
 @Entry
 @Component
 public class ShowWaveSample {
+    @State
+    var model: WaveModel = WaveModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(80.0).setDuration(1200).setColors([Color.RED, Color.GREEN, Color.BLACK])
+    }
 
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                WaveComponent(
-                        width: 300.0,
-                        height: 300.0,
-                        colors: [Color.RED, Color.GREEN, Color.BLACK],
-                        duration: 700
-                    )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                Wave(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

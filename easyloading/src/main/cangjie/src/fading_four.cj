@@ -1,26 +1,43 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class FadingFourComponent {
-    //    let delays: Array<Float64> = [0.0, -1.1, -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1]
-    @State
+@Observed
+public class FadingFourModel {
+    @Publish
     var size: Float64 = 50.0
+
+    @Publish
+    var colors: Array<Color> = [Color.RED]
+
+    @Publish
     var duration: Int32 = 600
+    public func setSize(size: Float64): FadingFourModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): FadingFourModel {
+        this.colors = colors
+        return this
+    }
+
+    public func setDuration(duration: Int32): FadingFourModel {
+        this.duration = duration
+        return this
+    }
+}
+
+@Component
+public class FadingFour {
+    @State
+    var model: FadingFourModel = FadingFourModel()
 
     @State
     var fadeValueArr: ObservedArray<Float64> = ObservedArray<Float64>(1.0, 1.0, 1.0, 1.0)
 
-    var colors: Array<Color> = [Color.BLACK]
-    var backColor: Color = Color.GRAY
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult1: ?AnimatorResult = None
     var animatorResult2: ?AnimatorResult = None
     var animatorResult3: ?AnimatorResult = None
@@ -68,7 +85,7 @@ public class FadingFourComponent {
     }
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 500 * idx,
             fill: AnimatorFill.Forwards,
@@ -81,30 +98,27 @@ public class FadingFourComponent {
     }
 
     func build() {
-        RelativeContainer() {
-            Column() {
-                Row() {
-                    Rect().width(this.size / 3.0).height(this.size / 3.0).opacity(this.fadeValueArr[0]).fill(
-                        this.colors[0 % this.colors.size])
-                    Rect().width(this.size / 3.0).height(this.size / 3.0).opacity(this.fadeValueArr[1]).fill(
-                        this.colors[1 % this.colors.size])
-                }.justifyContent(FlexAlign.SpaceBetween).width(this.size)
+        Column() {
+            Row() {
+                Rect().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[0]).fill(
+                    this.model.colors[0 % this.model.colors.size])
+                Rect().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[1]).fill(
+                    this.model.colors[1 % this.model.colors.size])
+            }.justifyContent(FlexAlign.SpaceBetween).width(this.model.size)
 
-                Row() {
-                    Rect().width(this.size / 3.0).height(this.size / 3.0).opacity(this.fadeValueArr[3]).fill(
-                        this.colors[3 % this.colors.size])
-                    Rect().width(this.size / 3.0).height(this.size / 3.0).opacity(this.fadeValueArr[2]).fill(
-                        this.colors[2 % this.colors.size])
-                }.justifyContent(FlexAlign.SpaceBetween).width(this.size)
-            }.justifyContent(FlexAlign.SpaceBetween).alignRules(
-                AlignRuleOption(
-                    top: VerticalAnchor("__container__", VerticalAlign.Top),
-                    bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                    left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                    right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                )
-            ).width(this.size).height(this.size)
-        }.width(this.width).height(this.height).backgroundColor(this.backColor).border(width: 2.vp,
-            color: Color(0x6699ff))
+            Row() {
+                Rect().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[3]).fill(
+                    this.model.colors[3 % this.model.colors.size])
+                Rect().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[2]).fill(
+                    this.model.colors[2 % this.model.colors.size])
+            }.justifyContent(FlexAlign.SpaceBetween).width(this.model.size)
+        }.justifyContent(FlexAlign.SpaceBetween).alignRules(
+            AlignRuleOption(
+                top: VerticalAnchor("__container__", VerticalAlign.Top),
+                bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
+                left: HorizontalAnchor("__container__", HorizontalAlign.Start),
+                right: HorizontalAnchor("__container__", HorizontalAlign.End),
+            )
+        ).width(this.model.size).height(this.model.size)
     }
 }

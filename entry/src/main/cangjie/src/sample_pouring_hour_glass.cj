@@ -9,14 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SamplePouringHourGlass {
+    @State
+    var model: PouringHourGlassModel = PouringHourGlassModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(60.0).setDuration(1200).setColor(Color.RED)
+    }
 
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                PouringHourGlassComponent(
-
-                    )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                PouringHourGlass(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

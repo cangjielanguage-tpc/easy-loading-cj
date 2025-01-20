@@ -9,17 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleThreeBounce {
+    @State
+    var model: ThreeBounceModel = ThreeBounceModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(80.0).setDuration(700).setColors([Color.RED, Color.GREEN, Color.BLACK])
+    }
 
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-               ThreeBounceComponent(
-                        width: 300.0,
-                        height: 300.0,
-                        colors: [Color.RED, Color.GREEN, Color.BLACK],
-                        duration: 700
-                    )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                ThreeBounce(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

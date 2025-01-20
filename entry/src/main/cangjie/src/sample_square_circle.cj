@@ -8,19 +8,19 @@ internal import ohos.component.*
 
 @Entry
 @Component
-public class SampleSquareCircle {
+public class SquareCircleSample {
+    @State
+    var model: SquareCircleModel = SquareCircleModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(120.0).setDuration(600).setColor(Color.RED)
+    }
 
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                SquareCircleComponent(
-                        width: 300.0,
-                        height: 300.0,
-                        color: Color.RED,
-                        duration: 600,
-                        size: 120.0
-                    )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                SquareCircle(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }
