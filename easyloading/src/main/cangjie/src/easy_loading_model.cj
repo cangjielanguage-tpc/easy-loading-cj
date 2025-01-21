@@ -1,9 +1,9 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
-import ohos.state_macro_manage.*
 
+import ohos.state_macro_manage.*
 
 @Observed
 public class EasyLoadingModel {
@@ -16,6 +16,61 @@ public class EasyLoadingModel {
     var cubeGridModel: ?CubeGridModel = Option<CubeGridModel>.None
     @Publish
     var pumpingHeartModel: ?PumpingHeartModel = Option<PumpingHeartModel>.None
+
+    @Publish
+    var circleModel: ?CircleModel = Option<CircleModel>.None
+
+    @Publish
+    var doubleBounceModel: ?DoubleBounceModel = Option<DoubleBounceModel>.None
+
+    @Publish
+    var fadingCircleModel: ?FadingCircleModel = Option<FadingCircleModel>.None
+
+    @Publish
+    var fadingCubeModel: ?FadingCubeModel = Option<FadingCubeModel>.None
+
+    @Publish
+    var fadingFourModel: ?FadingFourModel = Option<FadingFourModel>.None
+
+    @Publish
+    var foldingCubeModel: ?FoldingCubeModel = Option<FoldingCubeModel>.None
+
+    @Publish
+    var hourGlassModel: ?HourGlassModel = Option<HourGlassModel>.None
+
+    @Publish
+    var pouringHourGlassModel: ?PouringHourGlassModel = Option<PouringHourGlassModel>.None
+
+    @Publish
+    var pulseModel: ?PulseModel = Option<PulseModel>.None
+
+    @Publish
+    var ringModel: ?RingModel = Option<RingModel>.None
+
+    @Publish
+    var rotateCircleModel: ?RotateCircleModel = Option<RotateCircleModel>.None
+
+    @Publish
+    var rotatePlainModel: ?RotatePlainModel = Option<RotatePlainModel>.None
+
+    @Publish
+    var spinChasingDotsModel: ?SpinChasingDotsModel = Option<SpinChasingDotsModel>.None
+
+    @Publish
+    var spinningCircleModel: ?SpinningCircleModel = Option<SpinningCircleModel>.None
+
+    @Publish
+    var squareCircleModel: ?SquareCircleModel = Option<SquareCircleModel>.None
+
+    @Publish
+    var threeBounceModel: ?ThreeBounceModel = Option<ThreeBounceModel>.None
+
+    @Publish
+    var waveModel: ?WaveModel = Option<WaveModel>.None
+
+    @Publish
+    var wanderingCubesModel: ?WanderingCubesModel = Option<WanderingCubesModel>.None
+
     //-------------Toast----------
     @Publish
     var toastModel: ?ToastModel = Option<ToastModel>.None
@@ -44,7 +99,6 @@ public class EasyLoadingModel {
     @Publish
     var alignment: Alignment = Alignment.Center
 
-
     //----------------------mask------------------
     @Publish
     var isMask: Bool = true
@@ -52,7 +106,8 @@ public class EasyLoadingModel {
     var maskBgColor: Color = Color.BLACK
     //无动画设置透明度
     @Publish
-    var maskOpacityNormal: Float64 = 0.5  //无动画设置透明度
+    var maskOpacityNormal: Float64 = 0.5 //无动画设置透明度
+
     //有无动画设置透明度
     @Publish
     var maskOpacityFrom: Float64 = 0.0
@@ -60,7 +115,6 @@ public class EasyLoadingModel {
     var maskOpacityTo: Float64 = 0.5
     @Publish
     var isMaskDisplayAnimator: Bool = false
-
 
     //----------------组件显示隐藏-------------------
     @Publish
@@ -120,6 +174,85 @@ public class EasyLoadingModel {
         this.pumpingHeartModel = pumpingHeartModel
         return this
     }
+    public func setCircleModel(circleModel: CircleModel): EasyLoadingModel {
+        this.circleModel = circleModel
+        return this
+    }
+
+    public func setDoubleBounceModel(doubleBounceModel: DoubleBounceModel): EasyLoadingModel {
+        this.doubleBounceModel = doubleBounceModel
+        return this
+    }
+
+    public func setFadingCircleModel(model: FadingCircleModel): EasyLoadingModel {
+        this.fadingCircleModel = model
+        return this
+    }
+
+    public func setFadingCubeModel(model: FadingCubeModel): EasyLoadingModel {
+        this.fadingCubeModel = model
+        return this
+    }
+    public func setFadingFourModel(model: FadingFourModel): EasyLoadingModel {
+        this.fadingFourModel = model
+        return this
+    }
+    public func setFoldingCubeModel(model: FoldingCubeModel): EasyLoadingModel {
+        this.foldingCubeModel = model
+        return this
+    }
+
+    public func setHourGlassModel(model: HourGlassModel): EasyLoadingModel {
+        this.hourGlassModel = model
+        return this
+    }
+
+    public func setPouringHourGlassModel(model: PouringHourGlassModel): EasyLoadingModel {
+        this.pouringHourGlassModel = model
+        return this
+    }
+    public func setPulseModel(model: PulseModel): EasyLoadingModel {
+        this.pulseModel = model
+        return this
+    }
+    public func setRingModel(model: RingModel): EasyLoadingModel {
+        this.ringModel = model
+        return this
+    }
+    public func setRotateCircleModel(model: RotateCircleModel): EasyLoadingModel {
+        this.rotateCircleModel = model
+        return this
+    }
+    public func setRotatePlainModel(model: RotatePlainModel): EasyLoadingModel {
+        this.rotatePlainModel = model
+        return this
+    }
+    public func setSpinningCircleModel(model: SpinningCircleModel): EasyLoadingModel {
+        this.spinningCircleModel = model
+        return this
+    }
+    public func setSpinChasingDotsModel(model: SpinChasingDotsModel): EasyLoadingModel {
+        this.spinChasingDotsModel = model
+        return this
+    }
+    public func setSquareCircleModel(model: SquareCircleModel): EasyLoadingModel {
+        this.squareCircleModel = model
+        return this
+    }
+    public func setThreeBounceModel(model: ThreeBounceModel): EasyLoadingModel {
+        this.threeBounceModel = model
+        return this
+    }
+
+    public func setWaveModel(model: WaveModel): EasyLoadingModel {
+        this.waveModel = model
+        return this
+    }
+
+    public func setWanderingCubesModel(model: WanderingCubesModel): EasyLoadingModel {
+        this.wanderingCubesModel = model
+        return this
+    }
 
     public func setToastModel(toastModel: ToastModel): EasyLoadingModel {
         this.toastModel = toastModel
@@ -135,6 +268,65 @@ public class EasyLoadingModel {
     public func getPumpingHeartModel(): ?PumpingHeartModel {
         return this.pumpingHeartModel
     }
+    public func getCircleModel(): ?CircleModel {
+        return this.circleModel
+    }
+    public func getDoubleBounceModel(): ?DoubleBounceModel {
+        return this.doubleBounceModel
+    }
+    public func getFadingCircleModel(): ?FadingCircleModel {
+        return this.fadingCircleModel
+    }
+    public func getFadingCubeModel(): ?FadingCubeModel {
+        return this.fadingCubeModel
+    }
+    public func getFadingFourModel(): ?FadingFourModel {
+        return this.fadingFourModel
+    }
+
+    public func getFoldingCubeModel(): ?FoldingCubeModel {
+        return this.foldingCubeModel
+    }
+
+    public func getHourGlassModel(): ?HourGlassModel {
+        return this.hourGlassModel
+    }
+    public func getPouringHourGlassModel(): ?PouringHourGlassModel {
+        return this.pouringHourGlassModel
+    }
+    public func getPulseModel(): ?PulseModel {
+        return this.pulseModel
+    }
+    public func getRingModel(): ?RingModel {
+        return this.ringModel
+    }
+    public func getRotateCircleModel(): ?RotateCircleModel {
+        return this.rotateCircleModel
+    }
+    public func getRotatePlainModel(): ?RotatePlainModel {
+        return this.rotatePlainModel
+    }
+    public func getSpinChasingDotsModel(): ?SpinChasingDotsModel {
+        return this.spinChasingDotsModel
+    }
+    public func getSpinningCircleModel(): ?SpinningCircleModel {
+        return this.spinningCircleModel
+    }
+    public func getSquareCircleModel(): ?SquareCircleModel {
+        return this.squareCircleModel
+    }
+    public func getThreeBounceModel(): ?ThreeBounceModel {
+        return this.threeBounceModel
+    }
+
+    public func getWaveModel(): ?WaveModel {
+        return this.waveModel
+    }
+
+    public func getWanderingCubesModel(): ?WanderingCubesModel {
+        return this.wanderingCubesModel
+    }
+
     public func getToastModel(): ?ToastModel {
         return this.toastModel
     }
@@ -142,8 +334,6 @@ public class EasyLoadingModel {
     public func getIndicatorType(): ?EasyLoadingIndicatorType {
         return this.indicatorType
     }
-
-
 
     //---------------style-----------
     public func setWidth(width: Float64): EasyLoadingModel {
@@ -207,23 +397,25 @@ public class EasyLoadingModel {
         return this
     }
 
-
     //----------------组件显示隐藏-------------------
 
     public func show(): EasyLoadingModel {
         this.visibility = Visibility.Visible
-        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset || this.isOpacity) {
+        if (this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset || this.isOpacity) {
             this.showAnimator()
         }
         return this
     }
     public func hide(): EasyLoadingModel {
-        if(this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset|| this.isOpacity ) {
+        if (this.isMaskDisplayAnimator || this.isScale || this.isRotate || this.isOffset || this.isOpacity) {
             this.hideAnimator()
 
-            Timer.once(Duration.millisecond * 200, { =>
-                this.visibility = Visibility.None
-            })
+            Timer.once(
+                Duration.millisecond * 200,
+                {
+                    => this.visibility = Visibility.None
+                }
+            )
         } else {
             this.visibility = Visibility.None
         }
@@ -270,7 +462,7 @@ public class EasyLoadingModel {
     }
 
     public func setOffsetX(offsetX: Float64): EasyLoadingModel {
-        if(this.isOffset) {
+        if (this.isOffset) {
             this.offsetXTo = offsetX
         } else {
             this.offsetXFrom = offsetX
@@ -279,7 +471,7 @@ public class EasyLoadingModel {
         return this
     }
     public func setOffsetY(offsetY: Float64): EasyLoadingModel {
-        if(this.isOffset) {
+        if (this.isOffset) {
             this.offsetYTo = offsetY
         } else {
             this.offsetYFrom = offsetY
@@ -306,25 +498,25 @@ public class EasyLoadingModel {
                 iterations: 1,
                 playMode: PlayMode.Normal
             ),
-            {=>
-                if(this.isMaskDisplayAnimator) {
+            {
+                =>
+                if (this.isMaskDisplayAnimator) {
                     this.maskOpacityFrom = this.maskOpacityTo
                 }
-                if(this.isScale) {
+                if (this.isScale) {
                     this.scaleFrom = this.scaleTo
                 }
-                if(this.isRotate) {
+                if (this.isRotate) {
                     this.rotateFrom = this.rotateTo
                 }
-                if(this.isOffset) {
+                if (this.isOffset) {
                     this.offsetXFrom = this.offsetXTo
                     this.offsetYFrom = this.offsetYTo
                 }
-                if(this.isOpacity) {
-                    Hilog.error(0,"","2----${this.isOpacity}")
+                if (this.isOpacity) {
+                    Hilog.error(0, "", "2----${this.isOpacity}")
                     this.opacityFrom = this.opacityTo
                 }
-
             }
         )
     }
@@ -338,25 +530,25 @@ public class EasyLoadingModel {
                 playMode: PlayMode.Normal,
                 onFinish: {=> AppLog.info("play end")}
             ),
-            {=>
-                if(this.isMaskDisplayAnimator) {
+            {
+                =>
+                if (this.isMaskDisplayAnimator) {
                     this.maskOpacityFrom = 0.0
                 }
-                if(this.isScale) {
+                if (this.isScale) {
                     this.scaleFrom = 0.0
                 }
-                if(this.isRotate) {
+                if (this.isRotate) {
                     this.rotateFrom = -this.rotateTo
                 }
-                if(this.isOffset) {
+                if (this.isOffset) {
                     this.offsetXFrom = 0.0
                     this.offsetYFrom = 0.0
                 }
-                if(this.isOpacity) {
+                if (this.isOpacity) {
                     this.opacityFrom = 0.0
                 }
             }
         )
     }
-
 }

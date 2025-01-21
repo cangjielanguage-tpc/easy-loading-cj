@@ -1,26 +1,42 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class FadingCubeComponent {
-    //    let delays: Array<Float64> = [0.0, -1.1, -1.0, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1]
-    @State
+@Observed
+public class FadingCubeModel {
+    @Publish
     var size: Float64 = 50.0
-    var duration: Int32 = 1200
 
+    @Publish
+    var colors: Array<Color> = [Color.BLACK]
+
+    @Publish
+    var duration: Int32 = 1200
+    public func setSize(size: Float64): FadingCubeModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): FadingCubeModel {
+        this.colors = colors
+        return this
+    }
+
+    public func setDuration(duration: Int32): FadingCubeModel {
+        this.duration = duration
+        return this
+    }
+}
+
+@Component
+public class FadingCube {
+    @State
+    var model: FadingCubeModel = FadingCubeModel()
     @State
     var fadeValueArr: ObservedArray<Float64> = ObservedArray<Float64>(1.0, 1.0, 1.0, 1.0)
 
-    var colors: Array<Color> = [Color.BLACK]
-    var backColor: Color = Color.GRAY
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult1: ?AnimatorResult = None
     var animatorResult2: ?AnimatorResult = None
     var animatorResult3: ?AnimatorResult = None
@@ -68,7 +84,7 @@ public class FadingCubeComponent {
     }
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 450 * idx,
             fill: AnimatorFill.Forwards,
@@ -81,27 +97,17 @@ public class FadingCubeComponent {
     }
 
     func build() {
-        RelativeContainer() {
-            Stack(Alignment.TopStart) {
-                Flex(FlexParams(wrap: FlexWrap.Wrap)) {
-                    Rect().width(this.size / 2.0).height(this.size / 2.0).opacity(this.fadeValueArr[0]).fill(
-                        this.colors[0 % this.colors.size])
-                    Rect().width(this.size / 2.0).height(this.size / 2.0).opacity(this.fadeValueArr[1]).fill(
-                        this.colors[1 % this.colors.size])
-                    Rect().width(this.size / 2.0).height(this.size / 2.0).opacity(this.fadeValueArr[3]).fill(
-                        this.colors[3 % this.colors.size])
-                    Rect().width(this.size / 2.0).height(this.size / 2.0).opacity(this.fadeValueArr[2]).fill(
-                        this.colors[2 % this.colors.size])
-                }.width(this.size)
-            }.width(this.size).height(this.size).alignRules(
-                AlignRuleOption(
-                    top: VerticalAnchor("__container__", VerticalAlign.Top),
-                    bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                    left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                    right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                )
-            ).rotate(x: 0.0, y: 0.0, z: 1.0, angle: -45.0)
-        }.width(this.width).height(this.height).backgroundColor(this.backColor).border(width: 2.vp,
-            color: Color(0x6699ff))
+        Stack(Alignment.TopStart) {
+            Flex(FlexParams(wrap: FlexWrap.Wrap)) {
+                Rect().width(this.model.size / 2.0).height(this.model.size / 2.0).opacity(this.fadeValueArr[0]).fill(
+                    this.model.colors[0 % this.model.colors.size])
+                Rect().width(this.model.size / 2.0).height(this.model.size / 2.0).opacity(this.fadeValueArr[1]).fill(
+                    this.model.colors[1 % this.model.colors.size])
+                Rect().width(this.model.size / 2.0).height(this.model.size / 2.0).opacity(this.fadeValueArr[3]).fill(
+                    this.model.colors[3 % this.model.colors.size])
+                Rect().width(this.model.size / 2.0).height(this.model.size / 2.0).opacity(this.fadeValueArr[2]).fill(
+                    this.model.colors[2 % this.model.colors.size])
+            }.width(this.model.size)
+        }.width(this.model.size).height(this.model.size).rotate(x: 0.0, y: 0.0, z: 1.0, angle: -45.0)
     }
 }

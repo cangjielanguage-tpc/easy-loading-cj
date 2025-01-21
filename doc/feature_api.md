@@ -711,13 +711,782 @@ public class ToastModel {
 }
 ```
 
-#### 2.5.2 ToastIndicator 组件
+#### 2.6.2 ToastIndicator 组件
 
 ```cangjie
 @Component
 public class ToastIndicator {
     @State
     var model: ToastModel = ToastModel()
+}
+```
+
+
+### 2.7 Circle
+
+#### 2.7.1 CircleModel
+
+```cangjie
+
+public class CircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 CircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): CircleModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 CircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): CircleModel
+
+    /**
+     * 设置动画时长，默认 1200
+     *
+     * 参数 duration - 动画时长
+     * 返回 CircleModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): CircleModel
+}
+```
+
+#### 2.7.2 Circle 组件
+
+```cangjie
+@Component
+public class CircleComponent {
+    @State
+    var model: CircleModel = CircleModel()  // 数据配置类
+}
+```
+
+### 2.8 DoubleBounce
+
+#### 2.8.1 DoubleBounceModel
+
+```cangjie
+
+public class DoubleBounceModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 DoubleBounceModel - 数据配置类
+     */
+    public func setSize(size: Float64): DoubleBounceModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 DoubleBounceModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): DoubleBounceModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 DoubleBounceModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): DoubleBounceModel
+}
+```
+
+#### 2.8.2 DoubleBounce 组件
+
+```cangjie
+@Component
+public class DoubleBounce {
+    @State
+    var model: DoubleBounceModel = DoubleBounceModel()  // 数据配置类
+}
+```
+
+### 2.9 FadingCircle
+
+#### 2.9.1 FadingCircleModel
+
+```cangjie
+
+public class FadingCircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 FadingCircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): FadingCircleModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 FadingCircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): FadingCircleModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 FadingCircleModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): FadingCircleModel
+}
+```
+
+#### 2.9.2 FadingCircle 组件
+
+```cangjie
+@Component
+public class FadingCircle {
+    @State
+    var model: FadingCircleModel = FadingCircleModel()  // 数据配置类
+}
+```
+
+
+### 2.10 FadingCube
+
+#### 2.10.1 FadingCubeModel
+
+```cangjie
+
+public class FadingCubeModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 FadingCubeModel - 数据配置类
+     */
+    public func setSize(size: Float64): FadingCubeModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 FadingCubeModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): FadingCubeModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 FadingCubeModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): FadingCubeModel
+}
+```
+
+#### 2.10.2 FadingCube 组件
+
+```cangjie
+@Component
+public class FadingCube {
+    @State
+    var model: FadingCubeModel = FadingCubeModel()  // 数据配置类
+}
+```
+
+### 2.11 FadingFour
+
+#### 2.11.1 FadingFourModel
+
+```cangjie
+
+public class FadingFourModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 FadingFourModel - 数据配置类
+     */
+    public func setSize(size: Float64): FadingFourModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 FadingFourModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): FadingFourModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 FadingFourModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): FadingFourModel
+}
+```
+
+#### 2.11.2 FadingFour 组件
+
+```cangjie
+@Component
+public class FadingFour {
+    @State
+    var model: FadingFourModel = FadingFourModel()  // 数据配置类
+}
+```
+
+
+### 2.12 FoldingCube
+
+#### 2.12.1 FoldingCubeModel
+
+```cangjie
+
+public class FoldingCubeModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 FoldingCubeModel - 数据配置类
+     */
+    public func setSize(size: Float64): FoldingCubeModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 FoldingCubeModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): FoldingCubeModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 FoldingCubeModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): FoldingCubeModel
+}
+```
+
+#### 2.12.2 FoldingCube 组件
+
+```cangjie
+@Component
+public class FoldingCube {
+    @State
+    var model: FoldingCubeModel = FoldingCubeModel()  // 数据配置类
+}
+```
+
+
+### 2.13 HourGlass
+
+#### 2.13.1 HourGlassModel
+
+```cangjie
+
+public class HourGlassModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 HourGlassModel - 数据配置类
+     */
+    public func setSize(size: Float64): HourGlassModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 HourGlassModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): HourGlassModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 HourGlassModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): HourGlassModel
+    
+    /**
+     * 设置扇形角度，默认 90.0
+     *
+     * 参数 angle - 扇形角度
+     * 返回 HourGlassModel - 数据配置类
+     */
+    public func setAngle(angle: Float64): HourGlassModel 
+    
+    /**
+     * 设置图形宽度，默认 1.0
+     *
+     * 参数 strokeWidth - 图形宽度
+     * 返回 HourGlassModel - 数据配置类
+     */
+    public func setStrokeWidth(strokeWidth: Float64): HourGlassModel
+}
+```
+
+#### 2.13.2 HourGlass 组件
+
+```cangjie
+@Component
+public class HourGlass {
+    @State
+    var model: HourGlassModel = HourGlassModel()  // 数据配置类
+}
+```
+
+### 2.14 PouringHourGlass
+
+#### 2.14.1 HourGlassModel
+
+```cangjie
+
+public class PouringHourGlassModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 PouringHourGlassModel - 数据配置类
+     */
+    public func setSize(size: Float64): PouringHourGlassModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 PouringHourGlassModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): PouringHourGlassModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 PouringHourGlassModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): PouringHourGlassModel
+
+    /**
+     * 设置图形宽度，默认 1.0
+     *
+     * 参数 strokeWidth - 图形宽度
+     * 返回 PouringHourGlassModel - 数据配置类
+     */
+    public func setStrokeWidth(strokeWidth: Float64): PouringHourGlassModel
+}
+```
+
+#### 2.14.2 PouringHourGlass 组件
+
+```cangjie
+@Component
+public class PouringHourGlass {
+    @State
+    var model: PouringHourGlassModel = PouringHourGlassModel()  // 数据配置类
+}
+```
+
+
+### 2.15 Pulse
+
+#### 2.15.1 PulseModel
+
+```cangjie
+
+public class PulseModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 PulseModel - 数据配置类
+     */
+    public func setSize(size: Float64): PulseModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 PulseModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): PulseModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 PulseModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): PulseModel
+    
+}
+```
+
+#### 2.15.2 Pulse 组件
+
+```cangjie
+@Component
+public class Pulse {
+    @State
+    var model: PulseModel = PulseModel()  // 数据配置类
+}
+```
+
+
+### 2.16 Ring
+
+#### 2.16.1 RingModel
+
+```cangjie
+
+public class RingModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RingModel - 数据配置类
+     */
+    public func setSize(size: Float64): RingModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RingModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RingModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RingModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RingModel
+    
+}
+```
+
+#### 2.16.2 Ring 组件
+
+```cangjie
+@Component
+public class Ring {
+    @State
+    var model: RingModel = RingModel()  // 数据配置类
+}
+```
+
+### 2.17 RotateCircle
+
+#### 2.17.1 RotateCircleModel
+
+```cangjie
+
+public class RotateCircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RotateCircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): RotateCircleModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RotateCircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RotateCircleModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RotateCircleModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RotateCircleModel
+    
+}
+```
+
+#### 2.17.2 RotateCircle 组件
+
+```cangjie
+@Component
+public class RotateCircle {
+    @State
+    var model: RotateCircleModel = RotateCircleModel()  // 数据配置类
+}
+```
+
+### 2.18 RotatePlain
+
+#### 2.18.1 RotatePlainModel
+
+```cangjie
+
+public class RotatePlainModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RotatePlainModel - 数据配置类
+     */
+    public func setSize(size: Float64): RotatePlainModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RotatePlainModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RotatePlainModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RotatePlainModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RotatePlainModel
+    
+}
+```
+
+#### 2.18.2 RotatePlain 组件
+
+```cangjie
+@Component
+public class RotatePlain {
+    @State
+    var model: RotatePlainModel = RotatePlainModel()  // 数据配置类
+}
+```
+### 2.19 SpinChasingDots
+
+#### 2.19.1 SpinChasingDotsModel
+
+```cangjie
+
+public class SpinChasingDotsModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 SpinChasingDotsModel - 数据配置类
+     */
+    public func setSize(size: Float64): SpinChasingDotsModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 SpinChasingDotsModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): SpinChasingDotsModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 SpinChasingDotsModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): SpinChasingDotsModel
+    
+}
+```
+
+#### 2.19.2 SpinChasingDot 组件
+
+```cangjie
+@Component
+public class SpinChasingDots {
+    @State
+    var model: SpinChasingDotsModel = SpinChasingDotsModel()  // 数据配置类
+}
+```
+
+### 2.20 SpinningCircle
+
+#### 2.20.1 SpinningCircleModel
+
+```cangjie
+
+public class SpinningCircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 SpinningCircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): SpinningCircleModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 SpinningCircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): SpinningCircleModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 SpinningCircleModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): SpinningCircleModel
+    
+}
+```
+
+#### 2.20.2 SpinningCircle 组件
+
+```cangjie
+@Component
+public class SpinningCircle {
+    @State
+    var model: SpinningCircleModel = SpinningCircleModel()  // 数据配置类
+}
+```
+
+### 2.21 SquareCircle
+
+#### 2.21.1 SquareCircleModel
+
+```cangjie
+
+public class SquareCircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 SquareCircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): SquareCircleModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 SquareCircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): SquareCircleModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 SquareCircleModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): SquareCircleModel
+    
+}
+```
+
+#### 2.21.2 SquareCircle 组件
+
+```cangjie
+@Component
+public class SquareCircle {
+    @State
+    var model: SquareCircleModel = SquareCircleModel()  // 数据配置类
+}
+```
+
+### 2.22 ThreeBounce
+
+#### 2.22.1 ThreeBounceModel
+
+```cangjie
+
+public class ThreeBounceModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 ThreeBounceModel - 数据配置类
+     */
+    public func setSize(size: Float64): ThreeBounceModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 ThreeBounceModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): ThreeBounceModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 ThreeBounceModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): ThreeBounceModel
+    
+}
+```
+
+#### 2.22.2 ThreeBounce 组件
+
+```cangjie
+@Component
+public class ThreeBounce {
+    @State
+    var model: ThreeBounceModel = ThreeBounceModel()  // 数据配置类
+}
+```
+
+### 2.23 Wave
+
+#### 2.23.1 WaveModel
+
+```cangjie
+
+public class WaveModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 WaveModel - 数据配置类
+     */
+    public func setSize(size: Float64): WaveModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 WaveModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): WaveModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 WaveModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): WaveModel
+    
+}
+```
+
+#### 2.23.2 Wave 组件
+
+```cangjie
+@Component
+public class Wave {
+    @State
+    var model: WaveModel = WaveModel()  // 数据配置类
 }
 ```
 

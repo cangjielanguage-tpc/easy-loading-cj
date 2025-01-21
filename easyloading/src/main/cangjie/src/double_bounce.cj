@@ -1,24 +1,42 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
 
 import ohos.state_macro_manage.*
 
-@Component
-public class DoubleBounceComponent {
-    @State
+@Observed
+public class DoubleBounceModel {
+    @Publish
     var size: Float64 = 50.0
-    var duration: Int32 = 1000
 
+    @Publish
+    var colors: Array<Color> = [Color.RED]
+
+    @Publish
+    var duration: Int32 = 1000
+    public func setSize(size: Float64): DoubleBounceModel {
+        this.size = size
+        return this
+    }
+    public func setColors(colors: Array<Color>): DoubleBounceModel {
+        this.colors = colors
+        return this
+    }
+
+    public func setDuration(duration: Int32): DoubleBounceModel {
+        this.duration = duration
+        return this
+    }
+}
+
+@Component
+public class DoubleBounce {
+    @State
+    var model: DoubleBounceModel = DoubleBounceModel()
     @State
     var scaleValue: Float64 = 0.0
 
-    var colors: Array<Color> = [Color.BLACK]
-
-    var width: Float64 = 300.0
-
-    var height: Float64 = 300.0
     var animatorResult: ?AnimatorResult = None
     protected override func aboutToAppear() {
         animatorResult = AnimatorResult(setAnimatorOption())
@@ -34,7 +52,7 @@ public class DoubleBounceComponent {
     }
     func setAnimatorOption(): AnimatorOptions {
         let option = AnimatorOptions(
-            duration: this.duration,
+            duration: this.model.duration,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.Forwards,
@@ -46,26 +64,11 @@ public class DoubleBounceComponent {
         return option
     }
     func build() {
-        RelativeContainer() {
-            Stack(Alignment.Center) {
-                Rect(width: this.size, height: this.size)
-                    .fill(this.colors[0 % this.colors.size])
-                    .scale(Float32(abs(1.0 - this.scaleValue)))
-                Rect(width: this.size, height: this.size)
-                    .fill(this.colors[1 % this.colors.size])
-                    .scale(Float32(abs(scaleValue)))
-            }
-                .width(this.size)
-                .height(this.size)
-                .align(Alignment.Center)
-                .alignRules(
-                    AlignRuleOption(
-                        top: VerticalAnchor("__container__", VerticalAlign.Top),
-                        bottom: VerticalAnchor("__container__", VerticalAlign.Bottom),
-                        left: HorizontalAnchor("__container__", HorizontalAlign.Start),
-                        right: HorizontalAnchor("__container__", HorizontalAlign.End),
-                    )
-                )
-        }.width(this.width).height(this.height).backgroundColor(Color.GRAY).border(width: 2.vp, color: Color(0x6699ff))
+        Stack(Alignment.Center) {
+            Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[0 % this.model.colors.size]).
+                scale(Float32(abs(1.0 - this.scaleValue)))
+            Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[1 % this.model.colors.size]).
+                scale(Float32(abs(scaleValue)))
+        }.width(100.percent).height(100.percent)
     }
 }

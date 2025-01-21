@@ -9,18 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleRotatePlain {
+    @State
+    var model: RotatePlainModel = RotatePlainModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(50.0).setDuration(1200)
+    }
 
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                RotatePlainComponent(
-                        width: 300.0,
-                        height: 300.0,
-                        color: Color.RED,
-                        duration: 1200,
-                        size: 120.0
-                    )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                RotatePlain(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

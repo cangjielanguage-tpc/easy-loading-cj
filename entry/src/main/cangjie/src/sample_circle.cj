@@ -9,16 +9,18 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleCircle {
+    @State
+    var model: CircleModel = CircleModel()
+
+    protected override func aboutToAppear(): Unit {
+        this.model.setSize(80.0).setDuration(600)
+    }
+
     func build() {
-        Stack(Alignment.TopStart) {
-            Column {
-                CircleComponent(
-                    width: 300.0,
-                    height: 300.0,
-                    colors: [Color.RED, Color.GREEN, Color.BLACK, Color.BLUE],
-                    duration: 1200
-                )
-            }
+        Column {
+            Stack(Alignment.Center) {
+                CircleComponent(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }

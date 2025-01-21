@@ -9,14 +9,17 @@ internal import ohos.component.*
 @Entry
 @Component
 public class SampleFoldingCube {
+    @State
+    var model: FoldingCubeModel = FoldingCubeModel()
+
+    protected override func aboutToAppear(): Unit {
+    }
+
     func build() {
-        Stack(Alignment.Center) {
-            FoldingCubeComponent(
-                width: 300.0,
-                height: 300.0,
-                colors: [Color.RED, Color.GREEN],
-                duration: 3600
-            )
+        Column {
+            Stack(Alignment.Center) {
+                FoldingCube(model: this.model)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
         }
     }
 }
