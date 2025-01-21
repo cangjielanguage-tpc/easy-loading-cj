@@ -8,24 +8,17 @@ import ohos.state_macro_manage.*
 @Observed
 public class CubeGridModel {
     @Publish
-    var width: Float64 = 120.0
-    @Publish
-    var height: Float64 = 120.0
+    var size: Float64 = 120.0
     @Publish
     var colorArray: Array<Color> = [Color(0xf44236), Color(0x4cb050)]
     @Publish
     var duration: Int32 = 600
-    @Publish
-    var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
-    public func setWidth(width: Float64): CubeGridModel {
-        this.width = width
+    public func setSize(size: Float64): CubeGridModel {
+        this.size = size
         return this
     }
-    public func setHeight(height: Float64): CubeGridModel {
-        this.height = height
-        return this
-    }
+
     public func setColorArray(colorArray: Array<Color>): CubeGridModel {
         this.colorArray = colorArray
         return this
@@ -34,10 +27,7 @@ public class CubeGridModel {
         this.duration = duration
         return this
     }
-    public func setShapeStyle(shapeStyle: ShapeStyle): CubeGridModel {
-        this.shapeStyle = shapeStyle
-        return this
-    }
+
 }
 @Component
 public class CubeGrid {
@@ -246,8 +236,8 @@ public class CubeGrid {
     @Builder
     func rectItem(idx: Int64){
         Rect()
-        .width(this.model.width/3.0)
-        .height(this.model.height/3.0)
+        .width(this.model.size/3.0)
+        .height(this.model.size/3.0)
         .scale(this.scale[idx])
         .fill(
            match (this.model.colorArray.size) {
@@ -267,8 +257,8 @@ public class CubeGrid {
     @Builder
     func circleItem(idx: Int64){
         Circle()
-        .width(this.model.width/3.0)
-        .height(this.model.height/3.0)
+        .width(this.model.size/3.0)
+        .height(this.model.size/3.0)
         .scale(this.scale[idx])
         .fill(
            match (this.model.colorArray.size) {
@@ -291,11 +281,7 @@ public class CubeGrid {
             Grid{
                  ForEach(Array<Int64>(9, { i => i+1}), itemGeneratorFunc: {_: Int64, idx: Int64 =>
                     GridItem {
-                        if(this.model.shapeStyle == ShapeStyle.RECT) {
-                            rectItem(idx)
-                        } else {
-                            circleItem(idx)
-                        }
+                        rectItem(idx)
                     }
                  })
             }
@@ -303,8 +289,8 @@ public class CubeGrid {
             .rowsTemplate("1fr 1fr 1fr")
             .columnsGap(0)
             .rowsGap(0)
-            .width(this.model.width)
-            .height(this.model.height)
+            .width(this.model.size)
+            .height(this.model.size)
         }.width(100.percent).height(100.percent)
 
     }

@@ -10,8 +10,7 @@ class SpinKitFadingGridTest {
     var model: FadingGridModel = FadingGridModel()
     protected override func aboutToAppear(): Unit {
         this.model
-        .setWidth(80.0)
-        .setHeight(80.0)
+        .setSize(80.0)
         .setRowsGap(2.0)
         .setColumnsGap(2.0)
         .setColorArray([Color.RED])

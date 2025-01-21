@@ -8,9 +8,7 @@ import ohos.state_macro_manage.*
 @Observed
 public class DualRingModel {
     @Publish
-    var width: Float64 = 100.0
-    @Publish
-    var height: Float64 = 100.0
+    var size: Float64 = 100.0
     @Publish
     var color: Color = Color.RED
     @Publish
@@ -20,15 +18,11 @@ public class DualRingModel {
     @Publish
     var duration: Int32 = 1200
 
+    public func setSize(size: Float64): DualRingModel {
+        this.size = size
+        return this
+    }
 
-    public func setWidth(width: Float64): DualRingModel {
-        this.width = width
-        return this
-    }
-    public func setHeight(height: Float64): DualRingModel {
-        this.height = height
-        return this
-    }
     public func setColor(color: Color): DualRingModel {
         this.color = color
         return this
@@ -65,13 +59,13 @@ public class DualRing {
         Column() {
             Stack() {
                     Circle()
-                    .width(this.model.width - this.model.borderWidth)
-                    .height(this.model.height - this.model.borderWidth)
+                    .width(this.model.size - this.model.borderWidth)
+                    .height(this.model.size - this.model.borderWidth)
                     .fillOpacity(0)
                     .strokeWidth(this.model.borderWidth)
                     .stroke(this.model.color)
 
-                    Canvas(this.context).width(100.percent).height(100.percent).rotate(x: 0.0,y: 0.0, z: 1.0, angle: this.rotate, centerX: (this.model.width/2.0).vp, centerY: (this.model.height/2.0).vp).onReady(
+                    Canvas(this.context).width(100.percent).height(100.percent).rotate(x: 0.0,y: 0.0, z: 1.0, angle: this.rotate, centerX: (this.model.size/2.0).vp, centerY: (this.model.size/2.0).vp).onReady(
                     {
                         =>
                         this.context.beginPath()
@@ -94,7 +88,7 @@ public class DualRing {
             }.width(100.percent)
             .height(100.percent)
             .backgroundColor(this.model.bgColor)
-            .clip(RectShape(width: this.model.width, height: this.model.height)
+            .clip(RectShape(width: this.model.size, height: this.model.size)
             .fill(this.model.bgColor))
             .onAppear({=>
                  animateTo(
@@ -113,7 +107,7 @@ public class DualRing {
 
             })
 
-        }.width(this.model.width).height(this.model.height)
+        }.width(this.model.size).height(this.model.size)
 
     }
 }
