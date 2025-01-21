@@ -8,9 +8,7 @@ import ohos.state_macro_manage.*
 @Observed
 public class FadingGridModel {
     @Publish
-    var width: Float64 = 120.0
-    @Publish
-    var height: Float64 = 120.0
+    var size: Float64 = 120.0
     @Publish
     var rowsGap: Float64 = 10.0
     @Publish
@@ -26,12 +24,8 @@ public class FadingGridModel {
     @Publish
     var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
-    public func setWidth(width: Float64): FadingGridModel {
-        this.width = width
-        return this
-    }
-    public func setHeight(height: Float64): FadingGridModel {
-        this.height = height
+    public func setSize(size: Float64): FadingGridModel {
+        this.size = size
         return this
     }
     public func setRowsGap(rowsGap: Float64): FadingGridModel {
@@ -152,8 +146,8 @@ public class FadingGrid {
     @Builder
     func rectItem(idx: Int64, opcityNum: Float64){
         Rect()
-        .width(this.model.width/4.0)
-        .height(this.model.height/4.0)
+        .width(this.model.size/4.0)
+        .height(this.model.size/4.0)
         .fill(
            match (this.model.colorArray.size) {
                 case 0 => Color.RED
@@ -172,8 +166,8 @@ public class FadingGrid {
     @Builder
     func circleItem(idx: Int64, opcityNum: Float64){
         Circle()
-        .width(this.model.width/4.0)
-        .height(this.model.height/4.0)
+        .width(this.model.size/4.0)
+        .height(this.model.size/4.0)
         .fill(
            match (this.model.colorArray.size) {
                 case 0 => Color.RED
@@ -207,8 +201,8 @@ public class FadingGrid {
             .rowsTemplate("1fr 1fr 1fr")
             .columnsGap(this.model.columnsGap)
             .rowsGap(this.model.rowsGap)
-            .width(this.model.width)
-            .height(this.model.height)
+            .width(this.model.size)
+            .height(this.model.size)
         }.width(100.percent).height(100.percent)
 
     }

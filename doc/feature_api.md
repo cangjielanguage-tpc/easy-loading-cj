@@ -332,19 +332,13 @@ public enum EasyLoadingIndicatorType {
 
 public class FadingGridModel {
     /**
-     * 设置  的宽度，默认 120.0
+     * 设置 FadingGrid  的大小，默认 120.0
      *
-     * 参数 width - 宽度
+     * 参数 size - 大小
      * 返回 FadingGridModel - FadingGrid 数据配置类
      */
-    public func setWidth(width: Float64): FadingGridModel 
-    /**
-     * 设置 FadingGrid 的高度，默认120.0
-     *
-     * 参数 height - 高度
-     * 返回 FadingGridModel - FadingGrid 数据配置类
-     */
-    public func setHeight(height: Float64): FadingGridModel
+    public func setSize(size: Float64): FadingGridModel 
+
     /**
      * 设置水平间距，默认 10.0
      *
@@ -416,20 +410,13 @@ public class FadingGrid {
 
 public class CubeGridModel {
     /**
-     * 设置  的宽度，默认 120.0
+     * 设置 CubeGrid 的大小，默认 120.0
      *
-     * 参数 width - 宽度
+     * 参数 size - 大小
      * 返回 CubeGridModel - CubeGrid 数据配置类
      */
-    public func setWidth(width: Float64): CubeGridModel 
-    /**
-     * 设置 CubeGrid 的高度，默认120.0
-     *
-     * 参数 height - 高度
-     * 返回 CubeGridModel - CubeGrid 数据配置类
-     */
-    public func setHeight(height: Float64): CubeGridModel
-   
+    public func setSize(size: Float64): CubeGridModel 
+    
     /**
      * 设置颜色数组，默认 [Color(0xf44236), Color(0x4cb050)]
      *
@@ -444,14 +431,7 @@ public class CubeGridModel {
      * 返回 CubeGridModel - CubeGrid 数据配置类
      */
     public func setDuration(duration: Int32): CubeGridModel
-
-    /**
-     * 设置形状，默认 ShapeStyle.RECT
-     *
-     * 参数 shapeStyle - 形状
-     * 返回 CubeGridModel - CubeGrid 数据配置类
-     */   
-    public func setShapeStyle(shapeStyle: ShapeStyle): CubeGridModel
+    
 }
 ```
 
@@ -474,19 +454,13 @@ public class CubeGrid {
 
 public class DualRingModel {
     /**
-     * 设置  的宽度，默认 100.0
+     * 设置 DualRing 的大小，默认 100.0
      *
-     * 参数 width - 宽度
+     * 参数 width - 大小
      * 返回 DualRingModel - DualRing 数据配置类
      */
-    public func setWidth(width: Float64): DualRingModel 
-    /**
-     * 设置 DualRing 的高度，默认100.0
-     *
-     * 参数 height - 高度
-     * 返回 DualRingModel - DualRing 数据配置类
-     */
-    public func setHeight(height: Float64): DualRingModel
+    public func setSize(size: Float64): DualRingModel 
+
    
     /**
      * 设置圆环颜色，默认 Color.RED
@@ -539,35 +513,13 @@ public class DualRing {
 
 public class WanderingCubesModel {
     /**
-     * 设置 WanderingCubes 的宽度，默认 50.0
+     * 设置 WanderingCubes 的大小，默认 50.0
      *
-     * 参数 width - 宽度
+     * 参数 size - 大小
      * 返回 WanderingCubesModel - WanderingCubes 数据配置类
      */
-    public func setWidth(width: Float64): WanderingCubesModel 
-    /**
-     * 设置 WanderingCubes 的高度，默认 50.0
-     *
-     * 参数 height - 高度
-     * 返回 WanderingCubesModel - WanderingCubes 数据配置类
-     */
-    public func setHeight(height: Float64): WanderingCubesModel
-
-    /**
-     * 设置内部元素的宽度，默认 13.0
-     *
-     * 参数 width - 内部元素的宽度
-     * 返回 WanderingCubesModel - WanderingCubes 数据配置类
-     */
-    public func setInsideWidth(width: Float64): WanderingCubesModel 
-    /**
-     * 设置设置内部元素的高度，默认 13.0
-     *
-     * 参数 height - 内部元素的高度
-     * 返回 WanderingCubesModel - WanderingCubes 数据配置类
-     */
-    public func setInsidHeight(height: Float64): WanderingCubesModel
-   
+    public func setSize(size: Float64): WanderingCubesModel 
+    
     /**
      * 设置内部元素颜色，默认 [Color.BLACK, Color.BLACK]
      *
@@ -583,13 +535,7 @@ public class WanderingCubesModel {
      * 返回 WanderingCubesModel - WanderingCubes 数据配置类
      */
     public func setDuration(duration: Int32): WanderingCubesModel
-    /**
-     * 设置形状，默认 ShapeStyle.RECT
-     *
-     * 参数 shapeStyle - 形状
-     * 返回 WanderingCubesModel - WanderingCubes 数据配置类
-     */   
-    public func setShapeStyle(shapeStyle: ShapeStyle): WanderingCubesModel
+
 }
 ```
 
@@ -612,21 +558,13 @@ public class WanderingCubes {
 
 public class PumpingHeartModel {
     /**
-     * 设置 PumpingHeart 的宽度，默认 120.0
+     * 设置 PumpingHeart 的大小，默认 120.0
      *
-     * 参数 width - 宽度
+     * 参数 size - 大小
      * 返回 PumpingHeartModel - PumpingHeart 数据配置类
      */
-    public func setWidth(width: Float64): PumpingHeartModel 
-    /**
-     * 设置 PumpingHeart 的高度，默认 120.0
-     *
-     * 参数 height - 高度
-     * 返回 PumpingHeartModel - PumpingHeart 数据配置类
-     */
-    public func setHeight(height: Float64): PumpingHeartModel
-
-   
+    public func setSize(size: Float64): PumpingHeartModel 
+    
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
@@ -1522,8 +1460,7 @@ public class AllTest {
         //-----测试指示器-------------
         this.fadeGridmodel = FadingGridModel()
         .setColorArray([Color.BLACK])
-        .setWidth(50.0)
-        .setHeight(50.0)
+        .setSize(50.0)
         .setRowsGap(2.0)
         .setColumnsGap(2.0)
 

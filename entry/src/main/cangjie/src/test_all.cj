@@ -26,8 +26,7 @@ public class AllTest {
         //-----测试指示器-------------
         this.fadeGridmodel = FadingGridModel()
         .setColorArray([Color.BLACK])
-        .setWidth(50.0)
-        .setHeight(50.0)
+        .setSize(50.0)
         .setRowsGap(2.0)
         .setColumnsGap(2.0)
 

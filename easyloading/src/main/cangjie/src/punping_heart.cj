@@ -8,9 +8,7 @@ import ohos.state_macro_manage.*
 @Observed
 public class PumpingHeartModel {
     @Publish
-    var width: Float64 = 120.0
-    @Publish
-    var height: Float64 = 120.0
+    var size: Float64 = 120.0
     @Publish
     var color: Color = Color.RED
     @Publish
@@ -18,12 +16,8 @@ public class PumpingHeartModel {
     @Publish
     var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
-    public func setWidth(width: Float64): PumpingHeartModel {
-        this.width = width
-        return this
-    }
-    public func setHeight(height: Float64): PumpingHeartModel {
-        this.height = height
+    public func setSize(size: Float64): PumpingHeartModel {
+        this.size = size
         return this
     }
     public func setColor(color: Color): PumpingHeartModel {
@@ -84,14 +78,14 @@ public class PumpingHeart {
                     Rect()
                     .scale(this.scale)
                     .fill( this.model.color)
-                    .width(this.model.width)
-                    .height(this.model.height)
+                    .width(this.model.size)
+                    .height(this.model.size)
                 } else {
                     Circle()
                     .scale(this.scale)
                     .fill( this.model.color)
-                    .width(this.model.width)
-                    .height(this.model.height)
+                    .width(this.model.size)
+                    .height(this.model.size)
                 }
 
             }

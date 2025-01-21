@@ -60,8 +60,7 @@ public class AllIndicatorTest {
 
     protected override func aboutToAppear(): Unit {
         this.fadeGridmodel = FadingGridModel()
-        .setWidth(50.0)
-        .setHeight(50.0)
+        .setSize(50.0)
         .setRowsGap(2.0)
         .setColumnsGap(2.0)
 

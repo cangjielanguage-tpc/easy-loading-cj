@@ -8,19 +8,11 @@ import ohos.state_macro_manage.*
 @Observed
 public class WanderingCubesModel {
     @Publish
-    var width: Float64 = 50.0
-    @Publish
-    var height: Float64 = 50.0
-    @Publish
-    var rectWidth: Float64 = 13.0
-    @Publish
-    var rectHeight: Float64 = 13.0
+    var size: Float64 = 50.0
     @Publish
     var color: Array<Color> = [Color.BLACK, Color.BLACK]
     @Publish
     var duration: Int32 = 400
-    @Publish
-    var shapeStyle: ShapeStyle = ShapeStyle.RECT
     //----
     @Publish
     var scale1: Float32 = 1.0
@@ -39,22 +31,11 @@ public class WanderingCubesModel {
     @Publish
     var translateY2: Float64 = 0.0
 
-    public func setWidth(width: Float64): WanderingCubesModel {
-        this.width = width
+    public func setSize(size: Float64): WanderingCubesModel {
+        this.size = size
         return this
     }
-    public func setHeight(height: Float64): WanderingCubesModel {
-        this.height = height
-        return this
-    }
-    public func setInsideWidth(width: Float64): WanderingCubesModel {
-        this.rectWidth = width
-        return this
-    }
-    public func setInsidHeight(height: Float64): WanderingCubesModel {
-        this.rectHeight = height
-        return this
-    }
+
     public func setColor(color: Array<Color>): WanderingCubesModel {
         this.color = color
         return this
@@ -63,11 +44,6 @@ public class WanderingCubesModel {
         this.duration = duration
         return this
     }
-    public func setShapeStyle(shapeStyle: ShapeStyle): WanderingCubesModel {
-        this.shapeStyle = shapeStyle
-        return this
-    }
-
 
     public func setAnimator1(delay: Int32, x: Float64, y: Float64) {
 
@@ -235,25 +211,13 @@ public class WanderingCubes {
     func build() {
         Stack() {
             Stack() {
-                if(this.model.shapeStyle == ShapeStyle.RECT) {
-                    Rect()
-                    .fill( this.model.color[0])
-                    .width(this.model.rectWidth)
-                    .height(this.model.rectHeight)
-                    .scale(this.model.scale1)
-                    .rotate(this.model.rotate1)
-                    .translate(x: this.model.translateX1, y: this.model.translateY1)
-
-                } else {
-                    Circle()
-                    .fill( this.model.color[0])
-                    .width(this.model.width)
-                    .height(this.model.height)
-                    .scale(this.model.scale1)
-                    .rotate(this.model.rotate1)
-                    .translate(x: this.model.translateX1, y: this.model.translateY1)
-                }
-
+                Rect()
+                .fill( this.model.color[0])
+                .width(this.model.size * 0.25)
+                .height(this.model.size * 0.25)
+                .scale(this.model.scale1)
+                .rotate(this.model.rotate1)
+                .translate(x: this.model.translateX1, y: this.model.translateY1)
             }
 
             .width(100.percent)
@@ -283,9 +247,9 @@ public class WanderingCubes {
                 let animator = AnimatorResult(option1)
                 animator.play()
                 animator.onfinish = { =>
-                    this.model.setAnimator1(this.model.duration * 0,  this.model.width - this.model.rectWidth, 0.0)
-                    this.model.setAnimator2(this.model.duration * (1), this.model.width - this.model.rectWidth, this.model.width - this.model.rectWidth)
-                    this.model.setAnimator3(this.model.duration * (2), 0.0, this.model.width - this.model.rectWidth)
+                    this.model.setAnimator1(this.model.duration * 0,  this.model.size - this.model.size * 0.25, 0.0)
+                    this.model.setAnimator2(this.model.duration * (1), this.model.size - this.model.size * 0.25, this.model.size - this.model.size * 0.25)
+                    this.model.setAnimator3(this.model.duration * (2), 0.0, this.model.size - this.model.size * 0.25)
                     this.model.setAnimator4(this.model.duration * (3), 0.0, 0.0)
 
                     this.model.scale1 = 1.0
@@ -299,24 +263,13 @@ public class WanderingCubes {
            })
 
             Stack() {
-                if(this.model.shapeStyle == ShapeStyle.RECT) {
-                    Rect()
-                    .fill( this.model.color[1])
-                    .width(this.model.rectWidth)
-                    .height(this.model.rectHeight)
-                    .scale(this.model.scale2)
-                    .rotate(this.model.rotate2)
-                    .translate(x: this.model.translateX2, y: this.model.translateY2)
-                } else {
-                    Circle()
-                    .fill( this.model.color[1])
-                    .width(this.model.width)
-                    .height(this.model.height)
-                    .scale(this.model.scale2)
-                    .rotate(this.model.rotate2)
-                    .translate(x: this.model.translateX2, y: this.model.translateY2)
-                }
-
+                Rect()
+                .fill( this.model.color[1])
+                .width(this.model.size * 0.25)
+                .height(this.model.size * 0.25)
+                .scale(this.model.scale2)
+                .rotate(this.model.rotate2)
+                .translate(x: this.model.translateX2, y: this.model.translateY2)
             }
 
             .width(100.percent)
@@ -346,9 +299,9 @@ public class WanderingCubes {
                 let animator = AnimatorResult(option1)
                 animator.play()
                 animator.onfinish = { =>
-                    this.model.setAnimator5(this.model.duration * 0, -(this.model.width - this.model.rectWidth), 0.0)
-                    this.model.setAnimator6(this.model.duration * 1, -(this.model.width - this.model.rectWidth), -(this.model.width - this.model.rectWidth))
-                    this.model.setAnimator7(this.model.duration * 2, 0.0, -(this.model.width - this.model.rectWidth))
+                    this.model.setAnimator5(this.model.duration * 0, -(this.model.size - this.model.size * 0.25), 0.0)
+                    this.model.setAnimator6(this.model.duration * 1, -(this.model.size - this.model.size * 0.25), -(this.model.size - this.model.size * 0.25))
+                    this.model.setAnimator7(this.model.duration * 2, 0.0, -(this.model.size - this.model.size * 0.25))
                     this.model.setAnimator8(this.model.duration * 3, 0.0, 0.0)
 
                     this.model.scale2 = 1.0
@@ -363,8 +316,8 @@ public class WanderingCubes {
 
            })
         }
-        .width(this.model.width)
-        .height(this.model.height)
+        .width(this.model.size)
+        .height(this.model.size)
 
 
     }

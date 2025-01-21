@@ -13,8 +13,7 @@ class CubeGridTest {
 
     protected override func aboutToAppear(): Unit {
         this.model
-        .setWidth(80.0)
-        .setHeight(80.0)
+        .setSize(80.0)
         .setDuration(600)
         //.setShapeStyle(ShapeStyle.CIRCLE)
     }
