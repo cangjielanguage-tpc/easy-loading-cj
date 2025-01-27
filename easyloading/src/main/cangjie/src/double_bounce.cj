@@ -14,6 +14,9 @@ public class DoubleBounceModel {
     var colors: Array<Color> = [Color.RED]
 
     @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.RECT
+
+    @Publish
     var duration: Int32 = 1000
     public func setSize(size: Float64): DoubleBounceModel {
         this.size = size
@@ -26,6 +29,10 @@ public class DoubleBounceModel {
 
     public func setDuration(duration: Int32): DoubleBounceModel {
         this.duration = duration
+        return this
+    }
+    public func setShapeStyle(shapeStyle: ShapeStyle): DoubleBounceModel {
+        this.shapeStyle = shapeStyle
         return this
     }
 }
@@ -65,10 +72,17 @@ public class DoubleBounce {
     }
     func build() {
         Stack(Alignment.Center) {
-            Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[0 % this.model.colors.size]).
-                scale(Float32(abs(1.0 - this.scaleValue)))
-            Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[1 % this.model.colors.size]).
-                scale(Float32(abs(scaleValue)))
-        }.width(100.percent).height(100.percent)
+            if (this.model.shapeStyle == ShapeStyle.RECT) {
+                Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[0 % this.model.colors.size]
+                ).scale(Float32(abs(1.0 - this.scaleValue)))
+                Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[1 % this.model.colors.size]
+                ).scale(Float32(abs(scaleValue)))
+            } else {
+                Circle(width: this.model.size, height: this.model.size).fill(
+                    this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                Circle(width: this.model.size, height: this.model.size).fill(
+                    this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(scaleValue)))
+            }
+        }.width(this.model.size).height(this.model.size)
     }
 }

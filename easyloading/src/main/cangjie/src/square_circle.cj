@@ -127,7 +127,6 @@ public class SquareCircle {
             Stack(Alignment.Center) {
                 Rect(width: this.size, height: this.size).fill(this.model.color).radius(this.radiusValue).rotate(
                     Float32(this.rotateValue)).scale(Float32(this.scaleValue))
-                //                    .rotateY(Float32(this.rotateValue1))
             }
         }.width(this.size).height(this.size)
     }

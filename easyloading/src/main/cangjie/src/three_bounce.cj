@@ -12,7 +12,8 @@ public class ThreeBounceModel {
 
     @Publish
     var colors: Array<Color> = [Color.BLACK]
-
+    @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
     @Publish
     var duration: Int32 = 700
@@ -27,6 +28,10 @@ public class ThreeBounceModel {
 
     public func setDuration(duration: Int32): ThreeBounceModel {
         this.duration = duration
+        return this
+    }
+    public func setShapeStyle(shapeStyle: ShapeStyle): ThreeBounceModel {
+        this.shapeStyle = shapeStyle
         return this
     }
 }
@@ -73,10 +78,16 @@ public class ThreeBounce {
             ForEach(
                 Array<Int64>(3, {i => i + 1}),
                 itemGeneratorFunc: {
-                    _: Int64, idx: Int64 => Rect(width: this.model.size * 0.5, height: this.model.size * 0.5).fill(
-                        this.model.colors[idx % this.model.colors.size]).scale(Float32(this.scaleValueArr[idx]))
+                    _: Int64, idx: Int64 => if (this.model.shapeStyle == ShapeStyle.RECT) {
+                        Rect(width: this.model.size * 0.5, height: this.model.size * 0.5).fill(
+                            this.model.colors[idx % this.model.colors.size]).scale(Float32(this.scaleValueArr[idx]))
+                    } else {
+                        Circle(width: this.model.size * 0.5, height: this.model.size * 0.5).fill(
+                            this.model.colors[idx % this.model.colors.size]).scale(Float32(this.scaleValueArr[idx]))
+                    }
                 }
             )
-        }.width(this.model.size * 2.0).height(this.model.size).align(Alignment.Center).justifyContent(FlexAlign.SpaceEvenly)
+        }.width(this.model.size * 2.0).height(this.model.size).align(Alignment.Center).justifyContent(
+            FlexAlign.SpaceEvenly)
     }
 }

@@ -39,49 +39,42 @@ public class CircleComponent {
     @State
     var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
         1.0, 1.0, 1.0, 1.0)
-    var animatorResult: ?AnimatorResult = None
     protected override func aboutToAppear(): Unit {
-        for (index in 0..12) {
-            animatorResult = AnimatorResult(setAnimatorOption(Int32(index)))
-            animatorResult().onframe = {
-                value: Float64 => this.fadeValueArr[index] = value
-            }
-            animatorResult().play()
-        }
     }
 
     protected override func aboutToDisappear() {
-        if (let Some(animator) <- animatorResult) {
-            animator.finish()
-        }
-    }
-    func setAnimatorOption(idx: Int32): AnimatorOptions {
-        let option = AnimatorOptions(
-            duration: this.model.duration,
-            easing: "ease-in-out",
-            delay: 100 * idx,
-            fill: AnimatorFill.Forwards,
-            direction: AnimatorDirection.Alternate,
-            iterations: -1,
-            begin: 0.0,
-            end: 1.0
-        )
-        return option
     }
 
     func build() {
-        Stack(Alignment.Center) {
+        Stack(Alignment.TopStart) {
             ForEach(
-                Array<Int64>(12, {i => i + 1}),
+                Array<Int64>(12, {i => i}),
                 itemGeneratorFunc: {
                     _: Int64, idx: Int64 => Column {
                         Circle(width: this.model.size * 0.2, height: this.model.size * 0.2).fill(
                             this.model.colors[idx % this.model.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
                             centerX: (this.model.size / 2.0).vp, centerY: (this.model.size / 2.0).vp,
                             angle: Float32(idx * 30))
-                    }.width(this.model.size * 0.2).height(this.model.size * 0.2)
+                                //                        .scale(1.0)
+                                .scale(Float32(this.fadeValueArr[idx])).onAppear(
+                            {
+                            => animateTo(
+                                AnimateParam(
+                                    duration: this.model.duration,
+                                    delay: 100 * Int32(idx),
+                                    curve: Curve.EaseInOut,
+                                    iterations: -1,
+                                    playMode: PlayMode.Alternate,
+                                    onFinish: {=>}
+                                ),
+                                {
+                                    => this.fadeValueArr[idx] = 0.0
+                                }
+                            )
+                        })
+                    }
                 }
             )
-        }.width(100.percent).height(100.percent)
+        }.width(this.model.size).height(this.model.size).backgroundColor(Color.WHITE)
     }
 }

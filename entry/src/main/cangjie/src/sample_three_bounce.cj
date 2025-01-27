@@ -13,7 +13,7 @@ public class SampleThreeBounce {
     var model: ThreeBounceModel = ThreeBounceModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(80.0).setDuration(700).setColors([Color.RED, Color.GREEN, Color.BLACK])
+        this.model.setSize(80.0).setDuration(700).setColors([Color.RED, Color.GREEN, Color.BLACK]).setShapeStyle(ShapeStyle.CIRCLE)
     }
 
     func build() {

@@ -13,7 +13,7 @@ public class SampleSpinChasingDots {
     var model: SpinChasingDotsModel = SpinChasingDotsModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(120.0).setDuration(2000)
+        this.model.setSize(120.0).setDuration(2000).setShapeStyle(ShapeStyle.CIRCLE)
     }
 
     func build() {

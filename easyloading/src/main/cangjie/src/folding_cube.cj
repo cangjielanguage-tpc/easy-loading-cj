@@ -128,7 +128,7 @@ public class FoldingCube {
             this.animator31()
             this.animator41()
 
-            this.animator12()
+
             var animatorResult1 = AnimatorResult(setAnimatorOption1())
             animatorResult1.onframe = {
                 value: Float64 => this.opacity12 = value
@@ -146,6 +146,7 @@ public class FoldingCube {
                 value: Float64 => this.opacity32 = value
             }
             animatorResult3.play()
+            this.animator12()
             this.animator22()
             this.animator32()
 
