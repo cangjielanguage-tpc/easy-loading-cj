@@ -13,14 +13,14 @@ public class SampleDoubleBounce {
     var model: DoubleBounceModel = DoubleBounceModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(80.0).setDuration(1000).setColors([Color.RED, Color.GREEN])
+        this.model.setSize(80.0).setDuration(1000).setColors([Color.WHITE, Color.GRAY]).setShapeStyle(ShapeStyle.CIRCLE)
     }
 
     func build() {
         Column {
             Stack(Alignment.Center) {
                 DoubleBounce(model: this.model)
-            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.BLUE)
         }
     }
 }

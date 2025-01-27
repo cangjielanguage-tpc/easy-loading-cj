@@ -12,7 +12,8 @@ public class SpinChasingDotsModel {
 
     @Publish
     var colors: Array<Color> = [Color.BLACK]
-
+    @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.RECT
 
     @Publish
     var duration: Int32 = 2000
@@ -27,6 +28,11 @@ public class SpinChasingDotsModel {
 
     public func setDuration(duration: Int32): SpinChasingDotsModel {
         this.duration = duration
+        return this
+    }
+
+    public func setShapeStyle(shapeStyle: ShapeStyle): SpinChasingDotsModel {
+        this.shapeStyle = shapeStyle
         return this
     }
 }
@@ -101,16 +107,31 @@ public class SpinChasingDots {
     func build() {
         Stack(Alignment.TopStart) {
             Stack() {
-                Column() {
-                    Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
-                        this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
-                }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
-                    HorizontalAlign.Start)
+                if (this.model.shapeStyle == ShapeStyle.RECT) {
+                    Column() {
+                        Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
+                            this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                    }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
+                        HorizontalAlign.Start)
 
-                Column() {
-                    Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
-                        this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(this.scaleValue)))
-                }.justifyContent(FlexAlign.End).width(100.percent).height(100.percent).alignItems(HorizontalAlign.Start)
+                    Column() {
+                        Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
+                            this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(this.scaleValue)))
+                    }.justifyContent(FlexAlign.End).width(100.percent).height(100.percent).alignItems(
+                        HorizontalAlign.Start)
+                } else {
+                    Column() {
+                        Circle(width: this.size * 0.6, height: this.size * 0.6).fill(
+                            this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                    }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
+                        HorizontalAlign.Start)
+
+                    Column() {
+                        Circle(width: this.size * 0.6, height: this.size * 0.6).fill(
+                            this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(this.scaleValue)))
+                    }.justifyContent(FlexAlign.End).width(100.percent).height(100.percent).alignItems(
+                        HorizontalAlign.Start)
+                }
             }.rotate(x: 0.0, y: 0.0, z: 1.0, centerX: (this.size / 2.0).vp, centerY: (this.size / 2.0).vp,
                 angle: Float32(this.rotateValue))
         }.width(this.size).height(this.size)

@@ -31,8 +31,6 @@ public class RotateCircleModel {
         this.duration = duration
         return this
     }
-
-
 }
 
 @Component
@@ -44,11 +42,8 @@ public class RotateCircle {
     @State
     var rotateValue1: Float64 = 0.0
 
-    @State
-    var rotateValue2: Float64 = 0.0
-
     var animatorResult1: ?AnimatorResult = None
-    var animatorResult2: ?AnimatorResult = None
+
     protected override func aboutToAppear() {
         size = this.model.size
         animatorResult1 = AnimatorResult(setAnimatorOption1())
@@ -56,20 +51,10 @@ public class RotateCircle {
             value: Float64 => this.rotateValue1 = value
         }
         animatorResult1().play()
-
-        animatorResult2 = AnimatorResult(setAnimatorOption2())
-        animatorResult2().onframe = {
-            value: Float64 => this.rotateValue2 = value
-        }
-        animatorResult2().play()
     }
     protected override func aboutToDisappear() {
         if (let Some(animator1) <- animatorResult1) {
             animator1.finish()
-        }
-
-        if (let Some(animator2) <- animatorResult2) {
-            animator2.finish()
         }
     }
     func setAnimatorOption1(): AnimatorOptions {
@@ -86,19 +71,6 @@ public class RotateCircle {
         return option
     }
 
-    func setAnimatorOption2(): AnimatorOptions {
-        let option = AnimatorOptions(
-            duration: this.model.duration,
-            easing: "ease-in-out",
-            delay: 0,
-            fill: AnimatorFill.None,
-            direction: AnimatorDirection.Normal,
-            iterations: -1,
-            begin: 0.0,
-            end: 180.0
-        )
-        return option
-    }
     func build() {
         Row() {
             Stack(Alignment.Center) {

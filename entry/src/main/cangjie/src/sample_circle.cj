@@ -13,14 +13,14 @@ public class SampleCircle {
     var model: CircleModel = CircleModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(80.0).setDuration(600)
+        this.model.setSize(50.0).setDuration(600).setColors([Color.RED,Color.GREEN])
     }
 
     func build() {
         Column {
             Stack(Alignment.Center) {
                 CircleComponent(model: this.model)
-            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
+            }.width(300.0).height(300.0).backgroundColor(Color.GRAY)
         }
     }
 }

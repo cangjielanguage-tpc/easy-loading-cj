@@ -20,7 +20,7 @@ public class SampleFadingCube {
         Column {
             Stack(Alignment.Center) {
                 FadingCube(model: this.model)
-            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
+            }.width(300.0).height(300.0).backgroundColor(Color.GRAY)
         }
     }
 }
