@@ -78,7 +78,7 @@ public class HourGlass {
             direction: AnimatorDirection.Normal,
             iterations: -1,
             begin: 0.0,
-            end: 1080.0
+            end: 2160.0
         )
         return option
     }
@@ -93,8 +93,8 @@ public class HourGlass {
                         =>
                         context.beginPath()
                         context.moveTo(this.model.size / 2.0, this.model.size / 2.0)
-                        context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.0, 0.0,
-                            this.model.angle * (Float64.PI / 180.0))
+                        context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.0, (180.0 - this.model.angle) * (Float64.PI / 360.0),
+                            (90.0 + this.model.angle/2.0) * (Float64.PI / 180.0))
                         context.closePath()
                         context.fillStyle(this.model.colors[0 % this.model.colors.size])
                         context.lineWidth(this.model.strokeWidth)
@@ -103,7 +103,7 @@ public class HourGlass {
                         context.beginPath()
                         context.moveTo(this.model.size / 2.0, this.model.size / 2.0)
                         context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.0,
-                            180.0 * (Float64.PI / 180.0), (180.0 + this.model.angle) * (Float64.PI / 180.0))
+                            (270.0 - this.model.angle/2.0) * (Float64.PI / 180.0), (270.0 + this.model.angle/2.0) * (Float64.PI / 180.0))
 
                         context.closePath()
                         context.fillStyle(this.model.colors[1 % this.model.colors.size])
