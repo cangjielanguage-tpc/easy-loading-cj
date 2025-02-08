@@ -35,7 +35,7 @@ public class FadingCube {
     @State
     var model: FadingCubeModel = FadingCubeModel()
     @State
-    var fadeValueArr: ObservedArray<Float64> = ObservedArray<Float64>(1.0, 1.0, 1.0, 1.0)
+    var fadeValueArr: ObservedArray<Float64> = ObservedArray<Float64>(0.0, 0.0, 0.0, 0.0)
 
     protected override func aboutToAppear(): Unit {
     }
@@ -59,7 +59,7 @@ public class FadingCube {
                             onFinish: {=>}
                         ),
                         {
-                            => this.fadeValueArr[0] = 0.0
+                            => this.fadeValueArr[0] = 1.0
                         }
                     )
                 })
@@ -76,7 +76,7 @@ public class FadingCube {
                             onFinish: {=>}
                         ),
                         {
-                            => this.fadeValueArr[1] = 0.0
+                            => this.fadeValueArr[1] = 1.0
                         }
                     )
                 })
@@ -93,7 +93,7 @@ public class FadingCube {
                             onFinish: {=>}
                         ),
                         {
-                            => this.fadeValueArr[2] = 0.0
+                            => this.fadeValueArr[2] = 1.0
                         }
                     )
                 })
@@ -110,7 +110,7 @@ public class FadingCube {
                             onFinish: {=>}
                         ),
                         {
-                            => this.fadeValueArr[3] = 0.0
+                            => this.fadeValueArr[3] = 1.0
                         }
                     )
                 })

@@ -14,7 +14,7 @@ public class CircleModel {
     var colors: Array<Color> = [Color.RED]
 
     @Publish
-    var duration: Int32 = 1200
+    var duration: Int32 = 600
 
     public func setSize(size: Float64): CircleModel {
         this.size = size
@@ -36,45 +36,91 @@ public class CircleComponent {
     @State
     var model: CircleModel = CircleModel()
 
+    let radian = 30.0 * Float64.PI / 180.0
+
     @State
-    var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-        1.0, 1.0, 1.0, 1.0)
-    protected override func aboutToAppear(): Unit {
-    }
+    var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 0.0)
 
-    protected override func aboutToDisappear() {
+    public func setAnimator(delay: Int64) {
+        animateTo(
+            AnimateParam(
+                duration: this.model.duration,
+                delay: this.model.duration / 6 * Int32(delay),
+                curve: Curve.EaseInOut,
+                iterations: -1,
+                playMode: PlayMode.Alternate,
+                onFinish: {=>}
+            ),
+            {
+                => this.fadeValueArr[delay] = 1.0
+            }
+        )
     }
-
     func build() {
         Stack(Alignment.TopStart) {
-            ForEach(
-                Array<Int64>(12, {i => i}),
-                itemGeneratorFunc: {
-                    _: Int64, idx: Int64 => Column {
-                        Circle(width: this.model.size * 0.2, height: this.model.size * 0.2).fill(
-                            this.model.colors[idx % this.model.colors.size]).rotate(x: 0.0, y: 0.0, z: 1.0,
-                            centerX: (this.model.size / 2.0).vp, centerY: (this.model.size / 2.0).vp,
-                            angle: Float32(idx * 30))
-                                //                        .scale(1.0)
-                                .scale(Float32(this.fadeValueArr[idx])).onAppear(
-                            {
-                            => animateTo(
-                                AnimateParam(
-                                    duration: this.model.duration,
-                                    delay: 100 * Int32(idx),
-                                    curve: Curve.EaseInOut,
-                                    iterations: -1,
-                                    playMode: PlayMode.Alternate,
-                                    onFinish: {=>}
-                                ),
-                                {
-                                    => this.fadeValueArr[idx] = 0.0
-                                }
-                            )
-                        })
-                    }
-                }
-            )
-        }.width(this.model.size).height(this.model.size).backgroundColor(Color.WHITE)
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[0 % this.model.colors.size]).position(x: this.model.size * 0.425, y: 0.0).scale(
+                Float32(this.fadeValueArr[0]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[1 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(
+                x: this.model.size * 0.2125,
+                y: -this.model.size * 0.425 * cos(radian)
+            ).scale(Float32(this.fadeValueArr[1]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[2 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(x: this.model.size * 0.425 * cos(radian),
+                y: -this.model.size * 0.2125).scale(Float32(this.fadeValueArr[2]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[3 % this.model.colors.size]).position(x: this.model.size * 0.85,
+                y: this.model.size * 0.425).scale(Float32(this.fadeValueArr[3]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[4 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(x: this.model.size * 0.425 * cos(radian), y: this.model.size * 0.2125
+            ).scale(Float32(this.fadeValueArr[4]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[5 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(
+                x: this.model.size * 0.2125,
+                y: this.model.size * 0.425 * cos(radian)
+            ).scale(Float32(this.fadeValueArr[5]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[6 % this.model.colors.size]).position(x: this.model.size * 0.425,
+                y: this.model.size * 0.85).scale(Float32(this.fadeValueArr[6]))
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[7 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(
+                x: -this.model.size * 0.2125,
+                y: this.model.size * 0.425 * cos(radian)
+            ).scale(Float32(this.fadeValueArr[7]))
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[8 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(x: -this.model.size * 0.425 * cos(radian),
+                y: this.model.size * 0.2125).scale(Float32(this.fadeValueArr[8]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[9 % this.model.colors.size]).position(x: 0.0, y: this.model.size * 0.425).scale(
+                Float32(this.fadeValueArr[9]))
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[10 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(x: -this.model.size * 0.425 * cos(radian),
+                y: -this.model.size * 0.2125).scale(Float32(this.fadeValueArr[10]))
+
+            Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
+                this.model.colors[11 % this.model.colors.size]).markAnchor(x: -this.model.size * 0.425,
+                y: -this.model.size * 0.425).offset(x: -this.model.size * 0.2125,
+                y: -this.model.size * 0.425 * cos(radian)).scale(Float32(this.fadeValueArr[11]))
+        }.width(this.model.size).height(this.model.size).onAppear({
+            => for (i in 0..12) {
+                setAnimator(i)
+            }
+        })
     }
 }

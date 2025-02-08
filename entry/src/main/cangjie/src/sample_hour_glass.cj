@@ -13,7 +13,7 @@ public class SampleHourGlass {
     var model: HourGlassModel = HourGlassModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(60.0).setDuration(1200).setColors([Color.RED,Color.GREEN])
+        this.model.setSize(60.0).setDuration(1200).setColors([Color.RED,Color.GREEN]).setAngle(90.0)
     }
 
     func build() {
