@@ -13,14 +13,14 @@ public class SampleRotatePlain {
     var model: RotatePlainModel = RotatePlainModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(50.0).setDuration(1200)
+        this.model.setSize(50.0).setDuration(1200).setColor(Color.WHITE)
     }
 
     func build() {
         Column {
             Stack(Alignment.Center) {
                 RotatePlain(model: this.model)
-            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
+            }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.RED)
         }
     }
 }

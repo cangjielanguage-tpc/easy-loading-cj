@@ -13,7 +13,7 @@ public class SampleRotateCircle {
     var model: RotateCircleModel = RotateCircleModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(50.0).setDuration(1200)
+        this.model.setSize(50.0).setDuration(1200).setColor(Color.WHITE)
     }
 
     func build() {

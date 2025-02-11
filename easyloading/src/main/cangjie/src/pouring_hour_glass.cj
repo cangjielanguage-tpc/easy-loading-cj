@@ -23,7 +23,7 @@ public class PouringHourGlassModel {
         this.size = size
         return this
     }
-    public func setColor(colors: Color): PouringHourGlassModel {
+    public func setColor(color: Color): PouringHourGlassModel {
         this.color = color
         return this
     }

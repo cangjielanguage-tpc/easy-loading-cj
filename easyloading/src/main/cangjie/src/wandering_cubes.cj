@@ -46,7 +46,6 @@ public class WanderingCubesModel {
     }
 
     public func setAnimator1(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -54,19 +53,18 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale1 = 0.5
                 this.rotate1 = -90.0
                 this.translateX1 = x
                 this.translateY1 = y
             }
         )
-
     }
     public func setAnimator2(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -74,9 +72,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale1 = 1.0
                 this.rotate1 = -180.0
                 this.translateX1 = x
@@ -85,7 +84,6 @@ public class WanderingCubesModel {
         )
     }
     public func setAnimator3(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -93,9 +91,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale1 = 0.5
                 this.rotate1 = -270.0
                 this.translateX1 = x
@@ -104,7 +103,6 @@ public class WanderingCubesModel {
         )
     }
     public func setAnimator4(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -112,9 +110,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale1 = 1.0
                 this.rotate1 = -360.0
                 this.translateX1 = x
@@ -124,7 +123,6 @@ public class WanderingCubesModel {
     }
 
     public func setAnimator5(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -132,9 +130,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale2 = 0.5
                 this.rotate2 = -90.0
                 this.translateX2 = x
@@ -143,7 +142,6 @@ public class WanderingCubesModel {
         )
     }
     public func setAnimator6(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -151,9 +149,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale2 = 1.0
                 this.rotate2 = -180.0
                 this.translateX2 = x
@@ -162,7 +161,6 @@ public class WanderingCubesModel {
         )
     }
     public func setAnimator7(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -170,9 +168,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale2 = 0.5
                 this.rotate2 = -270.0
                 this.translateX2 = x
@@ -181,7 +180,6 @@ public class WanderingCubesModel {
         )
     }
     public func setAnimator8(delay: Int32, x: Float64, y: Float64) {
-
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -189,9 +187,10 @@ public class WanderingCubesModel {
                 curve: Curve.EaseInOut,
                 iterations: 1,
                 playMode: PlayMode.Normal,
-                onFinish: {=> }
+                onFinish: {=>}
             ),
-            {=>
+            {
+                =>
                 this.scale2 = 1.0
                 this.rotate2 = -360.0
                 this.translateX2 = x
@@ -199,8 +198,6 @@ public class WanderingCubesModel {
             }
         )
     }
-
-
 }
 
 @Component
@@ -211,20 +208,13 @@ public class WanderingCubes {
     func build() {
         Stack() {
             Stack() {
-                Rect()
-                .fill( this.model.color[0])
-                .width(this.model.size * 0.25)
-                .height(this.model.size * 0.25)
-                .scale(this.model.scale1)
-                .rotate(this.model.rotate1)
-                .translate(x: this.model.translateX1, y: this.model.translateY1)
-            }
-
-            .width(100.percent)
-            .height(100.percent)
-            .align(Alignment.TopStart)
-            .onAppear({ =>
-                let option1 = AnimatorOptions(
+                Rect().fill(this.model.color[0]).width(this.model.size * 0.25).height(
+                    this.model.size * 0.25).scale(this.model.scale1).rotate(this.model.rotate1).translate(
+                    x: this.model.translateX1, y: this.model.translateY1)
+            }.width(100.percent).height(100.percent).align(Alignment.TopStart).onAppear(
+                {
+                    =>
+                    let option1 = AnimatorOptions(
                         duration: 100,
                         easing: "ease",
                         delay: 0,
@@ -234,49 +224,45 @@ public class WanderingCubes {
                         begin: 0.0,
                         end: 1.0
                     )
-                let option2 = AnimatorOptions(
-                    duration: this.model.duration * 4,
-                    easing: "ease",
-                    delay: 0,
-                    fill: AnimatorFill.Both,
-                    direction: AnimatorDirection.AlternateReverse,
-                    iterations: 1,
-                    begin: 0.0,
-                    end: 1.0
-                )
-                let animator = AnimatorResult(option1)
-                animator.play()
-                animator.onfinish = { =>
-                    this.model.setAnimator1(this.model.duration * 0,  this.model.size - this.model.size * 0.25, 0.0)
-                    this.model.setAnimator2(this.model.duration * (1), this.model.size - this.model.size * 0.25, this.model.size - this.model.size * 0.25)
-                    this.model.setAnimator3(this.model.duration * (2), 0.0, this.model.size - this.model.size * 0.25)
-                    this.model.setAnimator4(this.model.duration * (3), 0.0, 0.0)
-
-                    this.model.scale1 = 1.0
-                    this.model.rotate1 = 0.0
-                    this.model.translateX1 = 0.0
-                    this.model.translateY1 = 0.0
-                    animator.reset(option2)
+                    let option2 = AnimatorOptions(
+                        duration: this.model.duration * 4,
+                        easing: "ease",
+                        delay: 0,
+                        fill: AnimatorFill.Both,
+                        direction: AnimatorDirection.AlternateReverse,
+                        iterations: 1,
+                        begin: 0.0,
+                        end: 1.0
+                    )
+                    let animator = AnimatorResult(option1)
                     animator.play()
-                }
+                    animator.onfinish = {
+                        =>
+                        this.model.setAnimator1(this.model.duration * 0, this.model.size - this.model.size * 0.25, 0.0)
+                        this.model.setAnimator2(this.model.duration * (1), this.model.size - this.model.size * 0.25,
+                            this.model.size - this.model.size * 0.25)
+                        this.model.setAnimator3(this.model.duration * (2), 0.0, this.model.size - this.model.size * 0.25
+                        )
+                        this.model.setAnimator4(this.model.duration * (3), 0.0, 0.0)
 
-           })
+                        this.model.scale1 = 1.0
+                        this.model.rotate1 = 0.0
+                        this.model.translateX1 = 0.0
+                        this.model.translateY1 = 0.0
+                        animator.reset(option2)
+                        animator.play()
+                    }
+                }
+            )
 
             Stack() {
-                Rect()
-                .fill( this.model.color[1])
-                .width(this.model.size * 0.25)
-                .height(this.model.size * 0.25)
-                .scale(this.model.scale2)
-                .rotate(this.model.rotate2)
-                .translate(x: this.model.translateX2, y: this.model.translateY2)
-            }
-
-            .width(100.percent)
-            .height(100.percent)
-            .align(Alignment.BottomEnd)
-            .onAppear({ =>
-                let option1 = AnimatorOptions(
+                Rect().fill(this.model.color[1 % this.model.color.size]).width(this.model.size * 0.25).height(
+                    this.model.size * 0.25).scale(this.model.scale2).rotate(this.model.rotate2).translate(
+                    x: this.model.translateX2, y: this.model.translateY2)
+            }.width(100.percent).height(100.percent).align(Alignment.BottomEnd).onAppear(
+                {
+                    =>
+                    let option1 = AnimatorOptions(
                         duration: 100,
                         easing: "ease",
                         delay: 0,
@@ -286,39 +272,38 @@ public class WanderingCubes {
                         begin: 0.0,
                         end: 1.0
                     )
-                let option2 = AnimatorOptions(
-                    duration: this.model.duration * 4,
-                    easing: "ease",
-                    delay: 0,
-                    fill: AnimatorFill.Both,
-                    direction: AnimatorDirection.AlternateReverse,
-                    iterations: 1,
-                    begin: 0.0,
-                    end: 1.0
-                )
-                let animator = AnimatorResult(option1)
-                animator.play()
-                animator.onfinish = { =>
-                    this.model.setAnimator5(this.model.duration * 0, -(this.model.size - this.model.size * 0.25), 0.0)
-                    this.model.setAnimator6(this.model.duration * 1, -(this.model.size - this.model.size * 0.25), -(this.model.size - this.model.size * 0.25))
-                    this.model.setAnimator7(this.model.duration * 2, 0.0, -(this.model.size - this.model.size * 0.25))
-                    this.model.setAnimator8(this.model.duration * 3, 0.0, 0.0)
-
-                    this.model.scale2 = 1.0
-                    this.model.rotate2 = 0.0
-                    this.model.translateX2 = 0.0
-                    this.model.translateY2 = 0.0
-
-                    animator.reset(option2)
+                    let option2 = AnimatorOptions(
+                        duration: this.model.duration * 4,
+                        easing: "ease",
+                        delay: 0,
+                        fill: AnimatorFill.Both,
+                        direction: AnimatorDirection.AlternateReverse,
+                        iterations: 1,
+                        begin: 0.0,
+                        end: 1.0
+                    )
+                    let animator = AnimatorResult(option1)
                     animator.play()
+                    animator.onfinish = {
+                        =>
+                        this.model.setAnimator5(this.model.duration * 0, -(this.model.size - this.model.size * 0.25),
+                            0.0)
+                        this.model.setAnimator6(this.model.duration * 1, -(this.model.size - this.model.size * 0.25),
+                            -(this.model.size - this.model.size * 0.25))
+                        this.model.setAnimator7(this.model.duration * 2, 0.0, -(this.model.size - this.model.size * 0.25)
+                        )
+                        this.model.setAnimator8(this.model.duration * 3, 0.0, 0.0)
+
+                        this.model.scale2 = 1.0
+                        this.model.rotate2 = 0.0
+                        this.model.translateX2 = 0.0
+                        this.model.translateY2 = 0.0
+
+                        animator.reset(option2)
+                        animator.play()
+                    }
                 }
-
-
-           })
-        }
-        .width(this.model.size)
-        .height(this.model.size)
-
-
+            )
+        }.width(this.model.size).height(this.model.size)
     }
 }

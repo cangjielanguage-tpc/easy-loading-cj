@@ -73,13 +73,13 @@ public class DoubleBounce {
     func build() {
         Stack(Alignment.Center) {
             if (this.model.shapeStyle == ShapeStyle.RECT) {
-                Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[0 % this.model.colors.size]
+                Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[0]
                 ).scale(Float32(abs(1.0 - this.scaleValue)))
                 Rect(width: this.model.size, height: this.model.size).fill(this.model.colors[1 % this.model.colors.size]
                 ).scale(Float32(abs(scaleValue)))
             } else {
                 Circle(width: this.model.size, height: this.model.size).fill(
-                    this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                    this.model.colors[0]).scale(Float32(abs(1.0 - this.scaleValue)))
                 Circle(width: this.model.size, height: this.model.size).fill(
                     this.model.colors[1 % this.model.colors.size]).scale(Float32(abs(scaleValue)))
             }

@@ -151,14 +151,14 @@ public class FadingGrid {
         .fill(
            match (this.model.colorArray.size) {
                 case 0 => Color.RED
-                case 1 => this.model.colorArray[0]
+                case 1 => this.model.colorArray[0% this.model.colorArray.size]
                 case 2 =>
                     if(idx % 2 == 0 ) {
-                        this.model.colorArray[0]
+                        this.model.colorArray[0% this.model.colorArray.size]
                     } else {
-                        this.model.colorArray[1]
+                        this.model.colorArray[1% this.model.colorArray.size]
                     }
-                case 9 => this.model.colorArray[idx]
+                case 9 => this.model.colorArray[idx% this.model.colorArray.size]
                 case _ => Color.RED
            })
         .opacity(opcityNum)
@@ -171,14 +171,14 @@ public class FadingGrid {
         .fill(
            match (this.model.colorArray.size) {
                 case 0 => Color.RED
-                case 1 => this.model.colorArray[0]
+                case 1 => this.model.colorArray[0% this.model.colorArray.size]
                 case 2 =>
                     if(idx % 2 == 0 ) {
-                        this.model.colorArray[0]
+                        this.model.colorArray[0% this.model.colorArray.size]
                     } else {
-                        this.model.colorArray[1]
+                        this.model.colorArray[1% this.model.colorArray.size]
                     }
-                case 9 => this.model.colorArray[idx]
+                case 9 => this.model.colorArray[idx% this.model.colorArray.size]
                 case _ => Color.RED
            })
         .opacity(opcityNum)

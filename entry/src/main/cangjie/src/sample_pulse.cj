@@ -13,7 +13,7 @@ public class SamplePulse {
     var model: PulseModel = PulseModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(50.0).setDuration(1000)
+        this.model.setSize(50.0).setDuration(1000).setShapeStyle(ShapeStyle.CIRCLE)
     }
 
     func build() {

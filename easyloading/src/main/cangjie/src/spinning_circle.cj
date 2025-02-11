@@ -24,7 +24,7 @@ public class SpinningCircleModel {
         this.size = size
         return this
     }
-    public func setColor(colors: Color): SpinningCircleModel {
+    public func setColor(color: Color): SpinningCircleModel {
         this.color = color
         return this
     }
