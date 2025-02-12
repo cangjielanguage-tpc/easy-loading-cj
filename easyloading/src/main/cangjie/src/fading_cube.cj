@@ -47,7 +47,7 @@ public class FadingCube {
         Stack(Alignment.TopStart) {
             Flex(FlexParams(wrap: FlexWrap.Wrap)) {
                 Rect().width(this.model.size / 2.0).height(this.model.size / 2.0).opacity(this.fadeValueArr[0]).fill(
-                    this.model.colors[0 % this.model.colors.size]).onAppear(
+                    this.model.colors[0]).onAppear(
                     {
                     => animateTo(
                         AnimateParam(

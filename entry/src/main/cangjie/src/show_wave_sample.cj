@@ -13,7 +13,7 @@ public class ShowWaveSample {
     var model: WaveModel = WaveModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(80.0).setDuration(600).setColors([Color.RED, Color.GREEN, Color.BLACK])
+        this.model.setSize(80.0).setDuration(600).setColors([Color.WHITE]).setItemCount(4)
     }
 
     func build() {

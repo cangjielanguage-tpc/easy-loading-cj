@@ -19,7 +19,7 @@ public class FoldingCubeModel {
         return this
     }
 
-    public func setColorArray(color: Color): FoldingCubeModel {
+    public func setColor(color: Color): FoldingCubeModel {
         this.color = color
         return this
     }
@@ -440,7 +440,7 @@ public class FoldingCube {
                         this.context41.fill()
                     }
                 )
-            }.width(100.percent).height(100.percent).rotate(0).backgroundColor(Color.WHITE)
+            }.width(100.percent).height(100.percent).rotate(45.0)
         }.width(this.model.size).height(this.model.size)
     }
 }

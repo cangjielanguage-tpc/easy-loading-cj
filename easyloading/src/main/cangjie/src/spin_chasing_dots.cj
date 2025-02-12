@@ -13,7 +13,7 @@ public class SpinChasingDotsModel {
     @Publish
     var colors: Array<Color> = [Color.BLACK]
     @Publish
-    var shapeStyle: ShapeStyle = ShapeStyle.RECT
+    var shapeStyle: ShapeStyle = ShapeStyle.CIRCLE
 
     @Publish
     var duration: Int32 = 2000
@@ -110,7 +110,7 @@ public class SpinChasingDots {
                 if (this.model.shapeStyle == ShapeStyle.RECT) {
                     Column() {
                         Rect(width: this.size * 0.6, height: this.size * 0.6).fill(
-                            this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                            this.model.colors[0]).scale(Float32(abs(1.0 - this.scaleValue)))
                     }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
                         HorizontalAlign.Start)
 
@@ -122,7 +122,7 @@ public class SpinChasingDots {
                 } else {
                     Column() {
                         Circle(width: this.size * 0.6, height: this.size * 0.6).fill(
-                            this.model.colors[0 % this.model.colors.size]).scale(Float32(abs(1.0 - this.scaleValue)))
+                            this.model.colors[0]).scale(Float32(abs(1.0 - this.scaleValue)))
                     }.justifyContent(FlexAlign.Start).width(100.percent).height(100.percent).alignItems(
                         HorizontalAlign.Start)
 

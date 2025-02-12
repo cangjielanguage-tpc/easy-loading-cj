@@ -16,6 +16,8 @@ public class PulseModel {
     @Publish
     var color: Color = Color.RED
 
+    @Publish
+    var shapeStyle: ShapeStyle = ShapeStyle.CIRCLE
 
     @Publish
     var duration: Int32 = 1000
@@ -23,7 +25,7 @@ public class PulseModel {
         this.size = size
         return this
     }
-    public func setColor(colors: Color): PulseModel {
+    public func setColor(color: Color): PulseModel {
         this.color = color
         return this
     }
@@ -33,7 +35,10 @@ public class PulseModel {
         return this
     }
 
-
+    public func setShapeStyle(shapeStyle: ShapeStyle): PulseModel {
+        this.shapeStyle = shapeStyle
+        return this
+    }
 }
 
 @Component
@@ -75,8 +80,13 @@ public class Pulse {
     func build() {
         Row() {
             Stack(Alignment.Center) {
-                Rect(width: this.size, height: this.size).fill(this.model.color).scale(
-                    Float32(abs(1.0 - this.scaleValue))).opacity(this.scaleValue)
+                if (this.model.shapeStyle == ShapeStyle.CIRCLE) {
+                    Circle(width: this.size, height: this.size).fill(this.model.color).scale(
+                        Float32(abs(1.0 - this.scaleValue))).opacity(this.scaleValue)
+                } else {
+                    Rect(width: this.size, height: this.size).fill(this.model.color).scale(
+                        Float32(abs(1.0 - this.scaleValue))).opacity(this.scaleValue)
+                }
             }
         }.width(this.size).height(this.size)
     }

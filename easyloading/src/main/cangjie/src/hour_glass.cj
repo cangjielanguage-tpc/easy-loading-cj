@@ -96,7 +96,7 @@ public class HourGlass {
                         context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.0, (180.0 - this.model.angle) * (Float64.PI / 360.0),
                             (90.0 + this.model.angle/2.0) * (Float64.PI / 180.0))
                         context.closePath()
-                        context.fillStyle(this.model.colors[0 % this.model.colors.size])
+                        context.fillStyle(this.model.colors[0])
                         context.lineWidth(this.model.strokeWidth)
                         context.fill()
 

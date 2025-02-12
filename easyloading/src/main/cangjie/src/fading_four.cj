@@ -54,7 +54,7 @@ public class FadingFour {
             Row() {
                 if (this.model.shapeStyle == ShapeStyle.RECT) {
                     Rect().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[0]).fill(
-                        this.model.colors[0 % this.model.colors.size]).onAppear(
+                        this.model.colors[0]).onAppear(
                         {
                         => animateTo(
                             AnimateParam(
@@ -89,7 +89,7 @@ public class FadingFour {
                     })
                 } else {
                     Circle().width(this.model.size / 3.0).height(this.model.size / 3.0).opacity(this.fadeValueArr[0]).
-                        fill(this.model.colors[0 % this.model.colors.size]).onAppear(
+                        fill(this.model.colors[0]).onAppear(
                         {
                         => animateTo(
                             AnimateParam(

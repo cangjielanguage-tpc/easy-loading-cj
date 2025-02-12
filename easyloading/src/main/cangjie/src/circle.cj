@@ -60,7 +60,7 @@ public class CircleComponent {
     func build() {
         Stack(Alignment.TopStart) {
             Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(
-                this.model.colors[0 % this.model.colors.size]).position(x: this.model.size * 0.425, y: 0.0).scale(
+                this.model.colors[0]).position(x: this.model.size * 0.425, y: 0.0).scale(
                 Float32(this.fadeValueArr[0]))
 
             Circle(width: this.model.size * 0.15, height: this.model.size * 0.15).fill(

@@ -22,7 +22,7 @@ public class RotateCircleModel {
         this.size = size
         return this
     }
-    public func setColor(colors: Color): RotateCircleModel {
+    public func setColor(color: Color): RotateCircleModel {
         this.color = color
         return this
     }
