@@ -62,6 +62,15 @@ class EntryView {
                     Button("SampleStaticCircle").fontSize(14).onClick {
                         => Router.push(url: "SampleStaticCircle")
                     }
+                    Button("SampleRotateCircles").fontSize(14).onClick {
+                        => Router.push(url: "SampleRotateCircles")
+                    }
+                    Button("SampleRotateFourCircles").fontSize(14).onClick {
+                        => Router.push(url: "SampleRotateFourCircles")
+                    }
+                    Button("SampleRotateEightCircles").fontSize(14).onClick {
+                        => Router.push(url: "SampleRotateEightCircles")
+                    }
                     Button("SampleCubeGrid").fontSize(14).onClick {
                         => Router.push(url: "CubeGridTest")
                     }
@@ -106,6 +115,9 @@ class EntryView {
                     }
                     Button("allIndicator").fontSize(14).onClick {
                         => Router.push(url: "AllIndicatorTest")
+                    }
+                    Button("SampleReadmeT").fontSize(14).onClick {
+                        => Router.push(url: "ShowReadme")
                     }
 
                     Text("add LLT----------------------")
