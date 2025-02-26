@@ -23,7 +23,7 @@ public class PouringHourGlassModel {
         this.size = size
         return this
     }
-    public func setColor(color: Color): PouringHourGlassModel {
+    public func setColor(colors: Color): PouringHourGlassModel {
         this.color = color
         return this
     }
@@ -64,6 +64,25 @@ public class PouringHourGlass {
     var top = 0.0
     var bottom = 0.0
 
+        func animator11() {
+        animateTo(
+            AnimateParam(
+                duration: this.model.duration / 2,
+                delay: 0,
+                curve: Curve.EaseIn,
+                iterations: 1,
+                playMode: PlayMode.Normal,
+                onFinish: {
+                    =>this.rotateValue = 0.0
+                }
+            ),
+            {
+                =>
+                this.rotateValue = 180.0
+            }
+        )
+    }
+
     protected override func aboutToAppear() {
         animatorResult = AnimatorResult(setAnimatorOption())
         animatorResult().onframe = {
@@ -71,7 +90,10 @@ public class PouringHourGlass {
         }
         animatorResult().play()
         animatorResult().onfinish = {
-            => rotateValue = 360.0
+            => this.animator11()
+
+            animatorResult().play()
+
         }
 
         size = this.model.size * sqrt1_2
@@ -95,7 +117,7 @@ public class PouringHourGlass {
             delay: 0,
             fill: AnimatorFill.None,
             direction: AnimatorDirection.Normal,
-            iterations: -1,
+            iterations: 1,
             begin: 0.0,
             end: 1.0
         )

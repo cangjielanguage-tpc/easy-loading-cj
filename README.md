@@ -14,6 +14,10 @@
 
 easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
 
+<p align="left">
+<img src="./doc/assets/easyloading_gif_demo.gif"  width="30%">
+</p>
+
 ## 特性
 
 - 提供 23 种 动画加载效果
