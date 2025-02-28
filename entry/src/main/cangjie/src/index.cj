@@ -98,6 +98,9 @@ class EntryView {
                     Button("SampleRing").fontSize(14).onClick {
                         => Router.push(url: "SampleRing")
                     }
+                    Button("SampleMoveRing").fontSize(14).onClick {
+                        => Router.push(url: "SampleMoveRing")
+                    }
                     Button("SampleSpinningCircle").fontSize(14).onClick {
                         => Router.push(url: "SampleSpinningCircle")
                     }
@@ -157,6 +160,9 @@ class EntryView {
                     Button("SampleRotateCircleLLT").fontSize(14).onClick {
                         => Router.push(url: "SampleRotateCircleLLT")
                     }
+                    Button("SampleRotateCirclesLLT").fontSize(14).onClick {
+                        => Router.push(url: "SampleRotateCirclesLLT")
+                    }
                     Button("SampleFoldingCubeLLT").fontSize(14).onClick {
                         => Router.push(url: "SampleFoldingCubeLLT")
                     }
@@ -168,6 +174,15 @@ class EntryView {
                     }
                     Button("SquareCircleSampleLLT").fontSize(14).onClick {
                         => Router.push(url: "SquareCircleSampleLLT")
+                    }
+                    Button("SampleRingLLT").fontSize(14).onClick {
+                        => Router.push(url: "SampleRingLLT")
+                    }
+                    Button("SampleMoveRingLLT").fontSize(14).onClick {
+                        => Router.push(url: "SampleMoveRingLLT")
+                    }
+                    Button("SamplePourHourGlassLLT").fontSize(14).onClick {
+                        => Router.push(url: "SamplePourHourGlassLLT")
                     }
                 }.width(100.percent)
             }
