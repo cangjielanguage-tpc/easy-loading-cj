@@ -16,7 +16,6 @@ public class PouringHourGlassModel {
     @Publish
     var color: Color = Color.BLACK
 
-
     @Publish
     var duration: Int32 = 2400
     public func setSize(size: Float64): PouringHourGlassModel {
@@ -47,12 +46,11 @@ public class PouringHourGlass {
 
     static let sqrt1_2 = 0.7071067811865476
 
-    @State
-    var scaleValue: Float64 = 0.0
-
     var size: Float64 = 0.0
     @State
     var rotateValue = 0.0
+    var color: Color = Color.BLACK
+    var isOk = false
 
     var animatorResult: ?AnimatorResult = None
 
@@ -64,7 +62,7 @@ public class PouringHourGlass {
     var top = 0.0
     var bottom = 0.0
 
-        func animator11() {
+    func animator11() {
         animateTo(
             AnimateParam(
                 duration: this.model.duration / 2,
@@ -73,27 +71,27 @@ public class PouringHourGlass {
                 iterations: 1,
                 playMode: PlayMode.Normal,
                 onFinish: {
-                    =>this.rotateValue = 0.0
+                    => this.rotateValue = 0.0
                 }
             ),
             {
-                =>
-                this.rotateValue = 180.0
+                => this.rotateValue = 180.0
             }
         )
     }
 
     protected override func aboutToAppear() {
+        this.color = this.model.color
         animatorResult = AnimatorResult(setAnimatorOption())
         animatorResult().onframe = {
-            value: Float64 => this.scaleValue = value
+            value: Float64 =>
+            onDraw(value)
         }
         animatorResult().play()
         animatorResult().onfinish = {
-            => this.animator11()
-
+            =>
+            this.animator11()
             animatorResult().play()
-
         }
 
         size = this.model.size * sqrt1_2
@@ -123,54 +121,59 @@ public class PouringHourGlass {
         )
         return option
     }
+
+    func onDraw(sValue: Float64) {
+        if (!isOk) {
+            return
+        }
+        context.clearRect(0.0, 0.0, this.size, this.size)
+        var hourglassPath = Path2D()
+        hourglassPath.moveTo(centerX - hourglassWidth, top)
+        hourglassPath.lineTo(centerX + hourglassWidth, top)
+        hourglassPath.lineTo(centerX + gapWidth, halfHeight)
+        hourglassPath.lineTo(centerX + hourglassWidth, bottom)
+        hourglassPath.lineTo(centerX - hourglassWidth, bottom)
+        hourglassPath.lineTo(centerX - gapWidth, halfHeight)
+        hourglassPath.closePath()
+        context.stroke(hourglassPath)
+
+        var upperFill = Path2D()
+        upperFill.moveTo(
+            centerX - hourglassWidth + (hourglassWidth - gapWidth) * sValue,
+            halfHeight + (top - halfHeight) * (1.0 - sValue)
+        )
+        upperFill.lineTo(
+            centerX + hourglassWidth - (hourglassWidth - gapWidth) * sValue,
+            halfHeight + (top - halfHeight) * (1.0 - sValue)
+        )
+        upperFill.lineTo(centerX + gapWidth, halfHeight)
+        upperFill.lineTo(centerX - gapWidth, halfHeight)
+        upperFill.closePath()
+        context.fillStyle(this.color)
+        context.stroke(upperFill) // fill
+
+        var lowerPartPath = Path2D()
+        lowerPartPath.moveTo(centerX, bottom - (bottom - halfHeight) * sValue)
+        lowerPartPath.lineTo(centerX - hourglassWidth * sValue, bottom)
+        lowerPartPath.lineTo(centerX + hourglassWidth * sValue, bottom)
+        lowerPartPath.closePath()
+        context.stroke(lowerPartPath) // fill
+
+        context.moveTo(centerX, halfHeight)
+        context.lineTo(centerX, bottom)
+        context.stroke()
+    }
     func build() {
         Row() {
             Column {
                 Stack(Alignment.Center) {
-                    Canvas(this.context).width(this.size - this.scaleValue).height(this.size - this.scaleValue).rotate(
-                        Float32(this.rotateValue)).backgroundColor(0xffff00).onReady(
-                        {
-                            =>
-                            var hourglassPath = Path2D()
-                            hourglassPath.moveTo(centerX - hourglassWidth, top)
-                            hourglassPath.lineTo(centerX + hourglassWidth, top)
-                            hourglassPath.lineTo(centerX + gapWidth, halfHeight)
-                            hourglassPath.lineTo(centerX + hourglassWidth, bottom)
-                            hourglassPath.lineTo(centerX - hourglassWidth, bottom)
-                            hourglassPath.lineTo(centerX - gapWidth, halfHeight)
-                            hourglassPath.closePath()
-                            //
-                            context.stroke(hourglassPath)
-                            Hilog.error(0, "ss", "ffff  ${top} ${halfHeight} ${size} ${halfHeight}")
-                            var upperFill = Path2D()
-                            //                        min(halfHeight, top *(1.0-model.getScaleValue()))
-                            upperFill.moveTo(
-                                centerX - hourglassWidth + (hourglassWidth - gapWidth) * this.scaleValue,
-                                halfHeight + (top - halfHeight) * (1.0 - this.scaleValue)
-                            )
-                            upperFill.lineTo(
-                                centerX + hourglassWidth - (hourglassWidth - gapWidth) * this.scaleValue,
-                                halfHeight + (top - halfHeight) * (1.0 - this.scaleValue)
-                            )
-                            upperFill.lineTo(centerX + gapWidth, halfHeight)
-                            upperFill.lineTo(centerX - gapWidth, halfHeight) // zz
-                            upperFill.closePath()
-                            context.fillStyle(Color.RED)
-                            context.stroke(upperFill)
-
-                            var lowerPartPath = Path2D()
-                            lowerPartPath.moveTo(centerX, bottom - (bottom - halfHeight) * this.scaleValue)
-                            lowerPartPath.lineTo(centerX - hourglassWidth * this.scaleValue, bottom)
-                            lowerPartPath.lineTo(centerX + hourglassWidth * this.scaleValue, bottom)
-                            lowerPartPath.closePath()
-                            context.stroke(lowerPartPath)
-
-                            context.strokeStyle(Color.BLACK)
-                            context.moveTo(centerX, halfHeight)
-                            context.lineTo(centerX, bottom)
-                            context.stroke()
-                        }
-                    )
+                    Canvas(this.context)
+                        .width(this.size)
+                        .height(this.size)
+                        .rotate(Float32(this.rotateValue))
+                        .onReady({
+                            => isOk = true
+                        })
                 }
             }
         }.width(this.size).height(this.size)

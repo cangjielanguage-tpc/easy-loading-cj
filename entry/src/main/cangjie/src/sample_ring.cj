@@ -13,7 +13,7 @@ public class SampleRing {
     var model: RingModel = RingModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model.setSize(60.0).setDuration(2400)
+        this.model.setSize(60.0).setDuration(2400).setStrokeWidth(6.0).setAngle(270.0)
     }
 
     func build() {
