@@ -42,43 +42,174 @@ public class EasyLoadingModel {
      */
     public func setPumpingHeartModel(pumpingHeartModel: PumpingHeartModel): EasyLoadingModel 
     /**
+     * 设置 Circle 动画效果的数据
+     *
+     * 参数 circleModel - Circle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setCircleModel(circleModel: CircleModel): EasyLoadingModel 
+    /**
+     * 设置 DoubleBounce 动画效果的数据
+     *
+     * 参数 doubleBounceModel - DoubleBounce 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setDoubleBounceModel(doubleBounceModel: DoubleBounceModel): EasyLoadingModel
+    /**
+     * 设置 FadingCircle 动画效果的数据
+     *
+     * 参数 model - FadingCircle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setFadingCircleModel(model: FadingCircleModel): EasyLoadingModel
+    /**
+     * 设置 FadingCube 动画效果的数据
+     *
+     * 参数 model - FadingCube 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setFadingCubeModel(model: FadingCubeModel): EasyLoadingModel
+    /**
+     * 设置 FadingFour 动画效果的数据
+     *
+     * 参数 model - FadingFour 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setFadingFourModel(model: FadingFourModel): EasyLoadingModel
+    /**
+     * 设置 FoldingCube 动画效果的数据
+     *
+     * 参数 model - FoldingCube 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setFoldingCubeModel(model: FoldingCubeModel): EasyLoadingModel
+    /**
+     * 设置 HourGlass 动画效果的数据
+     *
+     * 参数 model - HourGlass 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setHourGlassModel(model: HourGlassModel): EasyLoadingModel
+    /**
+     * 设置 PouringHourGlass 动画效果的数据
+     *
+     * 参数 model - PouringHourGlass 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setPouringHourGlassModel(model: PouringHourGlassModel): EasyLoadingModel
+    /**
+     * 设置 Pulse 动画效果的数据
+     *
+     * 参数 model - Pulse 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setPulseModel(model: PulseModel): EasyLoadingModel
+    /**
+     * 设置 Ring 动画效果的数据
+     *
+     * 参数 model - Ring 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRingModel(model: RingModel): EasyLoadingModel
+    /**
+     * 设置 RotateCircle 动画效果的数据
+     *
+     * 参数 model - RotateCircle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRotateCircleModel(model: RotateCircleModel): EasyLoadingModel
+    /**
+     * 设置 RotatePlain 动画效果的数据
+     *
+     * 参数 model - RotatePlain 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRotatePlainModel(model: RotatePlainModel): EasyLoadingModel
+    /**
+     * 设置 SpinningCircle 动画效果的数据
+     *
+     * 参数 model - SpinningCircle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setSpinningCircleModel(model: SpinningCircleModel): EasyLoadingModel
+    /**
+     * 设置 SpinChasingDots 动画效果的数据
+     *
+     * 参数 model - SpinChasingDots 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setSpinChasingDotsModel(model: SpinChasingDotsModel): EasyLoadingModel
+    /**
+     * 设置 SquareCircle 动画效果的数据
+     *
+     * 参数 model - SquareCircle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setSquareCircleModel(model: SquareCircleModel): EasyLoadingModel
+    /**
+     * 设置 ThreeBounce 动画效果的数据
+     *
+     * 参数 model - ThreeBounce 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setThreeBounceModel(model: ThreeBounceModel): EasyLoadingModel
+    /**
+     * 设置 Wave 动画效果的数据
+     *
+     * 参数 model - Wave 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setWaveModel(model: WaveModel): EasyLoadingModel
+    /**
+     * 设置 WanderingCubes 动画效果的数据
+     *
+     * 参数 model - WanderingCubes 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setWanderingCubesModel(model: WanderingCubesModel): EasyLoadingModel
+    /**
+     * 设置 RotateEightCircles 动画效果的数据
+     *
+     * 参数 model - RotateEightCircles 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRotateEightCirclesModel(model: RotateEightCirclesModel): EasyLoadingModel
+    /**
+     * 设置 RotateFourCircles 动画效果的数据
+     *
+     * 参数 model - RotateFourCircles 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRotateFourCirclesModel(model: RotateFourCirclesModel): EasyLoadingModel
+    /**
+     * 设置 RotateCircles 动画效果的数据
+     *
+     * 参数 model - RotateCircles 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setRotateCirclesModel(model: RotateCirclesModel): EasyLoadingModel
+    /**
+     * 设置 MoveRing 动画效果的数据
+     *
+     * 参数 model - MoveRing 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setMoveRingModel(model: MoveRingModel): EasyLoadingModel
+    /**
+     * 设置 StaticCircle 动画效果的数据
+     *
+     * 参数 model - StaticCircle 动画效果的数据
+     * 返回 EasyLoadingModel - 动画指示器数据配置类
+     */
+    public func setStaticCircleModel(model: StaticCircleModel): EasyLoadingModel
+    /**
      * 设置 Toast 动画效果的数据
      *
      * 参数 toastModel - Toast 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
      */
     public func setToastModel(toastModel: ToastModel): EasyLoadingModel
-    /**
-     * 获取 FadingGrid 数据配置类
-     *
-     * 返回 ?FadingGridModel - FadingGrid 数据配置类
-     */
-    public func getFadingGridModel(): ?FadingGridModel 
-    /**
-     * 获取 CubeGridModel 数据配置类
-     *
-     * 返回 ?CubeGridModel - CubeGridModel 数据配置类
-     */
-    public func getCubeGridModel(): ?CubeGridModel
-    /**
-     * 获取 PumpingHeartModel 数据配置类
-     *
-     * 返回 ?PumpingHeartModel - PumpingHeartModel 数据配置类
-     */
-    public func getPumpingHeartModel(): ?PumpingHeartModel 
-    /**
-     * 获取 ToastModel 数据配置类
-     *
-     * 返回 ?ToastModel - ToastModel 数据配置类
-     */
-    public func getToastModel(): ?ToastModel
-    /**
-     * 获取动画指示器类型
-     *
-     * 返回 ?EasyLoadingIndicatorType - 动画指示器类型
-     */
-    public func getIndicatorType(): ?EasyLoadingIndicatorType 
-
+    
     /**
      * 设置指示器宽度，默认 120.0
      *
@@ -301,11 +432,16 @@ public enum EasyLoadingIndicatorType {
     | CHASINGGDOTS
     | WAVE
     | WANDERINGCUBES
+    | ROTATEEIGHTCIRCLES
+    | ROTATEFOURCIRCLES
+    | ROTATECIRCLES
+    | MOVERING
+    | STATICCIRCLE
     | ROTATINNGPLAIN
     | DOUBLEBOUNCE
     | FADINGFOUR
     | FADINGCUBE
-    | PLUSE
+    | PULSE
     | CUBEGRID
     | ROTATINGCIRCLE
     | FOLDINGCUBE
@@ -315,7 +451,6 @@ public enum EasyLoadingIndicatorType {
     | POURINGGHOURGLASS
     | FADINGGRID
     | RING
-    | RIPPLE
     | SPINNINGCIRCLE
     | SQUARECIRCLE
     | TOAST
@@ -401,7 +536,6 @@ public class FadingGrid {
 }
 ```
 
-
 ### 2.2 CubeGrid
 
 #### 2.2.1 CubeGridModel
@@ -444,7 +578,6 @@ public class CubeGrid {
     var model: CubeGridModel = CubeGridModel()  // CubeGrid 数据配置类
 }
 ```
-
 
 ### 2.3 DualRing
 
@@ -549,7 +682,6 @@ public class WanderingCubes {
 }
 ```
 
-
 ### 2.5 PumpingHeart
 
 #### 2.5.1 PumpingHeartModel
@@ -599,7 +731,6 @@ public class PumpingHeart {
     var model: PumpingHeartModel = PumpingHeartModel()  // PumpingHeart 数据配置类
 }
 ```
-
 
 ### 2.6 ToastIndicator
 
@@ -658,7 +789,6 @@ public class ToastIndicator {
     var model: ToastModel = ToastModel()
 }
 ```
-
 
 ### 2.7 Circle
 
@@ -789,7 +919,6 @@ public class FadingCircle {
 }
 ```
 
-
 ### 2.10 FadingCube
 
 #### 2.10.1 FadingCubeModel
@@ -876,7 +1005,6 @@ public class FadingFour {
 }
 ```
 
-
 ### 2.12 FoldingCube
 
 #### 2.12.1 FoldingCubeModel
@@ -919,7 +1047,6 @@ public class FoldingCube {
     var model: FoldingCubeModel = FoldingCubeModel()  // 数据配置类
 }
 ```
-
 
 ### 2.13 HourGlass
 
@@ -1031,7 +1158,6 @@ public class PouringHourGlass {
 }
 ```
 
-
 ### 2.15 Pulse
 
 #### 2.15.1 PulseModel
@@ -1075,7 +1201,6 @@ public class Pulse {
     var model: PulseModel = PulseModel()  // 数据配置类
 }
 ```
-
 
 ### 2.16 Ring
 
@@ -1425,6 +1550,238 @@ public class WaveModel {
 public class Wave {
     @State
     var model: WaveModel = WaveModel()  // 数据配置类
+}
+```
+
+### 2.24 RotateEightCircles
+
+#### 2.24.1 RotateEightCirclesModel
+
+```cangjie
+
+public class RotateEightCirclesModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RotateEightCirclesModel - 数据配置类
+     */
+    public func setSize(size: Float64): RotateEightCirclesModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RotateEightCirclesModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RotateEightCirclesModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RotateEightCirclesModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RotateEightCirclesModel
+    
+}
+```
+
+#### 2.24.2 RotateEightCircles 组件
+
+```cangjie
+@Component
+public class RotateEightCirclesComponent {
+    @State
+    var model: RotateEightCirclesModel = RotateEightCirclesModel()  // 数据配置类
+}
+```
+
+### 2.25 RotateFourCircles
+
+#### 2.25.1 RotateFourCirclesModel
+
+```cangjie
+
+public class RotateFourCirclesModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RotateFourCirclesModel - 数据配置类
+     */
+    public func setSize(size: Float64): RotateFourCirclesModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RotateFourCirclesModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RotateFourCirclesModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RotateFourCirclesModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RotateFourCirclesModel
+    
+}
+```
+
+#### 2.25.2 RotateFourCircles 组件
+
+```cangjie
+@Component
+public class RotateFourCirclesComponent {
+    @State
+    var model: RotateFourCirclesModel = RotateFourCirclesModel()  // 数据配置类
+}
+```
+
+### 2.26 RotateCircles
+
+#### 2.26.1 RotateCirclesModel
+
+```cangjie
+
+public class RotateCirclesModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 RotateCirclesModel - 数据配置类
+     */
+    public func setSize(size: Float64): RotateCirclesModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 RotateCirclesModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): RotateCirclesModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 RotateCirclesModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): RotateCirclesModel
+    
+}
+```
+
+#### 2.26.2 RotateCirclesComponent 组件
+
+```cangjie
+@Component
+public class RotateCirclesComponent {
+    @State
+    var model: RotateCirclesModel = RotateCirclesModel()  // 数据配置类
+}
+```
+
+### 2.27 MoveRing
+
+#### 2.27.1 MoveRingModel
+
+```cangjie
+
+public class MoveRingModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 MoveRingModel - 数据配置类
+     */
+    public func setSize(size: Float64): MoveRingModel
+    /**
+     * 设置图形宽度，默认 6.0
+     *
+     * 参数 strokeWidth - 图形宽度
+     * 返回 MoveRingModel - 数据配置类
+     */
+    public func setStrokeWidth(strokeWidth: Float64): MoveRingModel
+    
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 color - 内部元素颜色
+     * 返回 MoveRingModel - 数据配置类
+     */
+    public func setColor(color: Color): MoveRingModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 MoveRingModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): MoveRingModel
+    
+}
+```
+
+#### 2.27.2 MoveRing 组件
+
+```cangjie
+@Component
+public class MoveRing {
+    @State
+    var model: MoveRingModel = MoveRingModel()  // 数据配置类
+}
+```
+### 2.28 StaticCircle
+
+#### 2.28.1 MoveRingModel
+
+```cangjie
+
+public class StaticCircleModel {
+    /**
+     * 设置 大小，默认 50.0
+     *
+     * 参数 size - 大小
+     * 返回 StaticCircleModel - 数据配置类
+     */
+    public func setSize(size: Float64): StaticCircleModel
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 colors - 内部元素颜色
+     * 返回 StaticCircleModel - 数据配置类
+     */
+    public func setColors(colors: Array<Color>): StaticCircleModel
+    /**
+     * 设置内部元素颜色，默认 Color.RED
+     *
+     * 参数 color - 内部元素颜色
+     * 返回 StaticCircleModel - 数据配置类
+     */
+    public func setColor(color: Color): StaticCircleModel
+
+    /**
+     * 设置动画时长，默认 1000
+     *
+     * 参数 duration - 动画时长
+     * 返回 MoveRingModel - 数据配置类
+     */
+    public func setDuration(duration: Int32): MoveRingModel
+    
+}
+```
+
+#### 2.28.2 StaticCircleComponent 组件
+
+```cangjie
+@Component
+public class StaticCircleComponent {
+    @State
+    var model: StaticCircleModel = StaticCircleModel()  // 数据配置类
 }
 ```
 

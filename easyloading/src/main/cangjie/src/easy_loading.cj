@@ -88,6 +88,21 @@ public class EasyLoading {
                     } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.WANDERINGCUBES &&
                         this.model.getWanderingCubesModel().isSome()) {
                         WanderingCubes(model: this.model.getWanderingCubesModel()())
+                    } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.ROTATEEIGHTCIRCLES &&
+                        this.model.getRotateEightCirclesModel().isSome()) {
+                        RotateEightCirclesComponent(model: this.model.getRotateEightCirclesModel()())
+                    } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.ROTATEFOURCIRCLES &&
+                        this.model.getRotateFourCirclesModel().isSome()) {
+                        RotateFourCirclesComponent(model: this.model.getRotateFourCirclesModel()())
+                    } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.ROTATECIRCLES &&
+                        this.model.getRotateCirclesModel().isSome()) {
+                        RotateCirclesComponent(model: this.model.getRotateCirclesModel()())
+                    } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.MOVERING &&
+                        this.model.getMoveRingModel().isSome()) {
+                        MoveRing(model: this.model.getMoveRingModel()())
+                    } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.STATICCIRCLE &&
+                        this.model.getStaticCircleModel().isSome()) {
+                        StaticCircleComponent(model: this.model.getStaticCircleModel()())
                     } else if (this.model.getIndicatorType().getOrThrow() == EasyLoadingIndicatorType.TOAST &&
                         this.model.getToastModel().isSome()) {
                         ToastIndicator(model: this.model.getToastModel()())

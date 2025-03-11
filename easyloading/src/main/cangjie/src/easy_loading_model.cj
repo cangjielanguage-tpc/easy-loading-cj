@@ -71,6 +71,21 @@ public class EasyLoadingModel {
     @Publish
     var wanderingCubesModel: ?WanderingCubesModel = Option<WanderingCubesModel>.None
 
+    @Publish
+    var rotateEightCirclesModel: ?RotateEightCirclesModel = Option<RotateEightCirclesModel>.None
+
+    @Publish
+    var rotateFourCirclesModel: ?RotateFourCirclesModel = Option<RotateFourCirclesModel>.None
+
+    @Publish
+    var rotateCirclesModel: ?RotateCirclesModel = Option<RotateCirclesModel>.None
+
+    @Publish
+    var moveRingModel: ?MoveRingModel = Option<MoveRingModel>.None
+
+    @Publish
+    var staticCircleModel: ?StaticCircleModel = Option<StaticCircleModel>.None
+
     //-------------Toast----------
     @Publish
     var toastModel: ?ToastModel = Option<ToastModel>.None
@@ -223,22 +238,27 @@ public class EasyLoadingModel {
         this.rotateCircleModel = model
         return this
     }
+
     public func setRotatePlainModel(model: RotatePlainModel): EasyLoadingModel {
         this.rotatePlainModel = model
         return this
     }
+
     public func setSpinningCircleModel(model: SpinningCircleModel): EasyLoadingModel {
         this.spinningCircleModel = model
         return this
     }
+
     public func setSpinChasingDotsModel(model: SpinChasingDotsModel): EasyLoadingModel {
         this.spinChasingDotsModel = model
         return this
     }
+
     public func setSquareCircleModel(model: SquareCircleModel): EasyLoadingModel {
         this.squareCircleModel = model
         return this
     }
+
     public func setThreeBounceModel(model: ThreeBounceModel): EasyLoadingModel {
         this.threeBounceModel = model
         return this
@@ -251,6 +271,30 @@ public class EasyLoadingModel {
 
     public func setWanderingCubesModel(model: WanderingCubesModel): EasyLoadingModel {
         this.wanderingCubesModel = model
+        return this
+    }
+
+    public func setRotateEightCirclesModel(model: RotateEightCirclesModel): EasyLoadingModel {
+        this.rotateEightCirclesModel = model
+        return this
+    }
+
+    public func setRotateFourCirclesModel(model: RotateFourCirclesModel): EasyLoadingModel {
+        this.rotateFourCirclesModel = model
+        return this
+    }
+
+    public func setRotateCirclesModel(model: RotateCirclesModel): EasyLoadingModel {
+        this.rotateCirclesModel = model
+        return this
+    }
+    public func setMoveRingModel(model: MoveRingModel): EasyLoadingModel {
+        this.moveRingModel = model
+        return this
+    }
+
+    public func setStaticCircleModel(model: StaticCircleModel): EasyLoadingModel {
+        this.staticCircleModel = model
         return this
     }
 
@@ -326,7 +370,21 @@ public class EasyLoadingModel {
     public func getWanderingCubesModel(): ?WanderingCubesModel {
         return this.wanderingCubesModel
     }
-
+    public func getRotateEightCirclesModel(): ?RotateEightCirclesModel {
+        return this.rotateEightCirclesModel
+    }
+    public func getRotateFourCirclesModel(): ?RotateFourCirclesModel {
+        return this.rotateFourCirclesModel
+    }
+    public func getRotateCirclesModel(): ?RotateCirclesModel {
+        return this.rotateCirclesModel
+    }
+    public func getMoveRingModel(): ?MoveRingModel {
+        return this.moveRingModel
+    }
+    public func getStaticCircleModel(): ?StaticCircleModel {
+        return this.staticCircleModel
+    }
     public func getToastModel(): ?ToastModel {
         return this.toastModel
     }
