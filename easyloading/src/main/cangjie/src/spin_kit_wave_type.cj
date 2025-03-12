@@ -30,6 +30,11 @@ public enum EasyLoadingIndicatorType {
     | CHASINGGDOTS
     | WAVE
     | WANDERINGCUBES
+    | ROTATEEIGHTCIRCLES
+    | ROTATEFOURCIRCLES
+    | ROTATECIRCLES
+    | MOVERING
+    | STATICCIRCLE
     | ROTATINNGPLAIN
     | DOUBLEBOUNCE
     | FADINGFOUR
@@ -44,7 +49,6 @@ public enum EasyLoadingIndicatorType {
     | POURINGGHOURGLASS
     | FADINGGRID
     | RING
-    | RIPPLE
     | SPINNINGCIRCLE
     | SQUARECIRCLE
     | TOAST
@@ -57,6 +61,11 @@ public enum EasyLoadingIndicatorType {
             case (CHASINGGDOTS, CHASINGGDOTS) => true
             case (WAVE, WAVE) => true
             case (WANDERINGCUBES, WANDERINGCUBES) => true
+            case (ROTATEEIGHTCIRCLES, ROTATEEIGHTCIRCLES) => true
+            case (ROTATEFOURCIRCLES, ROTATEFOURCIRCLES) => true
+            case (ROTATECIRCLES, ROTATECIRCLES) => true
+            case (MOVERING, MOVERING) => true
+            case (STATICCIRCLE, STATICCIRCLE) => true
             case (ROTATINNGPLAIN, ROTATINNGPLAIN) => true
             case (DOUBLEBOUNCE, DOUBLEBOUNCE) => true
             case (FADINGFOUR, FADINGFOUR) => true
@@ -71,7 +80,6 @@ public enum EasyLoadingIndicatorType {
             case (POURINGGHOURGLASS, POURINGGHOURGLASS) => true
             case (FADINGGRID, FADINGGRID) => true
             case (RING, RING) => true
-            case (RIPPLE, RIPPLE) => true
             case (SPINNINGCIRCLE, SPINNINGCIRCLE) => true
             case (SQUARECIRCLE, SQUARECIRCLE) => true
             case (TOAST, TOAST) => true

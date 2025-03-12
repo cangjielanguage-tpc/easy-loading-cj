@@ -5,7 +5,7 @@
 <p align="center">
 <img alt="" src="https://img.shields.io/badge/release-v0.0.1-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/build-pass-brightgreen" style="display: inline-block;" />
-<img alt="" src="https://img.shields.io/badge/cjc-v0.53.17-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/cjc-v0.53.18-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/cjcov-NA-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/project-open-brightgreen" style="display: inline-block;" />
 </p>
@@ -20,7 +20,7 @@ easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
 
 ## 特性
 
-- 提供 23 种 动画加载效果
+- 提供 27 种 动画加载效果
 - 提供 Toast 功能
 
 ### 源码目录
@@ -33,7 +33,7 @@ easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
 │  └─src
 │      └─main
 │          ├─cangjie
-│          │  └─src          # easyloading  23种动画效果源码                         
+│          │  └─src          # easyloading  27种动画效果源码                         
 │          └─resources
 ├─hvigor     # 构建工具目录
 ├─README.md  # easy-loading-cj 介绍及使用说明
@@ -233,9 +233,11 @@ public class AllTest {
 
 在下述版本验证通过：
 
-    DevEco Studio NEXT Developer Beta2(5.0.5.315) 
-    Cangjie Support Plugin 5.0.5.306.117
-    Cangjie Compiler:  0.53.17 (cjnative)
+    DevEco Studio (5.0.9.100)
+    Cangjie Support Plugin 5.0.9.100
+    Cangjie Compiler: 0.53.18
+    
+    1.PouringHourGlass PumpingHeart两个加载动画没有填充效果
 
 ## 开源协议
 

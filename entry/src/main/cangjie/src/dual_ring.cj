@@ -12,8 +12,7 @@ class DualRingTest {
     var model: DualRingModel = DualRingModel()
 
     protected override func aboutToAppear(): Unit {
-        this.model
-        .setBgColor(Color.WHITE)
+        this.model.setSize(100.0).setColor(Color.BLUE).setBorderWidth(10.0).setAngle(120.0)
     }
 
     func build() {
@@ -24,7 +23,7 @@ class DualRingTest {
             .width(300.0)
             .height(300.0)
             .padding(top: 30.0)
-            .backgroundColor(Color.WHITE)
+            .backgroundColor(Color.GRAY)
         }.width(100.percent).height(100.percent).backgroundColor(Color.BLACK)
 
     }

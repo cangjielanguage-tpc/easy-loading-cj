@@ -12,7 +12,7 @@ public class DualRingModel {
     @Publish
     var color: Color = Color.RED
     @Publish
-    var bgColor: Color = Color.BLACK
+    var angle: Float64 = 90.0
     @Publish
     var borderWidth: Float64 = 10.0
     @Publish
@@ -27,10 +27,7 @@ public class DualRingModel {
         this.color = color
         return this
     }
-    public func setBgColor(bgColor: Color): DualRingModel {
-        this.bgColor = bgColor
-        return this
-    }
+
     public func setBorderWidth(borderWidth: Float64): DualRingModel {
         this.borderWidth = borderWidth
         return this
@@ -40,8 +37,11 @@ public class DualRingModel {
         return this
     }
 
+    public func setAngle(angle: Float64): DualRingModel {
+        this.angle = angle
+        return this
+    }
 }
-
 
 @Component
 public class DualRing {
@@ -54,60 +54,51 @@ public class DualRing {
     var settings: RenderingContextSettings = RenderingContextSettings(antialias: true)
     var context: CanvasRenderingContext2D = CanvasRenderingContext2D(this.settings)
 
-
     func build() {
         Column() {
-            Stack() {
-                    Circle()
-                    .width(this.model.size - this.model.borderWidth)
-                    .height(this.model.size - this.model.borderWidth)
-                    .fillOpacity(0)
-                    .strokeWidth(this.model.borderWidth)
-                    .stroke(this.model.color)
+            Stack(Alignment.Center) {
+                Canvas(this.context)
+                    .width(this.model.size)
+                    .height(this.model.size)
+                    .rotate(x: 0.0, y: 0.0, z: 1.0, centerX: (this.model.size / 2.0).vp,
+                        centerY: (this.model.size / 2.0).vp, angle: this.rotate)
+                    .onReady(
+                        {
+                            =>
+                            this.context.lineWidth(this.model.borderWidth)
+                            context.beginPath()
+                            context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.5, 0.0,
+                                this.model.angle * (Float64.PI / 180.0))
 
-                    Canvas(this.context).width(100.percent).height(100.percent).rotate(x: 0.0,y: 0.0, z: 1.0, angle: this.rotate, centerX: (this.model.size/2.0).vp, centerY: (this.model.size/2.0).vp).onReady(
-                    {
-                        =>
-                        this.context.beginPath()
-                        this.context.moveTo(0, 0)
-                        this.context.lineTo(100, 0)
-                        this.context.lineTo(50, 50)
-                        this.context.closePath()
-                        this.context.fillStyle(this.model.bgColor)
-                        this.context.fill()
-                        this.context.beginPath()
-                        this.context.moveTo(0, 100)
-                        this.context.lineTo(100, 100)
-                        this.context.lineTo(50, 50)
-                        this.context.closePath()
-                        this.context.fillStyle(this.model.bgColor)
-                        this.context.fill()
+                            context.strokeStyle(this.model.color)
+                            context.stroke()
+
+                            context.beginPath()
+                            context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.5,
+                                180.0 * (Float64.PI / 180.0), (180.0 + this.model.angle) * (Float64.PI / 180.0))
+                            context.strokeStyle(this.model.color)
+                            context.stroke()
                         }
                     )
-
-            }.width(100.percent)
-            .height(100.percent)
-            .backgroundColor(this.model.bgColor)
-            .clip(RectShape(width: this.model.size, height: this.model.size)
-            .fill(this.model.bgColor))
-            .onAppear({=>
-                 animateTo(
-                    AnimateParam(
-                        duration: this.model.duration,
-                        delay: 0,
-                        curve: Curve.Linear,
-                        iterations: -1,
-                        playMode: PlayMode.Normal,
-                        onFinish: {=> }
-                    ),
-                    {=>
-                        this.rotate = 360.0
-                    }
-                )
-
-            })
-
+            }
+                .width(100.percent)
+                .height(100.percent)
+                .onAppear(
+                    {
+                        => animateTo(
+                            AnimateParam(
+                                duration: this.model.duration,
+                                delay: 0,
+                                curve: Curve.Linear,
+                                iterations: -1,
+                                playMode: PlayMode.Normal,
+                                onFinish: {=>}
+                            ),
+                            {
+                                => this.rotate = 360.0
+                            }
+                        )
+                    })
         }.width(this.model.size).height(this.model.size)
-
     }
 }
