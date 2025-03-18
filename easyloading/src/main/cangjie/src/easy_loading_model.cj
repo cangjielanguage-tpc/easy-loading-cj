@@ -485,6 +485,11 @@ public class EasyLoadingModel {
         return this
     }
 
+    public func setVisibility(visibility: Visibility): EasyLoadingModel {
+        this.visibility = visibility
+        return this
+    }
+
     //-------------组件缩放-------------
     public func setIsScale(isScale: Bool): EasyLoadingModel {
         this.isScale = isScale
