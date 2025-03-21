@@ -57,37 +57,41 @@ easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
          "author": "",
          "license": "",
         "dependencies": {
-            "highlightguide": "file:../easyloading"
+            "easyloading": "file:../easyloading"
         }
       }
       ```
     4. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，在 [dependencies] 字段下添加 easyloading = {path = "../../../../easyloading/src/main/cangjie", version = "1.0.0"}
        ```toml
-       [dependencies]
-           easyloading = {path = "../../../../easyloading/src/main/cangjie", version = "1.0.0"}
+        [dependencies]
+            [dependencies.easyloading]
+                path = "../../../../easyloading/src/main/cangjie"
+                version = "1.0.0"
        ```
     5. 在项目中使用 import easyloading.* 引用 easyloading 项目
        ```cangjie
        import easyloading.*
        ```
-2. 把 easy-loading-cj 作为三方库依赖引入
-    1. 目标工程把 easy-loading-cj 依赖库作为 git submodule 引入
+   2. 把 easy-loading-cj 作为三方库依赖引入
+       1. 目标工程把 easy-loading-cj 依赖库作为 git submodule 引入
 
-    ```
-    > cd $工程根目录
-    > mkdir third-party
-    > cd third-party
-    > git submodule add "https://gitcode.com/Cangjie-TPC/easy-loading-cj.git"
-    ```
-    2. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，添加依赖
-    ```toml
-    [dependencies]
-        easyloading = {path = "../../../../third-party/easy-loading-cj/easyloading/src/main/cangjie", version = "1.0.0"}
-     ```
-    3. 在项目中使用 easyloading 组件
-       ```cangjie
-       import easyloading.*
        ```
+    >    cd $工程根目录
+    >    mkdir third-party
+    >    cd third-party
+    >    git submodule add "https://gitcode.com/Cangjie-TPC/easy-loading-cj.git"
+       ```
+       2. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，添加依赖
+       ```toml
+       [dependencies]
+               [dependencies.easyloading]
+                   path = "../../../../third-party/easy-loading-cj/easyloading/src/main/cangjie"
+                   version = "1.0.0"
+        ```
+       3. 在项目中使用 easyloading 组件
+          ```cangjie
+          import easyloading.*
+          ```
 
 ## 功能示例
 
@@ -101,11 +105,11 @@ import ohos.component.*
 import ohos.state_manage.*
 import ohos.state_macro_manage.*
 import ohos.resource_manager.*
-import easyloading
+import easyloading.*
 
 @Entry
 @Component
-public class AllTest {
+public class EntryView {
     @State
     var loadingModel: EasyLoadingModel = EasyLoadingModel()  // 测试 fadeGrid 指示器
     @State
@@ -129,7 +133,7 @@ public class AllTest {
 
         this.loadingModel
         .setIndicatorType(EasyLoadingIndicatorType.FADINGGRID)
-        .setFadingGridModel(this.fadeGridmodel())
+        .setFadingGridModel(this.fadeGridmodel.getOrThrow())
         .setMaskDisplayAnimator(0.5)
         .setScaleAnimator(1.0)
         .setRotateAnimator(360.0)
@@ -160,7 +164,7 @@ public class AllTest {
         .setBackground(Color.BLACK)
         .setFontColor(Color.WHITE)
         .setIndicatorType(EasyLoadingIndicatorType.TOAST)
-        .setToastModel(this.toastModel())
+        .setToastModel(this.toastModel.getOrThrow())
         .setMaskDisplayAnimator(0.5)
         .setScaleAnimator(1.0)
         .setRotateAnimator(360.0)
