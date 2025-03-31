@@ -48,7 +48,7 @@ easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
     1. 克隆下载项目
     2. 将 easyloading 模块拷贝到应用项目下
     3. 修改自身应用 entry 下的 oh-package.json5 文件，在 dependencies 字段添加 "easyloading": "file:../easyloading"
-      ```json
+    ```json
       {
          "name": "entry",
          "version": "1.0.0",
@@ -60,38 +60,38 @@ easy-loading-cj 提供了多种 loading/Toast 动画加载效果。
             "easyloading": "file:../easyloading"
         }
       }
-      ```
+    ```
     4. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，在 [dependencies] 字段下添加 easyloading = {path = "../../../../easyloading/src/main/cangjie", version = "1.0.0"}
-       ```toml
+    ```toml
         [dependencies]
             [dependencies.easyloading]
                 path = "../../../../easyloading/src/main/cangjie"
                 version = "1.0.0"
-       ```
+    ```
     5. 在项目中使用 import easyloading.* 引用 easyloading 项目
-       ```cangjie
+    ```cangjie
        import easyloading.*
-       ```
-   2. 把 easy-loading-cj 作为三方库依赖引入
-       1. 目标工程把 easy-loading-cj 依赖库作为 git submodule 引入
+    ```
+2. 把 easy-loading-cj 作为三方库依赖引入
+    1. 目标工程把 easy-loading-cj 依赖库作为 git submodule 引入
 
-       ```
-    >    cd $工程根目录
-    >    mkdir third-party
-    >    cd third-party
-    >    git submodule add "https://gitcode.com/Cangjie-TPC/easy-loading-cj.git"
-       ```
-       2. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，添加依赖
-       ```toml
-       [dependencies]
-               [dependencies.easyloading]
-                   path = "../../../../third-party/easy-loading-cj/easyloading/src/main/cangjie"
-                   version = "1.0.0"
-        ```
-       3. 在项目中使用 easyloading 组件
-          ```cangjie
-          import easyloading.*
-          ```
+    ```
+    >   cd $工程根目录
+    >   mkdir third-party
+    >   cd third-party
+    >   git submodule add "https://gitcode.com/Cangjie-TPC/easy-loading-cj.git"
+    ```
+    2. 修改自身应用 entry/src/main/cangjie 下的 cjpm.toml 文件，添加依赖
+    ```toml
+    [dependencies]
+        [dependencies.easyloading]
+            path = "../../../../third-party/easy-loading-cj/easyloading/src/main/cangjie"
+            version = "1.0.0"
+    ```
+    3. 在项目中使用 easyloading 组件
+    ```cangjie
+     import easyloading.*
+    ```
 
 ## 功能示例
 
