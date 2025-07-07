@@ -144,7 +144,7 @@ public class AllIndicatorTest {
                         .width(80)
                         .height(30)
                         .selectedColor(0xe0d6ee)
-                        .backgroundColor(Color.WHITE)
+//                        .backgroundColor(Color.WHITE)
                         .border(width: 2.vp, color: Color(0x988fae))
                         .onChange({isOn: Bool =>
                             if(isOn) {
@@ -169,7 +169,7 @@ public class AllIndicatorTest {
                         .width(80)
                         .height(30)
                         .selectedColor(0xe0d6ee)
-                        .backgroundColor(Color.WHITE)
+//                        .backgroundColor(Color.WHITE)
                         .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                         .onChange({isOn: Bool =>
                             if(isOn) {
@@ -193,7 +193,7 @@ public class AllIndicatorTest {
                         .width(80)
                         .height(30)
                         .selectedColor(0xe0d6ee)
-                        .backgroundColor(Color.WHITE)
+//                        .backgroundColor(Color.WHITE)
                         .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                         .onChange({isOn: Bool =>
                             if(isOn) {
@@ -222,7 +222,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
 
@@ -242,7 +242,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -265,7 +265,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -300,7 +300,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                  if(isOn) {
@@ -318,7 +318,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -337,7 +337,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -367,7 +367,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -394,7 +394,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -423,7 +423,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -450,7 +450,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
                                 if(isOn) {
@@ -477,7 +477,7 @@ public class AllIndicatorTest {
                                 .width(80)
                                 .height(30)
                                 .selectedColor(0xe0d6ee)
-                                .backgroundColor(Color.WHITE)
+//                                .backgroundColor(Color.WHITE)
                                 .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                                 .onChange({isOn: Bool =>
                                     if(isOn) {
@@ -514,7 +514,7 @@ public class AllIndicatorTest {
                             .width(80)
                             .height(30)
                             .selectedColor(0xe0d6ee)
-                            .backgroundColor(Color.WHITE)
+//                            .backgroundColor(Color.WHITE)
                             .border(width: 2.vp, color: Color(0x988fae),radius: 2.vp)
                             .onChange({isOn: Bool =>
 

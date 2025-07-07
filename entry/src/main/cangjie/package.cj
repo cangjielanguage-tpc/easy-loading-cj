@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2024-2025. All rights reserved.
  */
 
-package ohos_app_cangjie_entry.llt
+package ohos_app_cangjie_entry
 
 internal import ohos.base.*
 internal import ohos.component.*
@@ -21,14 +21,11 @@ internal import ohos.prompt_action.*
 
 
 internal import std.sync.*
-internal import std.collection.*
-internal import std.time.Duration
 internal import std.random.*
 internal import std.convert.*
 internal import std.math.*
 internal import std.sync.*
 internal import std.time.*
-internal import std.format.*
 
 
 internal import easyloading.*

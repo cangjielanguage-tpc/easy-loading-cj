@@ -44,7 +44,7 @@ public class PouringHourGlass {
     @State
     var model: PouringHourGlassModel = PouringHourGlassModel()
 
-    static let sqrt1_2 = 0.7071067811865476
+    let sqrt1_2 = 0.7071067811865476
 
     var size: Float64 = 0.0
     @State

@@ -36,7 +36,7 @@ public class RotateFourCirclesComponent {
     @State
     var model: RotateFourCirclesModel = RotateFourCirclesModel()
 
-    let radian = 30.0 * Float64.PI / 180.0
+    let radian = 30.0 * Float64.getPI() / 180.0
 
     @State
     var rotateValue1: Float64 = 0.0

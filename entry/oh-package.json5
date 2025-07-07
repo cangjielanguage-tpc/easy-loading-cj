@@ -6,6 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
+    "easyloading": "file:../easyloading"
   }
 }
 

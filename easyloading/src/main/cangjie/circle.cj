@@ -36,7 +36,7 @@ public class CircleComponent {
     @State
     var model: CircleModel = CircleModel()
 
-    let radian = 30.0 * Float64.PI / 180.0
+    let radian = 30.0 * Float64.getPI() / 180.0
 
     @State
     var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,

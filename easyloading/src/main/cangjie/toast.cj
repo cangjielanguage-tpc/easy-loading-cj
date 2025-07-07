@@ -7,6 +7,7 @@ import ohos.state_macro_manage.*
 import ohos.image.PixelMapFormat
 import ohos.image.PixelMap
 import ohos.image.createPixelMap
+import ohos.resource_manager.AppResource
 
 @Observed
 public class ToastModel {
@@ -15,7 +16,7 @@ public class ToastModel {
     @Publish
     var height: Float64 = 120.0
     @Publish
-    var icon1: ?CJResource = Option<CJResource>.None
+    var icon1: ?AppResource = Option<AppResource>.None
     @Publish
     var icon2: ?String = Option<String>.None
      @Publish
@@ -30,7 +31,7 @@ public class ToastModel {
         return this
     }
 
-    public func setIcon(icon: CJResource): ToastModel {
+    public func setIcon(icon: AppResource): ToastModel {
         this.icon1 = icon
         return this
     }

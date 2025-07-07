@@ -14,9 +14,7 @@ internal import ohos.display.Display
 
 internal import std.math.*
 internal import std.collection.ArrayList
-internal import std.sync.{Timer, sleep}
 internal import std.time.*
-internal import std.format.Formatter
 internal import std.convert.Parsable
 
 extend<T> Option<T> {

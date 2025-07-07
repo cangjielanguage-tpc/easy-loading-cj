@@ -92,8 +92,8 @@ public class Wave {
     }
 
     func startAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
+        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
+        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
         var isOdd: Bool = count % 2 == 1
 
         for (index in 0..count / 2) {
@@ -117,8 +117,8 @@ public class Wave {
     }
 
     func endAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
+        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
+        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
         var isOdd: Bool = count % 2 == 1
 
         for (index in 0..count / 2) {
@@ -142,8 +142,8 @@ public class Wave {
     }
 
     func centerAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, item: 0.0)
+        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
+        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
         var isOdd: Bool = count % 2 == 1
 
         for (index in 0..count / 2) {

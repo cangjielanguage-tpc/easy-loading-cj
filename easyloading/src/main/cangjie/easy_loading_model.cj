@@ -4,6 +4,7 @@
 package easyloading
 
 import ohos.state_macro_manage.*
+import std.sync.Timer
 
 @Observed
 public class EasyLoadingModel {

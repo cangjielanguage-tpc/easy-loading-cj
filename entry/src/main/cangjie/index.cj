@@ -18,6 +18,9 @@ import ohos.state_macro_manage.Entry
 import ohos.state_macro_manage.Component
 import ohos.state_macro_manage.State
 import ohos.state_macro_manage.r
+import ohos.component.Scroller
+import ohos.component.Scroll
+import ohos.router.Router
 
 @Entry
 @Component

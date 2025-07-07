@@ -68,14 +68,14 @@ public class DualRing {
                             this.context.lineWidth(this.model.borderWidth)
                             context.beginPath()
                             context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.5, 0.0,
-                                this.model.angle * (Float64.PI / 180.0))
+                                this.model.angle * (Float64.getPI() / 180.0))
 
                             context.strokeStyle(this.model.color)
                             context.stroke()
 
                             context.beginPath()
                             context.arc(this.model.size / 2.0, this.model.size / 2.0, this.model.size / 2.5,
-                                180.0 * (Float64.PI / 180.0), (180.0 + this.model.angle) * (Float64.PI / 180.0))
+                                180.0 * (Float64.getPI() / 180.0), (180.0 + this.model.angle) * (Float64.getPI() / 180.0))
                             context.strokeStyle(this.model.color)
                             context.stroke()
                         }
