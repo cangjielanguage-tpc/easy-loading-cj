@@ -18,6 +18,7 @@ public class EasyLoadingModel {
      *
      * 参数 indicatorType - 动画指示器类型
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setIndicatorType(indicatorType: EasyLoadingIndicatorType): EasyLoadingModel 
     /**
@@ -25,6 +26,7 @@ public class EasyLoadingModel {
      * 
      * 参数 fadingGridModel - FadingGrid 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setFadingGridModel(fadingGridModel: FadingGridModel): EasyLoadingModel
     /**
@@ -32,6 +34,7 @@ public class EasyLoadingModel {
      *
      * 参数 cubeGridModel - CubeGrid 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setCubeGridModel(cubeGridModel: CubeGridModel): EasyLoadingModel 
     /**
@@ -39,6 +42,7 @@ public class EasyLoadingModel {
      *
      * 参数 pumpingHeartModel - PumpingHeart 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setPumpingHeartModel(pumpingHeartModel: PumpingHeartModel): EasyLoadingModel 
     /**
@@ -46,6 +50,7 @@ public class EasyLoadingModel {
      *
      * 参数 circleModel - Circle 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+    * 起始版本： 12
      */
     public func setCircleModel(circleModel: CircleModel): EasyLoadingModel 
     /**
@@ -53,6 +58,7 @@ public class EasyLoadingModel {
      *
      * 参数 doubleBounceModel - DoubleBounce 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setDoubleBounceModel(doubleBounceModel: DoubleBounceModel): EasyLoadingModel
     /**
@@ -67,6 +73,7 @@ public class EasyLoadingModel {
      *
      * 参数 model - FadingCube 动画效果的数据
      * 返回 EasyLoadingModel - 动画指示器数据配置类
+     * 起始版本： 12
      */
     public func setFadingCubeModel(model: FadingCubeModel): EasyLoadingModel
     /**
