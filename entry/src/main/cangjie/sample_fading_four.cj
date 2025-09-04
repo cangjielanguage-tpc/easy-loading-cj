@@ -18,6 +18,10 @@ public class SampleFadingFour {
 
     func build() {
         Column {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 FadingFour(model: this.model)
             }.width(300.0).height(300.0).backgroundColor(Color.GRAY)

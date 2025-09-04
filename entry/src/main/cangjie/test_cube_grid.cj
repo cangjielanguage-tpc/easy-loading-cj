@@ -20,6 +20,10 @@ class CubeGridTest {
 
     func build() {
         Column() {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 CubeGrid(model: this.model)
             }

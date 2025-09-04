@@ -17,6 +17,10 @@ class DualRingTest {
 
     func build() {
         Column() {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 DualRing(model: this.model)
             }

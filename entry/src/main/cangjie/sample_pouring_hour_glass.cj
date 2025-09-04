@@ -18,6 +18,10 @@ public class SamplePouringHourGlass {
 
     func build() {
         Column {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 PouringHourGlass(model: this.model)
             }.width(300.0).height(300.0).padding(top: 20.0).backgroundColor(Color.GRAY)
