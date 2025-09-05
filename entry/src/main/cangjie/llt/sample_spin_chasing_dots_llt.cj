@@ -24,6 +24,10 @@ public class SampleSpinChasingDotsLLT {
 
     func build() {
         Column {
+                            Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 SpinChasingDots(model: this.model)
             }.width(100.0).height(100.0).padding(top: 20.0).backgroundColor(Color.BLUE)

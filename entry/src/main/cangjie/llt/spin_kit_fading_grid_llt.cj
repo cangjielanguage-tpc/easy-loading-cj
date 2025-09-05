@@ -21,6 +21,10 @@ class SpinKitFadingGridTestLLT {
     }
     func build() {
         Column() {
+                            Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 FadingGrid(model: this.model)
             }.width(100.0).height(100.0).padding(top: 70.0).backgroundColor(Color.BLUE)

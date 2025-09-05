@@ -62,57 +62,7 @@ class EntryView {
                     Button("SampleCircle").fontSize(14).id("SampleCircle").onClick {
                         => Router.push(url: "SampleCircle")
                     }
-                    Button("SampleStaticCircle").fontSize(14).id("SampleStaticCircle").onClick {
-                        => Router.push(url: "SampleStaticCircle")
-                    }
-                    Button("SampleRotateCircles").fontSize(14).id("SampleRotateCircles").onClick {
-                        => Router.push(url: "SampleRotateCircles")
-                    }
-                    Button("SampleRotateFourCircles").fontSize(14).id("SampleRotateFourCircles").onClick {
-                        => Router.push(url: "SampleRotateFourCircles")
-                    }
-                    Button("SampleRotateEightCircles").fontSize(14).id("SampleRotateEightCircles").onClick {
-                        => Router.push(url: "SampleRotateEightCircles")
-                    }
-                    Button("SampleCubeGrid").fontSize(14).id("SampleCubeGrid").onClick {
-                        => Router.push(url: "CubeGridTest")
-                    }
-                    Button("SampleFadingCircle").fontSize(14).id("SampleFadingCircle").onClick {
-                        => Router.push(url: "SampleFadingCircle")
-                    }
-                    Button("SampleRotateCircle").fontSize(14).id("SampleRotateCircle").onClick {
-                        => Router.push(url: "SampleRotateCircle")
-                    }
-                    Button("SampleFoldingCube").fontSize(14).id("SampleFoldingCube").onClick {
-                        => Router.push(url: "SampleFoldingCube")
-                    }
-                    Button("SamplePumpHeart").fontSize(14).id("SamplePumpHeart").onClick {
-                        => Router.push(url: "PumpHeartTest")
-                    }
-                    Button("SampleHourGlass").fontSize(14).onClick {
-                        => Router.push(url: "SampleHourGlass")
-                    }
-                    Button("SamplePouringHourGlass").fontSize(14).onClick {
-                        => Router.push(url: "SamplePouringHourGlass")
-                    }
-                    Button("FadingGrid").fontSize(14).onClick {
-                        => Router.push(url: "SpinKitFadingGridTest")
-                    }
-                    Button("SampleRing").fontSize(14).onClick {
-                        => Router.push(url: "SampleRing")
-                    }
-                    Button("SampleMoveRing").fontSize(14).onClick {
-                        => Router.push(url: "SampleMoveRing")
-                    }
-                    Button("SampleSpinningCircle").fontSize(14).onClick {
-                        => Router.push(url: "SampleSpinningCircle")
-                    }
-                    Button("SampleSquareCircle").fontSize(14).onClick {
-                        => Router.push(url: "SquareCircleSample")
-                    }
-                    Button("DualRingTest").fontSize(14).onClick {
-                        => Router.push(url: "DualRingTest")
-                    }
+                    Button("other sample").width(100.percent).height(50).fontSize(18).margin(top: 10).id("other_sample").onClick({evt =>Router.push(url:"other_sample")})
 
                     Text("All----------------------")
 
@@ -129,66 +79,8 @@ class EntryView {
                         => Router.push(url: "SampleTT")
                     }
                     Text("add LLT----------------------")
-                    Button("SampleWaveLLT").fontSize(14).onClick {
-                        => Router.push(url: "ShowWaveSampleLLT")
-                    }
-                    Button("SampleRotatePlainLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleRotatePlainLLT")
-                    }
-                    Button("SampleDoubleBounceLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleDoubleBounceLLT")
-                    }
-                    Button("WanderingCubesTestLLT").fontSize(14).onClick {
-                        => Router.push(url: "WanderingCubesTestLLT")
-                    }
-                    Button("SampleFadingFourLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleFadingFourLLT")
-                    }
-                    Button("SampleFadingCubeLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleFadingCubeLLT")
-                    }
-                    Button("SamplePulseLLT").fontSize(14).onClick {
-                        => Router.push(url: "SamplePulseLLT")
-                    }
-                    Button("SampleSpinChasingDotsLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleSpinChasingDotsLLT")
-                    }
-                    Button("SampleThreeBounceLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleThreeBounceLLT")
-                    }
-                    Button("SampleCircleLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleCircleLLT")
-                    }
-                    Button("CubeGridTestLLT").fontSize(14).onClick {
-                        => Router.push(url: "CubeGridTestLLT")
-                    }
-                    Button("SampleRotateCircleLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleRotateCircleLLT")
-                    }
-                    Button("SampleRotateCirclesLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleRotateCirclesLLT")
-                    }
-                    Button("SampleFoldingCubeLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleFoldingCubeLLT")
-                    }
-                    Button("SpinKitFadingGridTestLLT").fontSize(14).onClick {
-                        => Router.push(url: "SpinKitFadingGridTestLLT")
-                    }
-                    Button("SampleSpinningCircleLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleSpinningCircleLLT")
-                    }
-                    Button("SquareCircleSampleLLT").fontSize(14).onClick {
-                        => Router.push(url: "SquareCircleSampleLLT")
-                    }
-                    Button("SampleRingLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleRingLLT")
-                    }
-                    Button("SampleMoveRingLLT").fontSize(14).onClick {
-                        => Router.push(url: "SampleMoveRingLLT")
-                    }
-                    Button("SamplePourHourGlassLLT").fontSize(14).onClick {
-                        => Router.push(url: "SamplePourHourGlassLLT")
-                    }
+                    Button("llt sample").width(100.percent).height(50).fontSize(18).margin(top: 10).id("other_sample_llt").onClick({evt =>Router.push(url:"other_sample_llt")})
+
                 }.width(100.percent)
             }
         }.height(100.percent)
