@@ -66,7 +66,7 @@ class EntryView {
 
                     Text("All----------------------")
 
-                    Button("all").fontSize(14).onClick {
+                    Button("all").fontSize(14).id("all").onClick {
                         => Router.push(url: "AllTest")
                     }
                     Button("allIndicator").fontSize(14).onClick {
@@ -75,7 +75,7 @@ class EntryView {
                     Button("SampleReadmeT").fontSize(14).onClick {
                         => Router.push(url: "ShowReadme")
                     }
-                    Button("SampleTT").fontSize(14).onClick {
+                    Button("SampleTT").fontSize(14).id("SampleTT").onClick {
                         => Router.push(url: "SampleTT")
                     }
                     Text("add LLT----------------------")

@@ -40,7 +40,6 @@ public class WaveModel {
 public class Wave {
     @State
     var model: WaveModel = WaveModel()
-    var spinKitWaveType: SpinKitWaveType = SpinKitWaveType.START
 
     var itemCount: Int64 = 5
 
@@ -82,84 +81,6 @@ public class Wave {
             end: 0.4
         )
         return option
-    }
-    func getAnimationDelay(itemCount: Int64): Array<Float64> {
-        match (this.spinKitWaveType) {
-            case SpinKitWaveType.START => return startAnimationDelay(itemCount)
-            case SpinKitWaveType.END => return endAnimationDelay(itemCount)
-            case SpinKitWaveType.CENTER => return centerAnimationDelay(itemCount)
-        }
-    }
-
-    func startAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var isOdd: Bool = count % 2 == 1
-
-        for (index in 0..count / 2) {
-            topArray[index] = -1.0 - (Float64(index) * 0.1) - 0.1
-        }
-        topArray.reverse()
-
-        for (index in 0..count / 2) {
-            var endNum: Float64 = 0.0
-            if (isOdd) {
-                endNum = 0.1
-            }
-            endArray[index] = -1.0 + (Float64(index) * 0.1) + endNum
-        }
-
-        if (isOdd) {
-            return topArray.concat([-1.0]).concat(endArray)
-        } else {
-            return topArray.concat(endArray)
-        }
-    }
-
-    func endAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var isOdd: Bool = count % 2 == 1
-
-        for (index in 0..count / 2) {
-            topArray[index] = -1.0 + (Float64(index) * 0.1) + 0.1
-        }
-        topArray.reverse()
-
-        for (index in 0..count / 2) {
-            var endNum: Float64 = 0.0
-            if (isOdd) {
-                endNum = 0.1
-            }
-            endArray[index] = -1.0 - (Float64(index) * 0.1) - endNum
-        }
-
-        if (isOdd) {
-            return topArray.concat([-1.0]).concat(endArray)
-        } else {
-            return topArray.concat(endArray)
-        }
-    }
-
-    func centerAnimationDelay(count: Int64): Array<Float64> {
-        var topArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var endArray: Array<Float64> = Array<Float64>(count / 2, repeat: 0.0)
-        var isOdd: Bool = count % 2 == 1
-
-        for (index in 0..count / 2) {
-            topArray[index] = -1.0 + (Float64(index) * 0.2) + 0.2
-        }
-        topArray.reverse()
-
-        for (index in 0..count / 2) {
-            endArray[index] = -1.0 + (Float64(index) * 0.2) + 0.2
-        }
-
-        if (isOdd) {
-            return topArray.concat([-1.0]).concat(endArray)
-        } else {
-            return topArray.concat(endArray)
-        }
     }
 
     func build() {

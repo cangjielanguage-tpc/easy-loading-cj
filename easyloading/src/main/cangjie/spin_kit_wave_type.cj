@@ -2,26 +2,6 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
 package easyloading
-import ohos.component.Circle
-
-public enum SpinKitWaveType {
-    | START
-    | END
-    | CENTER
-
-    public operator func ==(b: SpinKitWaveType): Bool {
-        match ((this, b)) {
-            case (START, START) => true
-            case (END, END) => true
-            case (CENTER, CENTER) => true
-            case _ => false
-        }
-    }
-
-    public operator func !=(b: SpinKitWaveType): Bool {
-        return !(this == b)
-    }
-}
 
 public enum EasyLoadingIndicatorType {
     | FADINGCIRCLE
@@ -146,12 +126,6 @@ public enum EasyLoadingStyle {
         }
     }
 }
-
-//public enum EasyLoadingToastPosition {
-//    | TOP
-//    | CENTER
-//    | BOTTOM
-//}
 
 public enum EasyLoadingAnimationStyle {
     | OPACITY
