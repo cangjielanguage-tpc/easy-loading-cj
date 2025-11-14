@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "flutter_easyloading",
+        "License": "MIT",
+        "License File": "LICENSE",
+        "Version Number": "3.0.5",
+        "Owner" : "nslogx",
+        "Upstream URL": "https://github.com/nslogx/flutter_easyloading",
+        "Description": "A clean and lightweight loading/toast widget for Flutter, Easy to use without context, Support iOS、Android and Web。"
+    }
+]
