@@ -239,7 +239,7 @@ public class EasyLoadingModel {
      */
     public func setBorderRadius(borderRadius: Length): EasyLoadingModel 
     /**
-     * 设置指示器顶部内边距，默认 20.0
+     * 设置指示器顶部内边距，默认 20.0vp
      *
      * 参数 paddingTop - 顶部内边距
      * 返回 EasyLoadingModel - 动画指示器数据配置类
@@ -260,14 +260,14 @@ public class EasyLoadingModel {
      */
     public func setFontColor(fontColor: Color): EasyLoadingModel
     /**
-     * 设置指示器文本字体大小，默认 15.0
+     * 设置指示器文本字体大小，默认 15.0vp
      *
      * 参数 fontSize - 文本字体大小
      * 返回 EasyLoadingModel - 动画指示器数据配置类
      */
     public func setFontSize(fontSize: Float64): EasyLoadingModel
     /**
-     * 设置指示器文本上边距，默认 50.0
+     * 设置指示器文本上边距，默认 50.0vp
      *
      * 参数 textMarginTop - 文本上边距
      * 返回 EasyLoadingModel - 动画指示器数据配置类
@@ -303,9 +303,9 @@ public class EasyLoadingModel {
      */
     public func setMaskDisplayNormal(maskOpacityNormal: Float64): EasyLoadingModel
     /**
-     * 设置遮罩透明度动画时透明度大小，默认 0.5
+     * 设置遮罩透明度动画，默认 0.5
      *
-     * 参数 - 
+     * 参数 - maskOpacityTo - 遮罩透明度
      * 返回 EasyLoadingModel - 动画指示器数据配置类
      */
     public func setMaskDisplayAnimator(maskOpacityTo: Float64): EasyLoadingModel 
@@ -339,7 +339,7 @@ public class EasyLoadingModel {
      */    
     public func setIsScale(isScale: Bool): EasyLoadingModel 
     /**
-     * 设置缩放动画时，缩放的大小,默认 1.0
+     * 设置缩放动画时，缩放的比例,默认 1.0
      *
      * 参数 scaleTo - 缩放的大小
      * 返回 EasyLoadingModel - 动画指示器数据配置类
@@ -475,14 +475,14 @@ public class FadingGridModel {
     public func setSize(size: Float64): FadingGridModel 
 
     /**
-     * 设置水平间距，默认 10.0
+     * 设置水平间距，默认 10.0vp
      *
      * 参数 rowsGap - 水平间距
      * 返回 FadingGridModel - FadingGrid 数据配置类
      */
     public func setRowsGap(rowsGap: Float64): FadingGridModel
     /**
-     * 设置垂直间距，默认 10.0
+     * 设置垂直间距，默认 10.0vp
      *
      * 参数 columnsGap - 垂直间距
      * 返回 FadingGridModel - FadingGrid 数据配置类
@@ -496,7 +496,7 @@ public class FadingGridModel {
      */
     public func setColorArray(colorArray: Array<Color>): FadingGridModel
     /**
-     * 设置动画时长，默认 600
+     * 设置动画时长，默认 600ns
      *
      * 参数 duration - 动画时长
      * 返回 FadingGridModel - FadingGrid 数据配置类
@@ -740,14 +740,14 @@ public class PumpingHeart {
 
 public class ToastModel {
     /**
-     * 设置 Toast 的宽度，默认 120.0
+     * 设置 Toast 的宽度，默认 120.0vp
      *
      * 参数 width - 宽度
      * 返回 ToastModel - Toast 数据配置类
      */
     public func setWidth(width: Float64): ToastModel 
     /**
-     * 设置 Toast 的高度，默认 120.0
+     * 设置 Toast 的高度，默认 120.0vp
      *
      * 参数 height - 高度
      * 返回 ToastModel - Toast 数据配置类
