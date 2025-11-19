@@ -296,14 +296,14 @@ public class EasyLoadingModel {
      */
     public func setMaskBgColor(maskBgColor: Color): EasyLoadingModel
     /**
-     * 设置遮罩透明度，默认 0.5，在没有设置透明度动画的情况下
+     * 设置遮罩透明度，默认 0.5
      *
      * 参数 maskOpacityNormal - 遮罩透明度
      * 返回 EasyLoadingModel - 动画指示器数据配置类
      */
     public func setMaskDisplayNormal(maskOpacityNormal: Float64): EasyLoadingModel
     /**
-     * 设置遮罩透明度动画，默认 0.5
+     * 设置遮罩透明度动画效果，默认 0.5
      *
      * 参数 - maskOpacityTo - 遮罩透明度
      * 返回 EasyLoadingModel - 动画指示器数据配置类
@@ -332,14 +332,14 @@ public class EasyLoadingModel {
     public func isClickMaskAnyHide(isClickAnyHide: Bool): EasyLoadingModel
 
     /**
-     * 是否设置缩放效果动画效果，默认 false
+     * 设置是否支持缩放效果，默认 false
      *
      * 参数 isScale - true:设置，false:不设置
      * 返回 EasyLoadingModel - 动画指示器数据配置类
      */    
     public func setIsScale(isScale: Bool): EasyLoadingModel 
     /**
-     * 设置缩放动画时，缩放的比例,默认 1.0
+     * 设置缩放动画比例,默认 1.0
      *
      * 参数 scaleTo - 缩放的大小
      * 返回 EasyLoadingModel - 动画指示器数据配置类
