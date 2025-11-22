@@ -22,7 +22,9 @@ public class SpinChasingDotsModel {
         return this
     }
     public func setColors(colors: Array<Color>): SpinChasingDotsModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 

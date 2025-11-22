@@ -23,7 +23,9 @@ public class WaveModel {
         return this
     }
     public func setColors(colors: Array<Color>): WaveModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
     public func setDuration(duration: Int32): WaveModel {

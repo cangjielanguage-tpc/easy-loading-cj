@@ -20,7 +20,9 @@ public class FadingCubeModel {
         return this
     }
     public func setColors(colors: Array<Color>): FadingCubeModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 

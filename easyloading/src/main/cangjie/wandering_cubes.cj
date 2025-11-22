@@ -36,8 +36,10 @@ public class WanderingCubesModel {
         return this
     }
 
-    public func setColor(color: Array<Color>): WanderingCubesModel {
-        this.color = color
+    public func setColor(colors: Array<Color>): WanderingCubesModel {
+        if (colors.size > 0) {
+            this.color = colors
+        }
         return this
     }
     public func setDuration(duration: Int32): WanderingCubesModel {

@@ -25,7 +25,9 @@ public class HourGlassModel {
         return this
     }
     public func setColors(colors: Array<Color>): HourGlassModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 

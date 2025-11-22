@@ -22,7 +22,9 @@ public class RotateCirclesModel {
     }
 
     public func setColors(colors: Array<Color>): RotateCirclesModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
     public func setDuration(duration: Int32): RotateCirclesModel {

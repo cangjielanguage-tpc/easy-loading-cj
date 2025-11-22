@@ -23,7 +23,9 @@ public class DoubleBounceModel {
         return this
     }
     public func setColors(colors: Array<Color>): DoubleBounceModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 

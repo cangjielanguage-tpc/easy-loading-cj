@@ -21,7 +21,9 @@ public class FadingFourModel {
         return this
     }
     public func setColors(colors: Array<Color>): FadingFourModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 

@@ -22,7 +22,9 @@ public class ThreeBounceModel {
         return this
     }
     public func setColors(colors: Array<Color>): ThreeBounceModel {
-        this.colors = colors
+        if (colors.size > 0) {
+            this.colors = colors
+        }
         return this
     }
 
