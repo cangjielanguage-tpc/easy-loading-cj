@@ -57,8 +57,7 @@ easy-loading-cj 提供了27种 loading/Toast 动画加载效果。
    复制easyloading模块,粘贴到自身项目根级目录,并在cjpm.toml中添加依赖
    
     [dependencies.easyloading]
-       path = "../../../../easyloading/src/main/cangjie"
-       version = "1.0.0"
+       path = "../easyloading"
       
    3.使用源码
    import easyloading.*
