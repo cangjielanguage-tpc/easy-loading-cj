@@ -84,20 +84,25 @@ public class AllTest {
     }
     func build() {
          Column {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
+
             Column() {
                 Column() {
                     Row{
-                        Text("show").fontColor(Color.BLUE).margin(right:10)
+                        Text("show").fontColor(Color.BLUE).margin(right:10).id("show")
                         .onClick ({ event =>
                             this.loadingModel = this.loadingModel.show()
                         })
 
-                        Text("showToast").fontColor(Color.BLUE).margin(right:10)
+                        Text("showToast").fontColor(Color.BLUE).margin(right:10).id("showToast")
                         .onClick ({ event =>
                             this.loadingModel1 = this.loadingModel1.show()
                         })
 
-                        Text("showToastSuccess").fontColor(Color.BLUE).margin(right:10)
+                        Text("showToastSuccess").fontColor(Color.BLUE).margin(right:10).id("showToastSuccess")
                         .onClick ({ event =>
                             this.loadingModel2 = this.loadingModel2.show()
                         })
@@ -108,7 +113,7 @@ public class AllTest {
                 }
                 Column() {
                         Row{
-                            Text("showToastOffset").fontColor(Color.BLUE).margin(right:10)
+                            Text("showToastOffset").fontColor(Color.BLUE).margin(right:10).id("showToastOffset")
                             .onClick ({ event =>
                                 this.loadingModel3 = this.loadingModel3.show()
                             })

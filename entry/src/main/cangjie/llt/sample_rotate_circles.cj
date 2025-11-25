@@ -18,6 +18,10 @@ public class SampleRotateCircles {
 
     func build() {
         Column {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 RotateCirclesComponent(model: this.model)
             }.width(300.0).height(300.0).backgroundColor(Color.GRAY)

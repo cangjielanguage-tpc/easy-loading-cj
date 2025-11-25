@@ -16,6 +16,10 @@ class  PumpHeartTest {
     }
     func build() {
         Column() {
+                Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 PumpingHeart(model: this.model)
             }

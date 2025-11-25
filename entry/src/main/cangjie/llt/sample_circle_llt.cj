@@ -22,6 +22,10 @@ public class SampleCircleLLT {
 
     func build() {
         Column {
+                                        Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 CircleComponent(model: this.model)
             }.width(100.0).height(100.0).backgroundColor(Color.GRAY)

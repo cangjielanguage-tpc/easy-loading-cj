@@ -22,6 +22,10 @@ public class SampleFadingFourLLT {
 
     func build() {
         Column {
+                            Text("back").id("back").height(80)
+                .onClick ({ evt =>
+                    Router.back()
+                })
             Stack(Alignment.Center) {
                 FadingFour(model: this.model)
             }.width(100.0).height(100.0).backgroundColor(Color.GRAY)
