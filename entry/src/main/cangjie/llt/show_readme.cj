@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025-2025. All rights reserved.
  */
-package ohos_app_cangjie_entry
+package ohos_app_cangjie_entry.llt
 
 import ohos.state_macro_manage.*
 internal import ohos.component.*

@@ -1,7 +1,7 @@
 /**
  * Created on 2025/1/6
  */
-package ohos_app_cangjie_entry
+package ohos_app_cangjie_entry.llt
 
 import ohos.state_macro_manage.*
 import ohos.resource_manager.*
