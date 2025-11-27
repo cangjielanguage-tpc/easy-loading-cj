@@ -4,6 +4,9 @@ import std.unittest.*
 import std.unittest.common.*
 import std.unittest.testmacro.*
 import ohos.ui_test.*
+import easyloading.*
+
+
 @Test
 class TestExample {
     @TestCase
