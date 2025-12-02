@@ -602,14 +602,7 @@ public class DualRingModel {
      * 返回 DualRingModel - DualRing 数据配置类
      */
     public func setColor(color: Color): DualRingModel
-
-    /**
-     * 设置圆环背景颜色，默认 Color.BLACK
-     *
-     * 参数 bgColor - 圆环背景颜色
-     * 返回 DualRingModel - DualRing 数据配置类
-     */
-    public func setBgColor(bgColor: Color): DualRingModel
+    
     /**
      * 设置动画时长，默认 1200
      *
@@ -760,7 +753,7 @@ public class ToastModel {
      * 参数 icon - 图标
      * 返回 ToastModel - Toast 数据配置类
      */   
-    public func setIcon(icon: CJResource): ToastModel
+    public func setIcon(icon: AppResource): ToastModel
 
     /**
      * 设置 Toast 图标
@@ -1023,10 +1016,10 @@ public class FoldingCubeModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 FoldingCubeModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): FoldingCubeModel
+    public func setColor(color: Color): FoldingCubeModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1128,7 +1121,7 @@ public class PouringHourGlassModel {
      * 参数 colors - 内部元素颜色
      * 返回 PouringHourGlassModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): PouringHourGlassModel
+    public func setColor(colors: Color): PouringHourGlassModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1176,10 +1169,10 @@ public class PulseModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 PulseModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): PulseModel
+     public func setColor(color: Color): PulseModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1220,10 +1213,10 @@ public class RingModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 RingModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): RingModel
+    public func setColor(color: Color): RingModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1264,10 +1257,10 @@ public class RotateCircleModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 RotateCircleModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): RotateCircleModel
+    public func setColor(color: Color): RotateCircleModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1308,10 +1301,10 @@ public class RotatePlainModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 RotatePlainModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): RotatePlainModel
+    public func setColor(color: Color): RotatePlainModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1395,10 +1388,10 @@ public class SpinningCircleModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 SpinningCircleModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): SpinningCircleModel
+    public func setColor(color: Color): SpinningCircleModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1439,10 +1432,10 @@ public class SquareCircleModel {
     /**
      * 设置内部元素颜色，默认 Color.RED
      *
-     * 参数 colors - 内部元素颜色
+     * 参数 color - 内部元素颜色
      * 返回 SquareCircleModel - 数据配置类
      */
-    public func setColors(colors: Array<Color>): SquareCircleModel
+    public func setColor(color: Color): SquareCircleModel
 
     /**
      * 设置动画时长，默认 1000
@@ -1756,13 +1749,6 @@ public class StaticCircleModel {
      * 返回 StaticCircleModel - 数据配置类
      */
     public func setColors(colors: Array<Color>): StaticCircleModel
-    /**
-     * 设置内部元素颜色，默认 Color.RED
-     *
-     * 参数 color - 内部元素颜色
-     * 返回 StaticCircleModel - 数据配置类
-     */
-    public func setColor(color: Color): StaticCircleModel
 
     /**
      * 设置动画时长，默认 1000
