@@ -45,7 +45,7 @@ public class CircleComponent {
     var fadeValueArr: ObservedArrayList<Float64> = ObservedArrayList<Float64>(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
         0.0, 0.0, 0.0, 0.0)
 
-    public func setAnimator(delay: Int64) {
+    public func setAnimator(delay: Int64): Unit {
         animateTo(
             AnimateParam(
                 duration: this.model.duration,

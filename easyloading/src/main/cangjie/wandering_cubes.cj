@@ -47,7 +47,7 @@ public class WanderingCubesModel {
         return this
     }
 
-    public func setAnimator1(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator1(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -66,7 +66,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator2(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator2(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -85,7 +85,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator3(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator3(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -104,7 +104,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator4(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator4(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -124,7 +124,7 @@ public class WanderingCubesModel {
         )
     }
 
-    public func setAnimator5(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator5(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -143,7 +143,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator6(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator6(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -162,7 +162,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator7(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator7(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
@@ -181,7 +181,7 @@ public class WanderingCubesModel {
             }
         )
     }
-    public func setAnimator8(delay: Int32, x: Float64, y: Float64) {
+    public func setAnimator8(delay: Int32, x: Float64, y: Float64): Unit {
         animateTo(
             AnimateParam(
                 duration: duration,
