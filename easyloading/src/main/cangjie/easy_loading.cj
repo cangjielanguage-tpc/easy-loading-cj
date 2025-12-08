@@ -7,8 +7,6 @@ import ohos.state_macro_manage.*
 import ohos.base.*
 import ohos.component.*
 import ohos.state_manage.*
-import ohos.concurrency.*
-import ohos.hilog.*
 
 @Component
 public class EasyLoading {

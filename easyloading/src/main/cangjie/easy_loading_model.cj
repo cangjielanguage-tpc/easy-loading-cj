@@ -578,7 +578,6 @@ public class EasyLoadingModel {
                     this.offsetYFrom = this.offsetYTo
                 }
                 if (this.isOpacity) {
-                    Hilog.error(0, "", "2----${this.isOpacity}")
                     this.opacityFrom = this.opacityTo
                 }
             }

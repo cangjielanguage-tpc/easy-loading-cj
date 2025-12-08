@@ -51,7 +51,6 @@ public class RotatePlain {
         animatorResult1().onframe = {
             value: Float64 =>
             this.rotateValue1 = value
-            Hilog.error(0, "z", "dd ${value}")
         }
         animatorResult1().play()
     }

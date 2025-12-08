@@ -4,9 +4,7 @@
 package easyloading
 
 import ohos.state_macro_manage.*
-import ohos.image.PixelMapFormat
 import ohos.image.PixelMap
-import ohos.image.createPixelMap
 import ohos.resource_manager.AppResource
 
 @Observed
