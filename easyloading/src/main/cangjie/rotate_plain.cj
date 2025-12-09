@@ -54,11 +54,7 @@ public class RotatePlain {
         }
         animatorResult1().play()
     }
-    protected override func aboutToDisappear() {
-        if (let Some(animator1) <- animatorResult1) {
-            animator1.finish()
-        }
-    }
+
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.model.duration,
@@ -71,6 +67,12 @@ public class RotatePlain {
             end: 360.0
         )
         return option
+    }
+
+    protected override func aboutToDisappear() {
+        if (let Some(animator) <- animatorResult1) {
+            animator.finish()
+        }
     }
 
     func build() {

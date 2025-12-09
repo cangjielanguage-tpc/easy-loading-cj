@@ -54,11 +54,7 @@ public class DoubleBounce {
         }
         animatorResult().play()
     }
-    protected override func aboutToDisappear() {
-        if (let Some(animator) <- animatorResult) {
-            animator.finish()
-        }
-    }
+
     func setAnimatorOption(): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.model.duration,
@@ -71,6 +67,11 @@ public class DoubleBounce {
             end: 1.0
         )
         return option
+    }
+    protected override func aboutToDisappear() {
+        if (let Some(animator) <- animatorResult) {
+            animator.finish()
+        }
     }
     func build() {
         Stack(Alignment.Center) {

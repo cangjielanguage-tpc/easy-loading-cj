@@ -52,25 +52,25 @@ public class RotateCircle {
         }
         animatorResult1().play()
     }
-    protected override func aboutToDisappear() {
-        if (let Some(animator1) <- animatorResult1) {
-            animator1.finish()
-        }
-    }
+
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
+            direction: AnimatorDirection.Normal,
             duration: this.model.duration,
             easing: "ease-in-out",
             delay: 0,
             fill: AnimatorFill.None,
-            direction: AnimatorDirection.Normal,
             iterations: -1,
             begin: 0.0,
             end: 360.0
         )
         return option
     }
-
+    protected override func aboutToDisappear() {
+        if (let Some(animator) <- animatorResult1) {
+            animator.finish()
+        }
+    }
     func build() {
         Row() {
             Stack(Alignment.Center) {

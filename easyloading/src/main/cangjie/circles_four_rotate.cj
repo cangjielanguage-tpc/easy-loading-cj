@@ -65,8 +65,8 @@ public class RotateFourCirclesComponent {
                     duration: this.model.duration,
                     delay: 0,
                     curve: Curve.Linear,
-                    iterations: -1,
                     playMode: PlayMode.Normal,
+                    iterations: -1,
                     onFinish: {=>}
                 ),
                 {

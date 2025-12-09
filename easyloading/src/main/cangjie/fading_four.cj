@@ -61,8 +61,8 @@ public class FadingFour {
                         => animateTo(
                             AnimateParam(
                                 duration: this.model.duration,
-                                delay: 0,
                                 curve: Curve.EaseInOut,
+                                delay: 0,
                                 iterations: -1,
                                 playMode: PlayMode.Alternate,
                                 onFinish: {=>}
@@ -79,8 +79,8 @@ public class FadingFour {
                             AnimateParam(
                                 duration: this.model.duration,
                                 delay: this.model.duration / 2,
-                                curve: Curve.EaseInOut,
                                 iterations: -1,
+                                curve: Curve.EaseInOut,
                                 playMode: PlayMode.Alternate,
                                 onFinish: {=>}
                             ),
@@ -136,9 +136,9 @@ public class FadingFour {
                             AnimateParam(
                                 duration: this.model.duration,
                                 delay: this.model.duration / 2 * 3,
+                                playMode: PlayMode.Alternate,
                                 curve: Curve.EaseInOut,
                                 iterations: -1,
-                                playMode: PlayMode.Alternate,
                                 onFinish: {=>}
                             ),
                             {
@@ -151,8 +151,8 @@ public class FadingFour {
                         {
                         => animateTo(
                             AnimateParam(
-                                duration: this.model.duration,
                                 delay: this.model.duration / 2 * 2,
+                                duration: this.model.duration,
                                 curve: Curve.EaseInOut,
                                 iterations: -1,
                                 playMode: PlayMode.Alternate,

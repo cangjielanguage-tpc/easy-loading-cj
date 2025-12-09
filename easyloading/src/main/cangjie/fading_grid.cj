@@ -150,7 +150,6 @@ public class FadingGrid {
         .height(this.model.size/4.0)
         .fill(
            match (this.model.colorArray.size) {
-                case 0 => Color.RED
                 case 1 => this.model.colorArray[0% this.model.colorArray.size]
                 case 2 =>
                     if(idx % 2 == 0 ) {
@@ -159,6 +158,7 @@ public class FadingGrid {
                         this.model.colorArray[1% this.model.colorArray.size]
                     }
                 case 9 => this.model.colorArray[idx% this.model.colorArray.size]
+                case 0 => Color.RED
                 case _ => Color.RED
            })
         .opacity(opcityNum)

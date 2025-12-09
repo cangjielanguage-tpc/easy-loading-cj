@@ -57,11 +57,7 @@ public class SpinningCircle {
         }
         animatorResult1().play()
     }
-    protected override func aboutToDisappear() {
-        if (let Some(animator1) <- animatorResult1) {
-            animator1.finish()
-        }
-    }
+
     func setAnimatorOption1(): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.model.duration,
@@ -75,7 +71,11 @@ public class SpinningCircle {
         )
         return option
     }
-
+    protected override func aboutToDisappear() {
+        if (let Some(animator1) <- animatorResult1) {
+            animator1.finish()
+        }
+    }
     func build() {
         Row() {
             Stack(Alignment.Center) {

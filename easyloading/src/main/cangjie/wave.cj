@@ -67,11 +67,7 @@ public class Wave {
             animatorResult().play()
         }
     }
-    protected override func aboutToDisappear() {
-        if (let Some(animator) <- animatorResult) {
-            animator.finish()
-        }
-    }
+
     func setAnimatorOption(idx: Int32): AnimatorOptions {
         let option = AnimatorOptions(
             duration: this.model.duration,
@@ -84,6 +80,11 @@ public class Wave {
             end: 0.4
         )
         return option
+    }
+    protected override func aboutToDisappear() {
+        if (let Some(animator) <- animatorResult) {
+            animator.finish()
+        }
     }
     func getAnimationDelay(itemCount: Int64): Array<Float64> {
         match (this.spinKitWaveType) {

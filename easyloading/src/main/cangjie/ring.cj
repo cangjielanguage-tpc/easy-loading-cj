@@ -91,17 +91,16 @@ public class Ring {
                 {
                     => animateTo(
                         AnimateParam(
+                            playMode: PlayMode.Normal,
                             duration: this.model.duration,
                             delay: 0,
                             curve: Curve.Linear,
                             iterations: -1,
-                            playMode: PlayMode.Normal,
                             onFinish: {=>}
                         ),
                         {
                             => this.rotateValue = 360.0
-                        }
-                    )
+                        })
                 })
         }.width(this.size).height(this.size)
     }

@@ -58,7 +58,9 @@ public class HourGlass {
     var rotateValue1: Float64 = 0.0
 
     var animatorResult1: ?AnimatorResult = None
+
     protected override func aboutToAppear() {
+
         animatorResult1 = AnimatorResult(setAnimatorOption1())
         animatorResult1().onframe = {
             value: Float64 => this.rotateValue1 = value
@@ -66,8 +68,8 @@ public class HourGlass {
         animatorResult1().play()
     }
     protected override func aboutToDisappear() {
-        if (let Some(animator1) <- animatorResult1) {
-            animator1.finish()
+        if (let Some(animator) <- animatorResult1) {
+            animator.finish()
         }
     }
 

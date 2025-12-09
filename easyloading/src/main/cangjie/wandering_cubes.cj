@@ -216,8 +216,8 @@ public class WanderingCubes {
             }.width(100.percent).height(100.percent).align(Alignment.TopStart).onAppear(
                 {
                     =>
-                    let option1 = AnimatorOptions(
-                        duration: 100,
+                    let option2 = AnimatorOptions(
+                        duration: this.model.duration * 4,
                         easing: "ease",
                         delay: 0,
                         fill: AnimatorFill.Both,
@@ -226,8 +226,8 @@ public class WanderingCubes {
                         begin: 0.0,
                         end: 1.0
                     )
-                    let option2 = AnimatorOptions(
-                        duration: this.model.duration * 4,
+                    let option1 = AnimatorOptions(
+                        duration: 100,
                         easing: "ease",
                         delay: 0,
                         fill: AnimatorFill.Both,
@@ -267,8 +267,8 @@ public class WanderingCubes {
                     let option1 = AnimatorOptions(
                         duration: 100,
                         easing: "ease",
-                        delay: 0,
                         fill: AnimatorFill.Both,
+                        delay: 0,
                         direction: AnimatorDirection.AlternateReverse,
                         iterations: 1,
                         begin: 0.0,

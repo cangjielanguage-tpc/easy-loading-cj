@@ -91,8 +91,8 @@ public class RotateEightCirclesComponent {
                 AnimateParam(
                     duration: this.model.duration,
                     delay: 0,
-                    curve: Curve.Linear,
                     iterations: -1,
+                    curve: Curve.Linear,
                     playMode: PlayMode.Normal,
                     onFinish: {=>}
                 ),
